@@ -1,0 +1,117 @@
+/* Login */
+@keyframes MoveUpDown {
+    0% {
+        transform: translateY(-10px);
+    }
+    100% {
+        transform: translateY(40px);
+    }
+}
+
+
+.login-content {
+    width: 90%;
+    height: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login {
+    top: 100%;
+    bottom: 0;
+    padding-top: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.login-img {
+    animation: MoveUpDown 1s  infinite  alternate;
+    position: relative;
+    display: inline-block;
+}
+
+.login-form {
+    width: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgb(196, 187, 187);
+}
+
+.login-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: var(--lightblue-color);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.login-sub-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: var(--lightblue-color);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.login-input {
+    display: block;
+    width: 90%;
+    padding: 10px 20px 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6rem;
+    border-radius: 5px;
+}
+
+.login-submit {
+    display: block;
+    width: 40%;
+    padding: 10px 20px 10px;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--lightblue-color);
+}
+
+.login-submit:hover {
+    background-color: green;
+    cursor: pointer;
+}
+
+.sub-login {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.footer {
+    margin-top: 100px;
+    background-color: black;
+    color: var(--white-color);
+}
+
+.contact {
+    font-size: 1.5rem;
+    display: flex;
+    text-decoration: none;
+}
+
+.contact-store li,
+.contact-method li {
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.contact-method li a {
+    text-decoration: none;
+    color: white;
+}
+
+

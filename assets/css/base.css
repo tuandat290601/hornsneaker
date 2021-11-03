@@ -1,6 +1,7 @@
 :root {
     --white-color: #fff;
     --black-color: #000;
+    --lightblue-color: rgb(108, 172, 228);
     --text-color: #333;
 }
 
@@ -15,17 +16,3 @@ html {
     box-sizing: border-box;
 }
 
-.grid {
-    width: 1200px;
-    max-width: 100%;
-    margin: 0 auto;
-}
-
-.grid__full-width {
-    width: 100%;
-}
-
-.grid__row {
-    display: flex;
-    flex-wrap: wrap;
-}

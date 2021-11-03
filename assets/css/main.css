@@ -1,0 +1,134 @@
+/* Hornsneaker */
+.hornsneaker {
+    background-color: var(--lightblue-color);
+}
+
+/* Header */
+.header {
+    width: 100%;
+    height: 50px;
+    background-color: var(--white-color);
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    box-shadow: 0 0 5px rgb(196, 187, 187);
+}
+
+
+
+.header-nav {
+    font-size: 1.6rem;
+    justify-content: space-between;
+    display: flex;
+}
+
+.header-logo {
+    
+}
+
+.header-nav  {
+    margin: 0;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.header-nav-list {
+    display: inline-block;
+    padding: 0;
+    margin: 0;
+}
+
+.header-nav-list li {
+    display: inline-block;
+    position: relative;
+}
+
+.header-nav-list > li > a {
+    color: var(--lightblue-color);
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    font-weight: 300;
+}
+
+.header-nav-list li a {
+    text-decoration: none;
+    line-height: 50px;
+    padding: 0 20px;
+    display: block;
+    margin-left: 0;
+}
+
+.product-subnav {
+    padding-inline-start: 0;
+}
+
+.header-nav-list li:hover .product-subnav{
+    display: block;
+}
+
+.header-nav-list > li:hover > a {
+    color: var(--lightblue-color);
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.header-nav-list .product-subnav {
+    display: none;
+    position: absolute;
+    background-color: var(--white-color);
+    box-shadow: 0 0 10px rgb(196, 187, 187);
+}
+
+.header-nav-list .product-subnav a {
+    color: var(--lightblue-color);
+    padding: 0 15px;
+    line-height: 40px;
+    text-align: center;
+}
+
+.header-nav-list .product-subnav li {
+    width: 100%;
+}
+
+.header-nav-list .product-subnav > li:hover  {
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.header-nav-list .product-subnav > li > a:hover{
+    
+}
+
+.header-nav-link {
+    text-decoration: none;
+    font-weight: 400;
+}
+
+/* Footer */
+.footer {
+    margin-top: 100px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: var(--white-color);
+    padding-bottom: 50px;
+}
+
+.contact {
+    font-size: 1.5rem;
+    display: flex;
+    text-decoration: none;
+    justify-content: space-evenly;
+}
+
+.contact-store li,
+.contact-method li {
+    padding: 0;
+    list-style-type: none;
+    margin-bottom: 10px;
+}
+
+.contact-method li a {
+    text-decoration: none;
+    color: white;
+}
+
+
+
