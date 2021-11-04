@@ -14,11 +14,11 @@
 <body>
     <div class="hornsneaker">
         <!-- Header -->
-        <header class="header">
+        <header id="header">
             <div class="header-nav">
                 <ul class="header-nav-list">
                     <li class="header-nav-link">
-                        <a href="login.html">TRANG CHỦ</a>
+                        <a href="">TRANG CHỦ</a>
                     </li>
                     <li class="header-nav-link">
                         <a href="">
@@ -26,9 +26,9 @@
                             <i class="down-sort fas fa-angle-down"></i>
                         </a>
                         <ul class="product-subnav">
-                            <li><a href="#">Nike</a></li>
-                            <li><a href="#">Adidas</a></li>
-                            <li><a href="#">MLB</a></li>
+                            <li><a href="">Nike</a></li>
+                            <li><a href="">Adidas</a></li>
+                            <li><a href="">MLB</a></li>
                         </ul>
                     </li>
                     <li class="header-nav-link">
@@ -38,7 +38,7 @@
                         <a href="">GIẢM GIÁ</a>
                     </li>
                     <li class="header-nav-link">
-                        <a href="">LIÊN HỆ</a>
+                        <a href="#footer">LIÊN HỆ</a>
                     </li>
                 </ul>
                 <ul class="header-nav-list">
@@ -55,13 +55,13 @@
         </header>
 
         <!-- Content -->
-        <div class="login-content">
+        <div id="login-content">
             <div class="login">
                 <div class="login-img">
                     <img src="./assets/img/login2.png" alt="">
                 </div>
                 <form action="">
-                    <div class="login-form">
+                    <div class="form show-form" id="signup-form">
                         <div class="login-title">Chào mừng bạn đến với Horn</div>
                         <div class="login-sub-title">Hãy trở thành thành viên của Horn!</div>
                         <input type="text" class="login-input" placeholder="Tên đăng nhập" required />
@@ -71,7 +71,18 @@
                         <button type="text" class="login-submit">Đăng ký</button>
                         <div class="sub-login">
                             <a href="" class="privacy">Điều khoản & Chính sách</a>
-                            <a href="" class="have-account">Tôi đã có tài khoản</a>
+                            <a href="" class="link-to-login-form">Tôi đã có tài khoản</a>
+                        </div>
+                    </div>
+                    <div class="form" id="login-form">
+                        <div class="login-title">Chào mừng bạn đến với Horn</div>
+                        <div class="login-sub-title">Đăng nhập để trải nghiệm Horn ngay!    </div>
+                        <input type="text" class="login-input" placeholder="Tên đăng nhập" required />
+                        <input type="password" class="login-input" placeholder="Mật khẩu" required />
+                        <button type="text" class="login-submit">Đăng nhập</button>
+                        <div class="sub-login">
+                            <a href="" class="privacy">Điều khoản & Chính sách</a>
+                            <a href="" class="link-to-signup-form">Trở thành thành viên mới</a>
                         </div>
                     </div>
                 </form>
@@ -79,11 +90,11 @@
         </div>
 
         <!-- Footer -->
-        <footer class="footer">
+        <footer id="footer">
             <div class="contact">
                 <ul class="contact-store">
                     <li class=""><b>Địa chỉ</b>: 5 Nguyễn Văn Cừ, Quận 5, TP.Hồ Chí Minh</li>
-                    <li class="">Giờ làm việc: 9:30 - 21:00 tất cả các ngày</li>
+                    <li class=""><b>Giờ làm việc</b>: 9:30 - 21:00 tất cả các ngày</li>
                 </ul>
                 <ul class="contact-method">
                     <li class="method">
@@ -102,5 +113,6 @@
             </div>
         </footer>
     </div>
+    <script src="./assets/js/login.js"></script>
 </body>
 </html>

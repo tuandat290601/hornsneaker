@@ -1,15 +1,20 @@
 /* Login */
 @keyframes MoveUpDown {
     0% {
-        transform: translateY(-10px);
+        transform: translateY(-30px);
     }
     100% {
-        transform: translateY(40px);
+        transform: translateY(20px);
     }
 }
 
+@keyframes FadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
 
-.login-content {
+
+#login-content {
     width: 90%;
     height: 750px;
     margin-left: auto;
@@ -24,19 +29,38 @@
     justify-content: space-around;
 }
 
+
 .login-img {
     animation: MoveUpDown 1s  infinite  alternate;
     position: relative;
     display: inline-block;
 }
 
-.login-form {
+.form {
+    display: none;
+}
+
+#signup-form {
     width: 400px;
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: white;
     border-radius: 10%;
     box-shadow: 0 0 10px rgb(196, 187, 187);
+}
+
+#login-form {
+    margin-top: 50px;
+    width: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgb(196, 187, 187);
+}
+
+.show-form{
+    display: inline-block;
 }
 
 .login-title {
@@ -91,27 +115,10 @@
     margin-top: 15px;
 }
 
-.footer {
-    margin-top: 100px;
-    background-color: black;
-    color: var(--white-color);
+.sub-login a {
+    font-size: 1.1rem;
 }
 
-.contact {
-    font-size: 1.5rem;
-    display: flex;
-    text-decoration: none;
-}
 
-.contact-store li,
-.contact-method li {
-    list-style-type: none;
-    margin-bottom: 10px;
-}
-
-.contact-method li a {
-    text-decoration: none;
-    color: white;
-}
 
 
