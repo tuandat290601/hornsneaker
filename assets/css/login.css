@@ -105,7 +105,8 @@
 }
 
 .login-submit:hover {
-    background-color: green;
+    color: var(--white-color);
+    background-color: rgba(0, 0, 0, 0.8);
     cursor: pointer;
 }
 
