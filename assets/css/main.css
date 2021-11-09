@@ -116,12 +116,12 @@
     font-size: 1.5rem;
     display: flex;
     text-decoration: none;
-    justify-content: space-evenly;
+    justify-content: space-between;
 }
 
 .contact-store li,
 .contact-method li {
-    padding: 0;
+    padding-right: 30px;
     list-style-type: none;
     margin-bottom: 10px;
 }
@@ -129,6 +129,10 @@
 .contact-method li a {
     text-decoration: none;
     color: white;
+}
+.welcome{
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 
