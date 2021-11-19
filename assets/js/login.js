@@ -14,3 +14,17 @@ document.addEventListener("DOMContentLoaded", ()=>{
         login.classList.add("show-form");
     })
 });
+
+var header = document.getElementById('header')
+var resMenu = document.getElementById('res-menu-btn')
+var headerHeight = header.clientHeight
+
+resMenu.onclick = function(){
+    var isClose = header.clientHeight === headerHeight;
+    if (isClose){
+        header.style.height = 'auto';
+    }
+    else {
+        header.style.height = '50px';
+    }
+}

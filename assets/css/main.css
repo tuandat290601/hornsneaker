@@ -14,23 +14,11 @@
     left: 0;
     box-shadow: 0 0 20px rgb(29, 26, 26);
     z-index: 1;
-}
-
-.header-nav {
+    margin: auto;
     font-size: 1.6rem;
-    justify-content: space-between;
-    display: flex;
-}
-
-.header-logo {
-    
-}
-
-.header-nav  {
-    margin: 0;
     padding-left: 40px;
-    padding-right: 40px;
 }
+
 
 .header-nav-list {
     display: inline-block;
@@ -39,8 +27,9 @@
 }
 
 .header-nav-list li {
+    margin: 0;
+    line-height: 50px;
     display: inline-block;
-    position: relative;
 }
 
 .header-nav-list > li > a {
@@ -52,14 +41,20 @@
 
 .header-nav-list li a {
     text-decoration: none;
-    line-height: 50px;
     padding: 0 20px;
     display: block;
     margin-left: 0;
 }
 
+.header-nav-link {
+    text-decoration: none;
+    font-weight: 400;
+    position: relative;
+}
+
 .product-subnav {
     padding-inline-start: 0;
+    position: absolute;
 }
 
 .header-nav-list li:hover .product-subnav{
@@ -75,14 +70,15 @@
     display: none;
     position: absolute;
     background-color: var(--white-color);
-    box-shadow: 0 0 10px rgb(196, 187, 187);
+    box-shadow: 0 0 10px rgb(196, 187, 187);    
 }
 
 .header-nav-list .product-subnav a {
     color: var(--lightblue-color);
     padding: 0 15px;
-    line-height: 40px;
+    line-height: 50px;
     text-align: center;
+    display: block;
 }
 
 .header-nav-list .product-subnav li {
@@ -97,21 +93,51 @@
     
 }
 
-.header-nav-link {
-    text-decoration: none;
-    font-weight: 400;
+
+
+.login-link {
+    display: inline-block;
+    margin-right: 40px;
+}
+
+.menu-btn {
+    color: var(--lightblue-color);
+    font-size: 2rem;
+    line-height: 50px;
+    padding: 15px 20px 15px 20px;
+    display: block;
+    margin-top: auto;
+    margin-bottom: auto;
+
+}
+
+.menu-btn:hover{
+    background-color: rgba(0, 0, 0, 0.1);
 }
 
 .search {
-    display: inline-block;
-    margin-top: auto;
+    height: 50px;
+    float: right;
     margin-bottom: auto;
+    font-size: 20px;
 }
 
+.search-btn{
+    float: right;
+    margin-top: 15px;
+}
+
+
 .search-box {
-    border-radius: 5px;
-    line-height: 30px;
+    float: right;
+    margin-left: 10px;
+    margin-top: 10px;
+    font-size: 1.6rem;
+    height: 30px;
+    border-radius: 10px;
     border: 1px solid #ccc;
+    margin-right: 40px;
+    padding-left: 10px;
 }
 
 /* Footer */
