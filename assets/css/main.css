@@ -1,6 +1,6 @@
 /* Hornsneaker */
 .hornsneaker {
-    background-color: var(--lightblue-color);
+    background-image: linear-gradient(180deg, var(--white-color), var(--lightblue-color));
 }
 
 /* Header */
@@ -142,10 +142,13 @@
 
 /* Footer */
 #footer {
+    width: 100%;
+    position: absolute;
     margin-top: 100px;
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--white-color);
     padding-bottom: 50px;
+    bottom: 0;
 }
 
 .contact {
@@ -170,6 +173,9 @@
     font-size: 1.5rem;
     text-align: center;
 }
+
+
+/* Regist-success */
 
 
 
