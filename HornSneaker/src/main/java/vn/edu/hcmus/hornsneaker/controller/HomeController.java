@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomeController {
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
-		model.addAttribute("content", "home");
-		return "index";
+		model.addAttribute("content", "indexform");
+		return "page";
 	}
 }

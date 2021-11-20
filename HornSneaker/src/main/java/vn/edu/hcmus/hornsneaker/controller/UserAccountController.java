@@ -16,21 +16,19 @@ public class UserAccountController {
 	
 	@RequestMapping("/login")
 	public String viewLogin(Model model) {
-		//System.out.println("Login page");
 		model.addAttribute("content", "loginform");
-		return "login";
+		return "page";
 	}
 	
 	@RequestMapping("/register")
 	public String viewRegister(Model model) {
 		model.addAttribute("content", "registerform");
 		model.addAttribute("User", new UserAccountEntity());
-		return "register";
+		return "page";
 	}
 	
 	@PostMapping("/register_success")
 	public String viewRegisterSuccess(UserAccountEntity User) {
-		System.out.println("rawpassword" + User.getPassword());
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(User.getPassword());
 		User.setPassword(encodedPassword);
