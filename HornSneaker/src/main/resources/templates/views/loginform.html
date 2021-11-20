@@ -1,0 +1,26 @@
+<div id="login-content" th:fragment="loginform">
+	<div class="login">
+		<div class="login-img">
+			<img src="/assets/img/login2.png" alt="">
+		</div>
+		<form th:action="@{/login}" method="post">
+			<div th:if="${param.error}">
+				<p class="text-warning">Wrong</p>
+			</div>
+			<div th:if="${param.logout}">
+				<p class="text-warning">You have been logged out.</p>
+			</div>
+			<div class="form show-form" id="login-form">
+				<div class="login-title">Chào mừng bạn đến với Horn</div>
+				<div class="login-sub-title">Đăng nhập để trải nghiệm Horn ngay!</div>
+				<input type="email" name="email" class="login-input" placeholder="Email" required />
+				<input type="password" name="password" class="login-input" placeholder="Mật khẩu" required />
+				<button type="text" class="login-submit">Đăng nhập</button>
+				<div class="sub-login">
+					<a href="" class="privacy">Điều khoản & Chính sách</a> <a href=""
+						class="link-to-signup-form">Trở thành thành viên mới</a>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
