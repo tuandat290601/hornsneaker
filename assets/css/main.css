@@ -173,6 +173,11 @@
     font-size: 1.5rem;
     text-align: center;
 }
+#homeslider{
+    padding-top: 50px;
+    justify-content: center;
+    position: relative;
+}
 
 
 /* Regist-success */
