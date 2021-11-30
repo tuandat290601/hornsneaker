@@ -14,22 +14,23 @@ public class ProductEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "NAME", nullable = false)
+	@Column(nullable = false)
 	private String name;
 
-	@Column(name="PRICE", nullable = false)
+	@Column(nullable = false)
 	private int price;
 	
-	@Column(name = "IMAGE")
+	@Column
 	private String image;
 	
-	@Column(name = "DESCRITION")
+	@Column
 	private String description;
 
-	@Column(name = "STOCK")
+	@Column
 	private int stock;
 
-	@Column(name = "SIZES")
+	// @Column(name = "SIZES")
+	@Column
 	private String sizes;
 
 	//#region getter and setter

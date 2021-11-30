@@ -14,7 +14,7 @@ public class OrderStatusEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "STATUS_NAME", nullable = false)
+	@Column(nullable = false)
 	private String name;
 
 	//#region getter and setter

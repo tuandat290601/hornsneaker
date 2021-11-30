@@ -16,18 +16,27 @@ public class OrderEntity {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
-	@Column(name = "CUSTOMER", nullable = false)
+	@Column(nullable = false)
 	private String customer;
 
-	@Column(name="DATE")
+	@Column
 	private Date date;
 
-	@Column(name = "STATUS")
+	@Column
 	private int status;
 
 	//#region getter and setter
+	
 	public Long getId() {
 		return id;
+	}
+
+	public int getStatus() {
+		return status;
+	}
+
+	public void setStatus(int status) {
+		this.status = status;
 	}
 
 	public void setId(Long id) {
