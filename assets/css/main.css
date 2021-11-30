@@ -1,6 +1,7 @@
 /* Hornsneaker */
 .hornsneaker {
     background-image: linear-gradient(180deg, var(--white-color), var(--lightblue-color));
+    height: 100vh;
 }
 
 /* Header */
