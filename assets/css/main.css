@@ -144,7 +144,6 @@
 /* Footer */
 #footer {
     width: 100%;
-    position: absolute;
     margin-top: 100px;
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--white-color);
@@ -178,6 +177,13 @@
     padding-top: 50px;
     justify-content: center;
     position: relative;
+    padding-bottom: 50px;
+}
+.carousel-item {
+    background-position: center;
+    position: center;
+    padding-left: 50px;
+    padding-right:50px;
 }
 
 
