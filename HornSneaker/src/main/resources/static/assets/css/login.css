@@ -1,0 +1,125 @@
+/* Login */
+@keyframes MoveUpDown {
+    0% {
+        transform: translateY(-30px);
+    }
+    100% {
+        transform: translateY(20px);
+    }
+}
+
+@keyframes FadeIn {
+    0% {opacity:0;}
+    100% {opacity:1;}
+  }
+
+
+#login-content {
+    width: 90%;
+    height: 750px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.login {
+    top: 100%;
+    bottom: 0;
+    padding-top: 200px;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.login-img {
+    animation: MoveUpDown 1s  infinite  alternate;
+    position: relative;
+    display: inline-block;
+}
+
+.form {
+    display: none;
+}
+
+#signup-form {
+    width: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgb(196, 187, 187);
+}
+
+#login-form {
+    margin-top: 50px;
+    width: 400px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+    background-color: white;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgb(196, 187, 187);
+}
+
+.show-form{
+    display: inline-block;
+}
+
+.login-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: var(--lightblue-color);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+.login-sub-title {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    color: var(--lightblue-color);
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+}
+
+.login-input {
+    display: block;
+    width: 90%;
+    padding: 10px 20px 10px;
+    margin-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.6rem;
+    border-radius: 5px;
+}
+
+.login-submit {
+    display: block;
+    width: 40%;
+    padding: 10px 20px 10px;
+    font-size: 1.6rem;
+    border-radius: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    background-color: var(--lightblue-color);
+}
+
+.login-submit:hover {
+    color: var(--white-color);
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+.sub-login {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 15px;
+}
+
+.sub-login a {
+    font-size: 1.1rem;
+}
+
+
+
+

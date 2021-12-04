@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-HornSneakerApplication<hornsneaker>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "console": "internalConsole",
+            "mainClass": "vn.edu.hcmus.hornsneaker.HornSneakerApplication",
+            "projectName": "hornsneaker",
+            "args": ""
+        }
+    ]
+}

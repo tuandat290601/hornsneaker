@@ -1,0 +1,23 @@
+<div id="login-content" th:fragment="registerform">
+	<div class="login">
+		<div class="login-img">
+			<img src="/assets/img/login2.png" alt="">
+		</div>
+		<form th:action="@{/register_success}" method="post" th:object="${User}">
+			<div class="form show-form" id="signup-form">
+            <div class="login-title">Chào mừng bạn đến với Horn</div>
+            <div class="login-sub-title">Hãy trở thành thành viên của Horn!</div>
+            <input type="email" th:field = "*{email}" class="login-input" placeholder="Email" required/>
+            <input type="password" th:field = "*{password}" class="login-input" placeholder="Mật khẩu" required />
+            <!-- <input type="password" name = "*{password}" class="login-input" placeholder="Nhập lại mật khẩu" required /> -->
+ 			<input type="text" th:field = "*{firstname}" class="login-input" placeholder="Họ" required />
+ 			<input type="text" th:field = "*{lastname}" class="login-input" placeholder="Tên" required />
+            <button type="text" class="login-submit"> Đăng ký </button>
+	            <div class="sub-login">
+	            <a href="" class="privacy">Điều khoản & Chính sách</a>
+	            <a href="" class="link-to-login-form">Tôi đã có tài khoản</a>
+	            </div>
+            </div>
+		</form>
+	</div>         
+</div>
