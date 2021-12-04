@@ -1,45 +1,60 @@
-// package vn.edu.hcmus.hornsneaker.dao.domain;
+package vn.edu.hcmus.hornsneaker.dao.domain;
 
-// import javax.persistence.Column;
-// import javax.persistence.Entity;
-// import javax.persistence.Table;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
-// @Entity
-// @Table(name = "order_details")
-// public class OrderDetailsEntity {
-// 	@Column(name = "ORDER_ID", nullable = false)
-// 	private Long id;
+@Entity
+@Table(name = "order_details")
+public class OrderDetailsEntity {
+    @Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 
-// 	@Column(name = "PRODUCT", nullable = false)
-// 	private String product;
+	@Column(nullable = false)
+	private Long orderId;
 
-// 	@Column(name="AMOUNT")
-// 	private int amount;
+	@Column(nullable = false)
+	private String productId;
 
-// 	//#region getter and setter
-// 	public Long getId() {
-// 		return id;
-// 	}
+	@Column
+	private int amount;
 
-// 	public void setId(Long id) {
-// 		this.id = id;
-// 	}
+	//#region getter and setter
+    public Long getId() {
+        return id;
+    }
 
-// 	public String getProduct() {
-// 		return product;
-// 	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-// 	public void setProduct(String product) {
-// 		this.product = product;
-// 	}
+    public Long getOrderId() {
+        return orderId;
+    }
 
-// 	public int getAmount() {
-// 		return amount;
-// 	}
+    public void setOrderId(Long orderId) {
+        this.orderId = orderId;
+    }
 
-// 	public void setAmount(int amount) {
-// 		this.amount = amount;
-// 	}		
-// 	//#endregion
+    public String getProductId() {
+        return productId;
+    }
+
+    public void setProductId(String productId) {
+        this.productId = productId;
+    }
+
+    public int getAmount() {
+        return amount;
+    }
+
+    public void setAmount(int amount) {
+        this.amount = amount;
+    }		
+	//#endregion
 		
-// }
+}
