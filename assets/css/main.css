@@ -176,8 +176,6 @@
 #homeslider{
     padding-top: 50px;
     justify-content: center;
-    position: relative;
-    padding-bottom: 50px;
 }
 .carousel-item {
     background-position: center;
@@ -185,7 +183,12 @@
     padding-left: 50px;
     padding-right:50px;
 }
-
+.card-img-top{
+    cursor:pointer;
+}
+.product-main{
+    padding-top:50px
+}
 
 /* Regist-success */
 
