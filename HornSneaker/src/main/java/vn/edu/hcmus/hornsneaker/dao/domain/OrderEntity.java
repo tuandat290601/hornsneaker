@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order")
+@Table(name = "orders")
 public class OrderEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,7 +23,7 @@ public class OrderEntity {
 	private Date date;
 
 	@Column
-	private int status;
+	private Long status;
 
 	//#region getter and setter
 	
@@ -31,11 +31,11 @@ public class OrderEntity {
 		return id;
 	}
 
-	public int getStatus() {
+	public Long getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Long status) {
 		this.status = status;
 	}
 

@@ -12,9 +12,9 @@ public class HomeController {
 		return "page";
 	}
 
-	@RequestMapping("/category")
-	public String viewCategory(Model model) {
-		model.addAttribute("content", "category");
-		return "page";
-	}
+	// @RequestMapping("/category")
+	// public String viewCategory(Model model) {
+	// 	model.addAttribute("content", "category");
+	// 	return "page";
+	// }
 }
