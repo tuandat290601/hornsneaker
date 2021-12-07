@@ -1,7 +1,7 @@
 package vn.edu.hcmus.hornsneaker.service;
 
-import java.math.BigInteger;
-import java.util.ArrayList;
+//import java.math.BigInteger;
+//import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,9 +15,11 @@ public class ProductServices {
 	@Autowired
 	private ProductRepository productRepo;
 	
+	/*
 	public ArrayList<ProductEntity> listAllProducts() {
 		return productRepo.findAll();
 	}
+	*/
 
 	public ProductEntity find(int id) {
 		return productRepo.getById(Long.valueOf(id));		
