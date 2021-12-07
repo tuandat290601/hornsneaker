@@ -11,4 +11,10 @@ public class HomeController {
 		model.addAttribute("content", "indexform");
 		return "page";
 	}
+
+	@RequestMapping("/category")
+	public String viewCategory(Model model) {
+		model.addAttribute("content", "category");
+		return "page";
+	}
 }
