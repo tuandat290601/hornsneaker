@@ -33,4 +33,9 @@ public class ProductController {
 		model.addAttribute("description", product.getDescription());
 		return "page";
 	}
+
+	@RequestMapping("/cart")
+	public String viewCart(Model model) {
+		return "cart";
+	}
 }
