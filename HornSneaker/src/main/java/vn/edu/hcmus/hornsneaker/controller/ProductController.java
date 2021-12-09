@@ -19,8 +19,9 @@ public class ProductController {
 	
 	@RequestMapping("/category")
 	public String viewProduct(Model model) {
+		model.addAttribute("content", "category");
 		model.addAttribute("products", productRepo.findAll());
-		return "category";
+		return "page";
 	}
 
 	@RequestMapping("/product")
