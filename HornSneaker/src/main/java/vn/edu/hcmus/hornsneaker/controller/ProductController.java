@@ -37,6 +37,7 @@ public class ProductController {
 
 	@RequestMapping("/cart")
 	public String viewCart(Model model) {
-		return "cart";
+		model.addAttribute("content", "cart");
+		return "page";
 	}
 }
