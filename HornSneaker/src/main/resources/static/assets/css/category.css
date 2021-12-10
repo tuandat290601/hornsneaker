@@ -77,7 +77,7 @@
 }
 
 .pro-img {
-    width: 100%;
+    width: 100% !important;
 }
 
 .category-item-link h2{

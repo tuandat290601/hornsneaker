@@ -1,44 +1,32 @@
 <div th:fragment="category">
-    <div class="category">
-        <div class="category-field">
-            <div class="category-name">Jordan (15)</div>
-        </div>
-        <div class="category-content">
-            <div class="category-kind">
-                <ul class="cate-kind-list">
-                    <a href="" class="cate-kind-list-item">Jordan</a>
-                    <a href="" class="cate-kind-list-item">Jordan</a>
-                    <a href="" class="cate-kind-list-item">Jordan</a>
-                    <a href="" class="cate-kind-list-item">Jordan</a>
-
-                </ul>
-            </div>
-            <ul class="category-list">
-                <li class="category-item">
-                    <a href="" class="category-item-link">
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img">
-                        <h2>Nike SB Dunk High Pro</h2>
-                        <p>Jordan</p>
-                        <p class="price">3,000,000 vnd</p>
-                    </a>
-                </li>
-                <li class="category-item">
-                    <a href="" class="category-item-link">
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img">
-                        <h2>Nike SB Dunk High Pro</h2>
-                        <p>Jordan</p>
-                        <p class="price">3,000,000 vnd</p>
-                    </a>
-                </li>
-                <li class="category-item">
-                    <a href="" class="category-item-link">
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img">
-                        <h2>Nike SB Dunk High Pro</h2>
-                        <p>Jordan</p>
-                        <p class="price">3,000,000 vnd</p>
-                    </a>
-                </li>
-            </ul>
-        </div>
-    </div>   
+	<div class="category">
+		<div class="category-field">
+			<div class="category-name">Jordan (15)</div>
+		</div>
+		<div class="category-content">
+			<div class="category-kind">
+				<ul class="cate-kind-list">
+					<a href="" class="cate-kind-list-item">Jordan</a>
+					<a href="" class="cate-kind-list-item">Jordan</a>
+					<a href="" class="cate-kind-list-item">Jordan</a>
+					<a href="" class="cate-kind-list-item">Jordan</a>
+				</ul>
+			</div>
+			<ul class="category-list">
+				<th:block th:each="product : ${products}">
+					<li class="category-item">
+						<a href="" class="category-item-link"> 
+							<img th:src="${product.image}" alt="" class="pro-img">
+							<h2>
+								<td th:text="${product.name}" />
+							</h2>
+							<p class="price">
+								<td th:text="${product.price}" />
+							</p>
+						</a>
+					</li>
+				</th:block>
+			</ul>
+		</div>
+	</div>
 </div>
