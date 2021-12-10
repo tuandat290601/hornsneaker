@@ -1,12 +1,12 @@
 <div th:fragment="cart">
-    <div class="container">
+    <div class="cart-container">
         <div class="cart">
             <div class="shopping-cart">
                 <h2>Giỏ hàng</h2>
                 <ul class="cart-list">
                     <li class="cart-item">
                         <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img">
+                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
                             <p class="item-name">Jordan 1 Nguyen Phú Thịnh</p>
                             <div class="quantity buttons_added">
                                 <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
@@ -19,7 +19,7 @@
                     </li>
                     <li class="cart-item">
                         <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img">
+                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
                             <p class="item-name">Jordan 1...</p>
                             <div class="quantity buttons_added">
                                 <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
@@ -32,7 +32,7 @@
                     </li>
                     <li class="cart-item">
                         <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img">
+                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
                             <p class="item-name">Jordan 1...</p>
                             <div class="quantity buttons_added">
                                 <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
@@ -45,7 +45,7 @@
                     </li>
                     <li class="cart-item">
                         <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img">
+                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
                             <p class="item-name">Jordan 1...</p>
                             <div class="quantity buttons_added">
                                 <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
@@ -60,10 +60,37 @@
             </div>
             <div class="summary">
                 <h2>Thanh toán</h2>
-                <div class="summary-content">
-                    
+                <ul class="summary-field">
+                    <li class="summary-info">
+                        <p>Số lượng sản phẩm:</p>
+                        <p>3</p>
+                    </li>
+                    <li class="summary-info">
+                        <p>Tổng giá tiền sản phẩm:</p>
+                        <p>30,000 VNĐ</p>
+                    </li>
+                    <li class="summary-info">
+                        <p>Phí vận chuyển:</p>
+                        <p>30,000 VNĐ</p>
+                    </li>
+                </ul>
+                <div class="summary-total">
+                    <p>Thành tiền:</p>
+                    <p>30,000 VNĐ</p>
                 </div>
+                <div class="pay">
+                    <div id = "pay-cash">
+                        <button type="button" class="purchase-btn">Thanh toán khi nhận hàng</button>
+                    </div>
+                    <div id = "pay-credit">
+                        <button type="button" class="purchase-btn">
+                            Paypal
+                        </button>
+                    </div>
+                </div>
+                
             </div>
+            
         </div>
     </div>
     <script src="/cart.js"></script>   
