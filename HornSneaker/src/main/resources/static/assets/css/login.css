@@ -41,27 +41,27 @@
 }
 
 #signup-form {
+    display: inline-block;
     width: 400px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 20px;
     background-color: white;
     border-radius: 10%;
     box-shadow: 0 0 10px rgb(196, 187, 187);
 }
 
 #login-form {
+    display: inline-block;
     margin-top: 50px;
     width: 400px;
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 50px 20px;
     background-color: white;
     border-radius: 10%;
     box-shadow: 0 0 10px rgb(196, 187, 187);
 }
 
-.show-form{
+/* .show-form{
     display: inline-block;
-}
+} */
 
 .login-title {
     display: flex;
@@ -69,7 +69,7 @@
     width: 100%;
     color: var(--lightblue-color);
     font-size: 2.5rem;
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
     font-weight: bold;
 }
 
@@ -79,14 +79,14 @@
     width: 100%;
     color: var(--lightblue-color);
     font-size: 1.4rem;
-    margin-bottom: 15px;
+    margin-bottom: 15px !important;
 }
 
 .login-input {
     display: block;
-    width: 90%;
-    padding: 10px 20px 10px;
-    margin-bottom: 10px;
+    width: 100%;
+    padding: 10px 20px 10px !important;
+    margin-bottom: 10px !important;
     margin-left: auto;
     margin-right: auto;
     font-size: 1.6rem;
@@ -99,8 +99,8 @@
     padding: 10px 20px 10px;
     font-size: 1.6rem;
     border-radius: 5px;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: auto !important;
+    margin-right: auto !important;
     background-color: var(--lightblue-color);
 }
 
@@ -113,7 +113,7 @@
 .sub-login {
     display: flex;
     justify-content: space-around;
-    margin-top: 15px;
+    margin-top: 15px !important;
 }
 
 .sub-login a {
@@ -246,6 +246,7 @@
     background-color: rgba(0, 0, 0, 0.7);
     transition-duration: 0.7s;
 }
+
 
 
 
