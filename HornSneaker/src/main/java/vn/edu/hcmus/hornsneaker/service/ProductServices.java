@@ -21,7 +21,7 @@ public class ProductServices {
 	}
 	*/
 
-	public ProductEntity find(int id) {
-		return productRepo.getById(Long.valueOf(id));		
+	public ProductEntity find(Long id) {
+		return productRepo.getById(id);		
 	}
 }

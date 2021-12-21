@@ -19,21 +19,39 @@ public class ProductEntity {
 
 	@Column(nullable = false)
 	private int price;
-	
+
+	@Column
+	private String type;
+
 	@Column
 	private String image;
-	
+
 	@Column
 	private String description;
 
 	@Column
-	private int stock;
+	private int discount;
 
-	// @Column(name = "SIZES")
 	@Column
-	private String sizes;
+	private Long eventId;
 
-	//#region getter and setter
+	public int getDiscount() {
+		return discount;
+	}
+
+	public void setDiscount(int discount) {
+		this.discount = discount;
+	}
+
+	public Long getEventId() {
+		return eventId;
+	}
+
+	public void setEventId(Long eventId) {
+		this.eventId = eventId;
+	}
+
+	// #region getter and setter
 	public Long getId() {
 		return id;
 	}
@@ -73,6 +91,15 @@ public class ProductEntity {
 	public void setDescription(String description) {
 		this.description = description;
 	}
-	//#endregion
-		
+	// #endregion
+
+	public String getPriceFormatted() {
+		StringBuffer formatted = new StringBuffer(String.valueOf(price));
+		for (int i = formatted.length() - 3; i > 0; i -= 3) {
+			formatted.insert(i, ",");
+		}
+		formatted.append(" VND");
+		return formatted.toString();
+	}
+
 }
