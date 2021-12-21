@@ -11,7 +11,6 @@ import vn.edu.hcmus.hornsneaker.dao.domain.CartEntry;
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.CartRepository;
 
-
 @Service
 public class CartServices {
 	@Autowired
@@ -25,15 +24,19 @@ public class CartServices {
 		cartRepo.save(entry);
 	}
 
-    public ArrayList<CartEntry> findAllOfUser(Long userId) {
+	public ArrayList<CartEntry> findAllOfUser(Long userId) {
 		List<CartEntity> all = cartRepo.findAll();
 		ArrayList<CartEntry> list = new ArrayList<>();
 		for (CartEntity cartEntity : all) {
 			if (cartEntity.getUserId().equals(userId)) {
 				ProductEntity product = productServices.find(cartEntity.getProductId());
-				list.add(new CartEntry(product, cartEntity.getAmount()));
+				list.add(new CartEntry(cartEntity.getId(), product, cartEntity.getAmount()));
 			}
 		}
 		return list;
-    }
+	}
+
+	public void remove(Long cartEntryId) {
+		cartRepo.deleteById(cartEntryId);
+	}
 }

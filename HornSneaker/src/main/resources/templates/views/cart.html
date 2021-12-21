@@ -17,9 +17,11 @@
                                         type="button" value="+" class="plus">
                                 </div>
                                 <p class="item-price" th:text="${entry.priceFormatted}"></p>
-                                <button type="button" class="btn btn-danger cart-btn">
-                                    <i class="fa fa-times" aria-hidden="true"></i>
-                                </button>
+                                <a th:href="@{/cart/remove/{id}(id=${entry.cartEntryId})}">
+                                    <button type="button" class="btn btn-danger cart-btn">
+                                        <i class="fa fa-times" aria-hidden="true"></i>
+                                    </button>
+                                </a>
                             </div>
                         </li>
                     </th:block>

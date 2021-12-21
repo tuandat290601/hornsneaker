@@ -45,7 +45,7 @@ public class CartController {
 		return formatted.toString();
 	}
 
-	@RequestMapping("/")
+	@RequestMapping("")
 	public String viewCart(Model model) {
 		ArrayList<CartEntry> entries = cartServices.findAllOfUser(getLoggedUserId());
 		int totalNumber = 0, totalCost = 0, shipCost = 10000;
@@ -68,5 +68,11 @@ public class CartController {
 	public String addToCart(@PathVariable("productId") Long id, Model model) {		
 		cartServices.add(getLoggedUserId(), id);
 		return "redirect:/product/" + id;
+	}
+
+	@RequestMapping("/remove/{cartEntryId}")
+	public String removeFromCart(@PathVariable("cartEntryId") Long id, Model model) {		
+		cartServices.remove(id);
+		return "redirect:/cart";
 	}
 }

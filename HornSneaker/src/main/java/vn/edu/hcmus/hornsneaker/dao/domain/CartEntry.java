@@ -1,18 +1,28 @@
 package vn.edu.hcmus.hornsneaker.dao.domain;
 
-public class CartEntry {    
+public class CartEntry {
     String image;
     String name;
     int amount;
     int price;
     String priceFormatted;
+    Long cartEntryId;
 
-    public CartEntry(ProductEntity product, int amount) {
+    public CartEntry(Long cartEntryId, ProductEntity product, int amount) {
+        this.cartEntryId = cartEntryId;
         image = product.getImage();
         name = product.getName();
         price = product.getPrice();
         priceFormatted = product.getPriceFormatted();
         this.amount = amount;
+    }
+
+    public Long getCartEntryId() {
+        return cartEntryId;
+    }
+
+    public void setCartEntryId(Long cartEntryId) {
+        this.cartEntryId = cartEntryId;
     }
 
     public String getImage() {
@@ -54,5 +64,5 @@ public class CartEntry {
     public void setPriceFormatted(String priceFormatted) {
         this.priceFormatted = priceFormatted;
     }
-    
+
 }
