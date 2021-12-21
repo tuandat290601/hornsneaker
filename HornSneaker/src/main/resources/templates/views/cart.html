@@ -11,10 +11,15 @@
                                 <img th:src="${entry.image}" alt="" class="pro-img-cart">
                                 <p class="item-name" th:text="${entry.name}"></p>
                                 <div class="quantity buttons_added">
-                                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1"
-                                        max="" name="quantity" th:value="${entry.amount}" title="Qty"
-                                        class="input-text qty text" size="4" pattern="" inputmode=""><input
-                                        type="button" value="+" class="plus">
+                                    <a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=-1)}">
+                                        <input type="button" value="-" class="minus">
+                                    </a>
+                                    <input type="number" step="1" min="1" max="" name="quantity"
+                                        th:value="${entry.amount}" title="Qty" class="input-text qty text" size="4"
+                                        pattern="" inputmode="">
+                                    <a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=1)}">
+                                        <input type="button" value="+" class="plus">
+                                    </a>
                                 </div>
                                 <p class="item-price" th:text="${entry.priceFormatted}"></p>
                                 <a th:href="@{/cart/remove/{id}(id=${entry.cartEntryId})}">
