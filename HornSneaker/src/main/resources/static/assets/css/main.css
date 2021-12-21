@@ -116,21 +116,21 @@
 }
 
 .search {
-    height: 50px;
-    float: right;
-    margin-bottom: auto;
-    font-size: 20px;
+    position: absolute;
+    right: 20px;
+    top: 10px
 }
 
 .search-btn{
     float: right;
-    margin-top: 15px;
+    margin-top: 7px !important;
+    color: white;
 }
 
 
 .search-box {
     float: right;
-    margin-left: 10px;
+    margin-left: 10px !important;
     margin-top: 10px;
     font-size: 1.6rem;
     height: 30px;
