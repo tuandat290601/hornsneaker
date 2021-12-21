@@ -9,5 +9,5 @@ import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
 
 public interface ProductRepository extends JpaRepository<ProductEntity, Long> {
 	//@Query("SELECT * FROM product")
-	ArrayList<ProductEntity> findAll();
+	//ArrayList<ProductEntity> findAll();
 }

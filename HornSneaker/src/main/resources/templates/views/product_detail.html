@@ -41,10 +41,12 @@
                 <button type="button" id="click-btn" class="btn btn-outline-dark btn-lg rounded-circle ">42</button>
                 <button type="button" id="click-btn" class="btn btn-outline-dark btn-lg rounded-circle ">43</button>
             </div>
-            <div class="btn btn-primary btn-lg add-btn mt-5">
-                <i class="fas fa-shopping-cart"></i>
-                Thêm vào giỏ hàng
-            </div>
+            <a th:href="@{/cart/add/{id}(id=${id})}">
+                <div class="btn btn-primary btn-lg add-btn mt-5">
+                    <i class="fas fa-shopping-cart"></i>
+                    Thêm vào giỏ hàng
+                </div>
+            </a>
         </div>
     </div>
 </div>

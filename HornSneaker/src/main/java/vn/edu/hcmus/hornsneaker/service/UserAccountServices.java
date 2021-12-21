@@ -23,13 +23,13 @@ public class UserAccountServices implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
-		UserAccountEntity userAccount = getUserAccount(email);
+		UserAccountEntity userAccount = getUserAccountByEmail(email);
 		UserDetails user = User.withUsername(userAccount.getEmail()).password(userAccount.getPassword())
 				.authorities("EMAIL").build();
 		return user;
 	}
 	
-	private UserAccountEntity getUserAccount(String email) {
+	public UserAccountEntity getUserAccountByEmail(String email) {
 		Optional<UserAccountEntity> userAccount = userAccountRepository.findByEmail(email);
 		if (!userAccount.isPresent()) {
 			throw new UsernameNotFoundException("not found!");

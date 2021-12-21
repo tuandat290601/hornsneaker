@@ -21,7 +21,6 @@ public class ProductController {
 	@Autowired
 	private ProductServices productServices;
 
-	
 	@RequestMapping("/category")
 	public String viewProduct(Model model) {
 		model.addAttribute("content", "category");
@@ -38,19 +37,14 @@ public class ProductController {
 		model.addAttribute("price", product.getPriceFormatted());
 		model.addAttribute("description", product.getDescription());
 		model.addAttribute("image", product.getImage());
+		model.addAttribute("id", product.getId());
 		return "page";
 	}
-	
+
 	@RequestMapping("/admin/product")
 	public String viewProductManagement(Model model) {
 		model.addAttribute("content", "product_management");
 		return "page";
 	}
 
-
-	@RequestMapping("/cart")
-	public String viewCart(Model model) {
-		model.addAttribute("content", "cart");
-		return "page";
-	}
 }

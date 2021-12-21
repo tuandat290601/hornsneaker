@@ -30,7 +30,7 @@ public class ProductEntity {
 	private String description;
 
 	@Column
-	private int discount;
+	private int discount = 0;
 
 	@Column
 	private Long eventId;

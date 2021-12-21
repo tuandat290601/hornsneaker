@@ -4,58 +4,26 @@
             <div class="shopping-cart">
                 <h2>Giỏ hàng</h2>
                 <ul class="cart-list">
-                    <li class="cart-item">
-                        <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                            <p class="item-name">Jordan 1 Nguyen Phú Thịnh</p>
-                            <div class="quantity buttons_added">
-                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
+
+                    <th:block th:each="entry : ${entries}">
+                        <li class="cart-item">
+                            <div class="item-info">
+                                <img th:src="${entry.image}" alt="" class="pro-img-cart">
+                                <p class="item-name" th:text="${entry.name}"></p>
+                                <div class="quantity buttons_added">
+                                    <input type="button" value="-" class="minus"><input type="number" step="1" min="1"
+                                        max="" name="quantity" th:value="${entry.amount}" title="Qty"
+                                        class="input-text qty text" size="4" pattern="" inputmode=""><input
+                                        type="button" value="+" class="plus">
+                                </div>
+                                <p class="item-price" th:text="${entry.priceFormatted}"></p>
+                                <button type="button" class="btn btn-danger cart-btn">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
                             </div>
-                            <p class="item-price">3,000,000</p>
-                            <button type="button" class="btn btn-danger cart-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="cart-item">
-                        <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                            <p class="item-name">Jordan 1...</p>
-                            <div class="quantity buttons_added">
-                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-                            </div>
-                            <p class="item-price">3,000,000</p>
-                            <button type="button" class="btn btn-danger cart-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="cart-item">
-                        <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                            <p class="item-name">Jordan 1...</p>
-                            <div class="quantity buttons_added">
-                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-                            </div>
-                            <p class="item-price">3,000,000</p>
-                            <button type="button" class="btn btn-danger cart-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </li>
-                    <li class="cart-item">
-                        <div class="item-info">
-                            <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                            <p class="item-name">Jordan 1...</p>
-                            <div class="quantity buttons_added">
-                                <input type="button" value="-" class="minus"><input type="number" step="1" min="1" max="" name="quantity" value="1" title="Qty" class="input-text qty text" size="4" pattern="" inputmode=""><input type="button" value="+" class="plus">
-                            </div>
-                            <p class="item-price">3,000,000</p>
-                            <button type="button" class="btn btn-danger cart-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </li>
+                        </li>
+                    </th:block>
+
                 </ul>
             </div>
             <div class="summary">
@@ -63,35 +31,35 @@
                 <ul class="summary-field">
                     <li class="summary-info">
                         <p>Số lượng sản phẩm:</p>
-                        <p>3</p>
+                        <p th:text="${totalNumber}"></p>
                     </li>
                     <li class="summary-info">
                         <p>Tổng giá tiền sản phẩm:</p>
-                        <p>30,000 VNĐ</p>
+                        <p th:text="${totalCost}"></p>
                     </li>
                     <li class="summary-info">
                         <p>Phí vận chuyển:</p>
-                        <p>30,000 VNĐ</p>
+                        <p th:text="${shipCost}"></p>
                     </li>
                 </ul>
                 <div class="summary-total">
                     <p>Thành tiền:</p>
-                    <p>30,000 VNĐ</p>
+                    <p th:text="${totalSum}"></p>
                 </div>
                 <div class="pay">
-                    <div id = "pay-cash">
+                    <div id="pay-cash">
                         <button type="button" class="purchase-btn">Thanh toán khi nhận hàng</button>
                     </div>
-                    <div id = "pay-credit">
+                    <div id="pay-credit">
                         <button type="button" class="purchase-btn">
                             Paypal
                         </button>
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
     </div>
-    <script src="/cart.js"></script>   
+    <script src="/cart.js"></script>
 </div>
