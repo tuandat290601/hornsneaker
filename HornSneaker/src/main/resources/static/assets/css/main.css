@@ -1,6 +1,6 @@
 /* Hornsneaker */
 .hornsneaker {
-    background-color: white;
+    background-image: linear-gradient(180deg, var(--white-color), var(--lightblue-color));
     height: 100vh;
 }
 
@@ -8,7 +8,7 @@
 #header {
     width: 100%;
     height: 50px;
-    background-color: black;
+    background-color: var(--white-color);
     position: fixed;
     top: 0;
     right: 0;
@@ -34,7 +34,7 @@
 }
 
 .header-nav-list > li > a {
-    color: white;
+    color: var(--lightblue-color);
     text-transform: uppercase;
     letter-spacing: 0.2rem;
     font-weight: 300;
@@ -102,7 +102,7 @@
 }
 
 .menu-btn {
-    color: white;
+    color: var(--lightblue-color);
     font-size: 2rem;
     line-height: 50px;
     padding: 15px 20px 15px 20px;
@@ -125,21 +125,20 @@
 
 .search-btn{
     float: right;
-    margin-top: 15px !important;
-    color: white;
+    margin-top: 15px;
 }
 
 
 .search-box {
     float: right;
-    margin-left: 10px !important;
-    margin-top: 10px !important;
+    margin-left: 10px;
+    margin-top: 10px;
     font-size: 1.6rem;
     height: 30px;
     border-radius: 10px;
     border: 1px solid #ccc;
-    margin-right: 40px !important;
-    padding-left: 10px !important;
+    margin-right: 40px;
+    padding-left: 10px;
 }
 
 /* Footer */
@@ -189,6 +188,29 @@
 }
 .product-main{
     padding-top:50px
+}
+div a, a:hover {
+    text-decoration: none;
+}
+
+div a:hover {
+    opacity: 0.8;
+}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 80%;
+}
+
+.card:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.product-main {
+    padding: 2px 16px;
+}
+.row{
+    padding-left: 50px;
 }
 
 /* Regist-success */
