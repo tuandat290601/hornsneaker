@@ -1,5 +1,7 @@
 package vn.edu.hcmus.hornsneaker.controller;
 
+import java.util.ArrayList;
+
 import javax.websocket.server.PathParam;
 
 //import java.util.ArrayList;
@@ -31,6 +33,7 @@ public class ProductController {
 	@RequestMapping("/product/{productId}")
 	public String viewDetail(@PathVariable("productId") Long id, Model model) {
 		ProductEntity product = productServices.find(id);
+		ArrayList<Integer> sizes = productServices.findAllSizeOf(id);
 
 		model.addAttribute("content", "product_detail");
 		model.addAttribute("name", product.getName());
@@ -38,6 +41,7 @@ public class ProductController {
 		model.addAttribute("description", product.getDescription());
 		model.addAttribute("image", product.getImage());
 		model.addAttribute("id", product.getId());
+		model.addAttribute("sizes", sizes);
 		return "page";
 	}
 

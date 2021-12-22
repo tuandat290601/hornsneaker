@@ -8,37 +8,47 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "order_details")
-public class OrderDetailsEntity {
+@Table(name = "product_sizes")
+public class ProductSizesEntity {
     @Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 
 	@Column(nullable = false)
-	private Long orderId;
-
-	@Column(nullable = false)
 	private Long productId;
 
+    @Column
+	private int size;
+
 	@Column
-	private int amount;
+	private int stock;
 
 	//#region getter and setter
     public Long getId() {
         return id;
     }
 
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
+    }
+
+    public int getStock() {
+        return stock;
+    }
+
+    public void setStock(int stock) {
+        this.stock = stock;
+    }
+
     public void setId(Long id) {
         this.id = id;
     }
 
-    public Long getOrderId() {
-        return orderId;
-    }
 
-    public void setOrderId(Long orderId) {
-        this.orderId = orderId;
-    }
 
     public Long getProductId() {
         return productId;
@@ -48,13 +58,6 @@ public class OrderDetailsEntity {
         this.productId = productId;
     }
 
-    public int getAmount() {
-        return amount;
-    }
-
-    public void setAmount(int amount) {
-        this.amount = amount;
-    }		
 	//#endregion
 		
 }

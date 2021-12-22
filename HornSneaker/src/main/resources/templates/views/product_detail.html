@@ -31,15 +31,19 @@
         <div class="card-body">
             <p class="card-title" th:text="${name}">Nike Air Jordan 1 High University Blue 2021</p>
             <h1 class="price mt-5" th:text="${price}">3,700,000 VND</h1>
-            <p class="description mt-3" th:text=${description}>Giày Nike Air Jordan 1 High University Blue 2021 sử dụng chất liệu chính hãng
+            <p class="description mt-3" th:text=${description}>Giày Nike Air Jordan 1 High University Blue 2021 sử dụng
+                chất liệu chính hãng
                 chuẩn 99%, pk god factory là một trong những loại chất lượng tốt nhất hiện nay . được giới trẻ ưa dùng
             </p>
             <div id="card-size" class="size mt-5">
                 <h2>Size</h2>
-                <button type="button" id="click-btn"
-                    class="btn btn-outline-dark btn-lg rounded-circle active ">41</button>
-                <button type="button" id="click-btn" class="btn btn-outline-dark btn-lg rounded-circle ">42</button>
-                <button type="button" id="click-btn" class="btn btn-outline-dark btn-lg rounded-circle ">43</button>
+                <!-- <button type="button" id="click-btn"
+                    class="btn btn-outline-dark btn-lg rounded-circle active ">41</button> -->
+
+                <th:block th:each="size : ${sizes}">
+                    <button type="button" th:text="${size}" id="click-btn"
+                        class="btn btn-outline-dark btn-lg rounded-circle ">42</button>
+                </th:block>
             </div>
             <a th:href="@{/cart/add/{id}(id=${id})}">
                 <div class="btn btn-primary btn-lg add-btn mt-5">
