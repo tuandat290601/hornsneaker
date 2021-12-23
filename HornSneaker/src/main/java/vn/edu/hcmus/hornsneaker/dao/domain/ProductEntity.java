@@ -35,6 +35,25 @@ public class ProductEntity {
 	@Column
 	private Long eventId;
 
+	@Column
+	private int views = 0;
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public int getViews() {
+		return views;
+	}
+
+	public void setViews(int views) {
+		this.views = views;
+	}
+
 	public int getDiscount() {
 		return discount;
 	}
@@ -100,6 +119,10 @@ public class ProductEntity {
 		}
 		formatted.append(" VND");
 		return formatted.toString();
+	}
+
+	public void increaseViews() {
+		views += 1;
 	}
 
 }

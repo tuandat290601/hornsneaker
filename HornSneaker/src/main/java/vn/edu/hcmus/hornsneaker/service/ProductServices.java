@@ -3,11 +3,15 @@ package vn.edu.hcmus.hornsneaker.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 //import java.math.BigInteger;
 //import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
+import org.springframework.data.domain.Sort;
+import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
 
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
@@ -45,5 +49,15 @@ public class ProductServices {
 		}
 
 		return list;
+	}
+
+	@Transactional
+    public void increaseViews(ProductEntity product) {
+		product.increaseViews();
+    }
+
+	public List<ProductEntity> getHighlightedProducts(int i) {
+		List<ProductEntity> list = productRepo.findAll(Sort.by(Direction.DESC,"views"));
+		return list.subList(0, i);
 	}
 }

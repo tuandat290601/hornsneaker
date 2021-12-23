@@ -40,6 +40,7 @@ public class ProductController {
 		ArrayList<Integer> sizes = productServices.findAllSizeOf(id);
 		Boolean isAdded = cartServices.findByProductId(id);
 
+		productServices.increaseViews(product);
 		model.addAttribute("content", "product_detail");
 		model.addAttribute("name", product.getName());
 		model.addAttribute("price", product.getPriceFormatted());
