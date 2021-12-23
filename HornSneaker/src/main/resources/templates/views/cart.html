@@ -10,6 +10,7 @@
                             <div class="item-info">
                                 <img th:src="${entry.image}" alt="" class="pro-img-cart">
                                 <p class="item-name" th:text="${entry.name}"></p>
+                                <p class="item-name" th:text="${entry.size}"></p>
                                 <div class="quantity buttons_added">
                                     <a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=-1)}">
                                         <input type="button" value="-" class="minus">

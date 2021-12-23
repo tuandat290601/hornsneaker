@@ -5,16 +5,18 @@ public class CartEntry {
     String name;
     int amount;
     int price;
+    int size;
     String priceFormatted;
     Long cartEntryId;
 
-    public CartEntry(Long cartEntryId, ProductEntity product, int amount) {
+    public CartEntry(Long cartEntryId, ProductEntity product, int size, int amount) {
         this.cartEntryId = cartEntryId;
         image = product.getImage();
         name = product.getName();
         price = product.getPrice();
         priceFormatted = product.getPriceFormatted();
         this.amount = amount;
+        this.size = size;
     }
 
     public Long getCartEntryId() {
@@ -35,6 +37,14 @@ public class CartEntry {
 
     public String getName() {
         return name;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     public void setName(String name) {

@@ -19,16 +19,20 @@ public class CartEntity {
 
     @Column(nullable = false)
     private Long productId;
+    
+    @Column
+    private Integer size;
 
     @Column
-    private int amount;    
+    private Integer amount;
 
     public CartEntity() {
     }
 
-    public CartEntity(Long userId, Long productId, int amount) {
+    public CartEntity(Long userId, Long productId, Integer size, Integer amount) {
         this.userId = userId;
         this.productId = productId;
+        this.size = size;
         this.amount = amount;
     }
 
@@ -49,11 +53,11 @@ public class CartEntity {
         this.productId = productId;
     }
 
-    public int getAmount() {
+    public Integer getAmount() {
         return amount;
     }
 
-    public void setAmount(int amount) {
+    public void setAmount(Integer amount) {
         this.amount = amount;
     }
 
@@ -64,6 +68,14 @@ public class CartEntity {
     public void setUserId(Long userId) {
         this.userId = userId;
     }
+    
+    public Integer getSize() {
+        return size;
+    }
+    
+    public void setSize(Integer size) {
+        this.size = size;
+    }
+    
     // #endregion
-
 }

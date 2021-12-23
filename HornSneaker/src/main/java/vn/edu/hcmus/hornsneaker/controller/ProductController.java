@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.ProductRepository;
+import vn.edu.hcmus.hornsneaker.service.CartServices;
 import vn.edu.hcmus.hornsneaker.service.ProductServices;
 
 @Controller
@@ -22,6 +23,9 @@ public class ProductController {
 
 	@Autowired
 	private ProductServices productServices;
+
+	@Autowired
+	private CartServices cartServices;
 
 	@RequestMapping("/category")
 	public String viewProduct(Model model) {
@@ -34,6 +38,7 @@ public class ProductController {
 	public String viewDetail(@PathVariable("productId") Long id, Model model) {
 		ProductEntity product = productServices.find(id);
 		ArrayList<Integer> sizes = productServices.findAllSizeOf(id);
+		Boolean isAdded = cartServices.findByProductId(id);
 
 		model.addAttribute("content", "product_detail");
 		model.addAttribute("name", product.getName());
@@ -42,6 +47,7 @@ public class ProductController {
 		model.addAttribute("image", product.getImage());
 		model.addAttribute("id", product.getId());
 		model.addAttribute("sizes", sizes);
+		model.addAttribute("isAdded", isAdded);
 		return "page";
 	}
 
