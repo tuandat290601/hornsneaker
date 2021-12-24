@@ -2,9 +2,6 @@ package vn.edu.hcmus.hornsneaker.controller;
 
 import java.util.ArrayList;
 
-import javax.websocket.server.PathParam;
-
-//import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
