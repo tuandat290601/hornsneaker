@@ -54,5 +54,17 @@ public class ProductController {
 		model.addAttribute("content", "product_management");
 		return "page";
 	}
+	
+	@RequestMapping("/admin/product/add")
+	public String viewAddProduct(Model model) {
+		model.addAttribute("content", "add_product");
+		return "page";
+	}
+	
+	@RequestMapping("/admin/product/edit")
+	public String viewEditProduct(Model model) {
+		model.addAttribute("content", "edit_product");
+		return "page";
+	}
 
 }
