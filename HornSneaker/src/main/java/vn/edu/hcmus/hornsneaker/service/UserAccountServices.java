@@ -1,14 +1,9 @@
 package vn.edu.hcmus.hornsneaker.service;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.List;
+
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Role;
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -42,11 +37,4 @@ public class UserAccountServices implements UserDetailsService {
 		}
 		return userAccount.get();
 	}
-
-	// private Collection<? extends GrantedAuthority> getAuthorities(UserAccountEntity userAccount) {
-	// 	List<GrantedAuthority> authorities = new ArrayList<>();
-	// 	authorities.add(new SimpleGrantedAuthority(userAccount.getRole()));
-
-	// 	return authorities;
-	// }
 }
