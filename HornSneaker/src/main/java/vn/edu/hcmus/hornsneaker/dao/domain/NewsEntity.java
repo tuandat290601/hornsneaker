@@ -25,9 +25,6 @@ public class NewsEntity {
 	@Column
 	private Date created;
 
-	@Column
-	private Date editted;
-
 	public Long getId() {
 		return id;
 	}
@@ -60,13 +57,6 @@ public class NewsEntity {
 		this.created = created;
 	}
 
-	public Date getEditted() {
-		return editted;
-	}
-
-	public void setEditted(Date editted) {
-		this.editted = editted;
-	}
 
 	//#region getter and setter
 	

@@ -26,6 +26,8 @@ public class NewsServices {
 
 	public List<NewsEntity> findAll(int i) {
 		List<NewsEntity> list = newsRepo.findAll(Sort.by(Direction.DESC,"created"));
+		if (i >= list.size()) i = list.size()-1;
+		if (i < 0) return null;
 		return list.subList(0, i);
 	}
 

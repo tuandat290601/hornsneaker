@@ -32,6 +32,9 @@ public class UserAccountEntity {
 	@Column
 	private String address;
 
+	@Column
+	private String role;
+
 	public UserAccountEntity() {
 	}
 
@@ -54,6 +57,14 @@ public class UserAccountEntity {
 		this.password = password;
 		this.phone = phone;
 		this.address = address;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 
 	/**

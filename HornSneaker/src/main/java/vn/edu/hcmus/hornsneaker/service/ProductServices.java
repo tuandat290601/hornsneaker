@@ -57,6 +57,8 @@ public class ProductServices {
 
 	public List<ProductEntity> getHighlightedProducts(int i) {
 		List<ProductEntity> list = productRepo.findAll(Sort.by(Direction.DESC,"views"));
+		if (i >= list.size()) i = list.size()-1;
+		if (i < 0) return null;
 		return list.subList(0, i);
 	}
 }

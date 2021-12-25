@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "event")
+@Table(name = "sales_event")
 public class SalesEventEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,10 +20,10 @@ public class SalesEventEntity {
 	private String title;
 
 	@Column
-	private Date start;
+	private Date startDate;
 
 	@Column
-	private Date end;
+	private Date endDate;
 
 	public Long getId() {
 		return id;
@@ -41,20 +41,20 @@ public class SalesEventEntity {
 		this.title = title;
 	}
 
-	public Date getStart() {
-		return start;
+	public Date getStartDate() {
+		return startDate;
 	}
 
-	public void setStart(Date start) {
-		this.start = start;
+	public void setStartDate(Date start) {
+		this.startDate = start;
 	}
 
-	public Date getEnd() {
-		return end;
+	public Date getEndDate() {
+		return endDate;
 	}
 
-	public void setEnd(Date end) {
-		this.end = end;
+	public void setEndDate(Date end) {
+		this.endDate = end;
 	}
 
 	//#region getter and setter

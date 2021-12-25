@@ -25,7 +25,9 @@ public class SalesEventServices {
 	}
 
 	public List<SalesEventEntity> findAll(int i) {
-		List<SalesEventEntity> list = salesEventRepo.findAll(Sort.by(Direction.ASC,"start"));
+		List<SalesEventEntity> list = salesEventRepo.findAll(Sort.by(Direction.ASC,"startDate"));
+		if (i >= list.size()) i = list.size()-1;
+		if (i < 0) return null;
 		return list.subList(0, i);
 	}
 
