@@ -19,6 +19,13 @@ public class UserAccountController {
 		model.addAttribute("content", "loginform");
 		return "page";
 	}
+
+	// @RequestMapping("/logout")
+	// public String logout(Model model) {
+
+	// 	model.addAttribute("content", "h");
+	// 	return "page";
+	// }
 	
 	@RequestMapping("/register")
 	public String viewRegister(Model model) {

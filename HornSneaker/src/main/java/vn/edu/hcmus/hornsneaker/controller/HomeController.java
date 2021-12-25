@@ -38,4 +38,5 @@ public class HomeController {
 		model.addAttribute("events", events);
 		return "page";
 	}
+
 }

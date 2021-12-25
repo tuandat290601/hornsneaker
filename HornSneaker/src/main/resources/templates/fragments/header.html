@@ -20,28 +20,39 @@
 		<i class="fas fa-search search-btn"></i>
 	</div>
 	<div class="cotroller">
-		<div class="register">
-			<a href="" class="linktoregister">
-				Đăng nhập
-			</a>
-		</div>
-		<div class="user-controller d-none">
-			<div class="user-email">
-				tuandat290601@gmail.com
-				<i class="fa fa-caret-down" aria-hidden="true"></i>
+		<div sec:authorize="isAnonymous()">
+			<div class="register">
+				<a href="/login" class="linktoregister">
+					Đăng nhập
+				</a>
 			</div>
-			<ul class="user-navbar">
-				<li>
-					<a href="" class="linktocart">
-						My Cart
-					</a>
-				</li>
-				<li>
-					<a href="" class="logout">
-						Log out
-					</a>
-				</li>
-			</ul>
+		</div>
+		<div sec:authorize="isAuthenticated()">
+			<div class="user-controller">
+				<div class="user-email" th:text="${#authentication.name}">
+					tuandat290601@gmail.com
+					<i class="fa fa-caret-down" aria-hidden="true"></i>
+				</div>
+				<ul class="user-navbar">
+					<div sec:authorize="hasRole('ROLE_ADMIN')">
+						<li>
+							<a href="/admin/product" class="linktocart">
+								Products	
+							</a>
+						</li>
+					</div>
+					<li>
+						<a href="/cart" class="linktocart">
+							My Cart
+						</a>
+					</li>
+					<li>
+						<a href="" class="logout">
+							Log out
+						</a>
+					</li>
+				</ul>
+			</div>
 		</div>
 	</div>
 </header>

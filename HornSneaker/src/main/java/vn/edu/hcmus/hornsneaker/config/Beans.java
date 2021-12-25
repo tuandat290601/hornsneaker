@@ -12,4 +12,9 @@ public class Beans {
 	public PasswordEncoder passwordEncoder() {
 		return new BCryptPasswordEncoder();
 	}
+
+	// @Bean
+	// public SpringSecurityDi springSecurityDialect() {
+	// 	return new SpringSecurityDialect();
+	// }
 }
