@@ -33,8 +33,11 @@
 					tuandat290601@gmail.com
 					<i class="fa fa-caret-down" aria-hidden="true"></i>
 				</div>
+
+				<div th:text="${#authentication}"></div>
+
 				<ul class="user-navbar">
-					<div sec:authorize="hasRole('ROLE_ADMIN')">
+					<div sec:authorize="hasRole('ADMIN')">
 						<li>
 							<a href="/admin/product" class="linktocart">
 								Products	
