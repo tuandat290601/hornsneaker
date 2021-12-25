@@ -117,7 +117,7 @@
 
 .search {
     position: absolute;
-    right: 20px;
+    right: 40%;
     top: 10px
 }
 
@@ -139,6 +139,60 @@
     margin-right: 40px;
     padding-left: 10px;
 }
+
+.cotroller {
+    display: flex;
+    position: absolute;
+    right: 10px;
+    padding-top: 15px;
+    top: 0;
+}
+
+.cotroller a {
+    color: white;
+}
+
+.cotroller a:hover {
+    color: var(--lightblue-color);
+}
+
+.user-controller{
+    position: relative;
+}
+
+.user-email {
+    color: white;
+    text-decoration: underline;
+}
+
+.user-email:hover{
+    cursor: pointer;
+    /* text-decoration: underline; */
+    color: var(--lightblue-color);
+}
+
+.user-controller .user-email:hover .user-navbar {
+    display: block;
+}
+
+.user-navbar {
+    list-style: none;
+    display: block;
+    position: absolute;
+    right: 0;
+    width: 150px;
+    background-color: black;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+
+.user-navbar a {
+    padding: 10px;
+}
+
+.user-navbar a:hover {
+    color: var(--lightblue-color);
+}
+
 
 /* Footer */
 #footer {
