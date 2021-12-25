@@ -31,7 +31,7 @@ public class UserAccountServices implements UserDetailsService {
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		UserAccountEntity userAccount = getUserAccountByEmail(email);
 		UserDetails user = User.withUsername(userAccount.getEmail()).password(userAccount.getPassword())
-				.authorities("EMAIL").build();
+				.authorities(userAccount.getRole()).build();
 		return user;
 	}
 
