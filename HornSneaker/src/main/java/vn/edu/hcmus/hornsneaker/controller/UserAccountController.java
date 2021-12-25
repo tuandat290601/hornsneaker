@@ -38,17 +38,11 @@ public class UserAccountController {
 	
 	@PostMapping("/register_success")
 	public String viewRegisterSuccess(UserAccountEntity User, Model model) {
-		if (UserRepo.findByEmail(User.getEmail()) == null) {
-			BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-			String encodedPassword = passwordEncoder.encode(User.getPassword());
-			User.setPassword(encodedPassword);
-			User.setRole("USER");
-			UserRepo.save(User);
-			return "register_success";
-		}
-		else {
-			model.addAttribute("errorMessage", "Email existed!");
-			return "redirect:/register";
-		}
+		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+		String encodedPassword = passwordEncoder.encode(User.getPassword());
+		User.setPassword(encodedPassword);
+		User.setRole("USER");
+		UserRepo.save(User);
+		return "register_success";
 	}
 }
