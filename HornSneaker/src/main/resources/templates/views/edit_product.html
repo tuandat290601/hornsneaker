@@ -1,0 +1,41 @@
+<div th:fragment="edit_product">
+    <div class="container">
+        <form method="post" id="frmEditProduct" enctype="multipart/form-data">
+            <div class="edit_product-card">
+                <h4 class="edit_product-card-header">
+                    Edit Product
+                </h4>
+                <div class="edit_product-card-body">
+                    <div class="mb-3">
+                        <label for="productname" class="form-label">Tên sản phẩm:</label>
+                        <input type="text" class="form-control" id="productname" name="product-name" autofocus value="Tên sản phẩm cũ">
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Giá:</label>
+                        <input type="number" class="form-control" id="productprice" name="product-price" value="1">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea class="form-control" style="height: 300px" id="description" name="description"
+                                  placeholder="Product Description">
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Hình ảnh:</label>
+                        <input type="file" accept="image/*" class="file form-control" id="img" name="img"
+                               data-browse-on-zone-click="true" data-show-upload="false">
+                    </div>
+                    <a class="btn btn-outline-success back-btn" href="" role="button">
+                        <i class="fa fa-backward" aria-hidden="true"></i>
+                        Back to Product List</a>
+                    <button type="submit" class="btn btn-primary save-btn">Save changes
+                        <i class="fa fa-check"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+

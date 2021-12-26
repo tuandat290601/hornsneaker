@@ -1,0 +1,17 @@
+.edit_product-card-body label{
+    font-size: 15px;
+}
+#frmEditProduct{
+    width: 100%;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    padding-left: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.back-btn,.save-btn{
+    height: 30px;
+}
+
+
+
