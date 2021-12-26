@@ -1,0 +1,39 @@
+<div th:fragment="add_product">
+    <div class="container">
+        <form method="post" id="frmAddProduct" enctype="multipart/form-data">
+            <div class="add_product-card">
+                <h4 class="add_product-card-header">
+                    Add Product
+                </h4>
+                <div class="add_product-card-body">
+                    <div class="mb-3">
+                        <label for="productname" class="form-label">Tên sản phẩm:</label>
+                        <input type="text" class="form-control" id="productname" name="product-name" autofocus>
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Giá:</label>
+                        <input type="number" class="form-control" id="productprice" name="product-price">
+                    </div>
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description:</label>
+                        <textarea class="form-control" style="height: 300px" id="description" name="description"
+                                  placeholder="Product Description">
+                        </textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="img" class="form-label">Hình ảnh:</label>
+                        <input type="file" accept="image/*" class="file form-control" id="img" name="img"
+                               data-browse-on-zone-click="true" data-show-upload="false">
+                    </div>
+                    <a class="btn btn-outline-success" href="" role="button">
+                        <i class="fa fa-backward" aria-hidden="true"></i>
+                        Back to Product List</a>
+                    <button type="submit" class="btn btn-primary">Add new product
+                        <i class="fa fa-plus"></i>
+                    </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
