@@ -1,6 +1,7 @@
 package vn.edu.hcmus.hornsneaker.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
@@ -15,6 +16,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .authorizeRequests()
                     .antMatchers("/product/**","/assets/**", "/", "/home", "/register", "/register_success", "/login_success", "/category").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
+                    .antMatchers(HttpMethod.POST, "/admin/**").hasAuthority("ADMIN")
                     .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
                     .and()
                 .formLogin() // Cho phép người dùng xác thực bằng form login
