@@ -14,11 +14,13 @@ public class UserAccountController {
 	@Autowired
 	private UserAccountRepository UserRepo;
 	
+	
 	@RequestMapping("/login")
 	public String viewLogin(Model model) {
 		model.addAttribute("content", "loginform");
 		return "page";
 	}
+	
 
 	// @RequestMapping("/logout")
 	// public String logout(Model model) {
@@ -35,17 +37,12 @@ public class UserAccountController {
 	}
 	
 	@PostMapping("/register_success")
-	public String viewRegisterSuccess(UserAccountEntity User) {
+	public String viewRegisterSuccess(UserAccountEntity User, Model model) {
 		BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
 		String encodedPassword = passwordEncoder.encode(User.getPassword());
 		User.setPassword(encodedPassword);
 		User.setRole("USER");
 		UserRepo.save(User);
 		return "register_success";
-	}
-	
-	@PostMapping("/login_success")
-	public String viewLoginSuccess(UserAccountEntity User) {
-		return "login_success";
 	}
 }

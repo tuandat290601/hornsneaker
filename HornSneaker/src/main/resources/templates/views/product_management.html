@@ -10,80 +10,53 @@
                 <p class="title-remove"></p>
             </div>
             <ul class="management-list">
-                <li class="management-item">
-                    <div class="item-info">
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                        <p class="item-name">Jordan Dior</p>
-                        <p class="item-price">1500000</p>
-                        <a href="">
-                            <button type="button" class="btn btn-success management-btn">
-                                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                        <a href="">
-                            <button type="button" class="btn btn-danger management-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                    </div>
-                </li>
-                                <li class="management-item">
-                    <div class="item-info">
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                        <p class="item-name">Jordan Dior</p>
-                        <p class="item-price">1500000</p>
-                        <a href="">
-                            <button type="button" class="btn btn-success management-btn">
-                                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                        <a href="">
-                            <button type="button" class="btn btn-danger management-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                    </div>
-                </li>
-                                <li class="management-item">
-                    <div class="item-info">
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                        <p class="item-name">Jordan Dior</p>
-                        <p class="item-price">1500000</p>
-                        <a href="">
-                            <button type="button" class="btn btn-success management-btn">
-                                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                        <a href="">
-                            <button type="button" class="btn btn-danger management-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                    </div>
-                </li>
-                                <li class="management-item">
-                    <div class="item-info">
-                        <img src="https://static.nike.com/a/images/c_limit,w_592,f_auto/t_product_v1/fb15a297-137b-4cdf-8df1-663ae0623af7/sb-dunk-high-pro-skate-shoes-BKPRGl.png" alt="" class="pro-img-cart">
-                        <p class="item-name">Jordan Dior</p>
-                        <p class="item-price">1500000</p>
-                        <a href="">
-                            <button type="button" class="btn btn-success management-btn">
-                                <i class="fa fa-pencil-alt" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                        <a href="">
-                            <button type="button" class="btn btn-danger management-btn">
-                                <i class="fa fa-times" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                    </div>
-                </li>
+                <th:block th:each="product : ${products}">
+                    <li class="management-item">
+                        <div class="item-info">
+                            <img th:src="${image}" alt="" class="pro-img-cart">
+                            <p class="item-name" th:text="${name}">Jordan Dior</p>
+                            <p class="item-price" th:text="${price}">1500000</p>
+                            <a href="/admin/product/edit">
+                                <button type="button" class="btn btn-success edit-btn">
+                                    <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                                </button>
+                            </a>
+                            <a href="">
+                                <button type="button" class="btn btn-danger delete-btn">
+                                    <i class="fa fa-times" aria-hidden="true"></i>
+                                </button>
+                            </a>
+                        </div>
+                    </li>
+                </th:block>
             </ul>
             <div class="Btn-add">
-                <a role="button" class="btn btn-outline-primary add-btn" href="">
+                <a role="button" class="btn btn-outline-primary add-btn" href="product/add">
                     <i class="fa fa-plus add-title">Thêm sản phẩm</i>
                 </a>
             </div>
         </div>
+        <div class="modal-delete hide">
+            <div class="modal-delete-inner">
+                <div class="modal-delete-header">
+                    <h2>Xóa sản phẩm</h2>
+                    <i class="fas fa-times"></i>
+                </div>
+                <div class="modal-delete-body">
+                    <h2>Bạn có chắc muốn xóa sản phẩm này ?</h2>
+                </div>
+                <div class="modal-delete-footer">
+                    <div class="footer-btn">
+                        <button type="button" class="btn btn-success accept-btn">
+                            <i class="" aria-hidden="true"></i>Đồng ý
+                        </button>
+                        <button type="button" class="btn btn-danger cancel-btn">
+                            <i class="" aria-hidden="true"></i>Hủy bỏ
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="/assets/js/delete_product.js"></script>
 </div>
