@@ -11,8 +11,8 @@
 				<li><a href="">MLB</a></li>
 			</ul>
 		</li>
-		<li class="header-nav-link"><a href="">TIN TỨC</a></li>
-		<li class="header-nav-link"><a href="">GIẢM GIÁ</a></li>
+		<li class="header-nav-link"><a href="/news">TIN TỨC</a></li>
+		<li class="header-nav-link"><a href="/sales">GIẢM GIÁ</a></li>
 		<li class="header-nav-link"><a href="#footer">LIÊN HỆ</a></li>
 	</ul>
 	<div class="search">
@@ -35,22 +35,10 @@
 				</div>
 				<ul class="user-navbar">
 					<div sec:authorize="hasAuthority('ADMIN')">
-						<li>
-							<a href="/admin/product" class="linktocart">
-								Products	
-							</a>
-						</li>
+						<li><a href="/admin/product" class="linktocart">Products</a></li>
 					</div>
-					<li>
-						<a href="/cart" class="linktocart">
-							My Cart
-						</a>
-					</li>
-					<li>
-						<a href="/logout" class="logout">
-							Log out
-						</a>
-					</li>
+					<li><a href="/cart" class="linktocart">My Cart</a></li>
+					<li><a href="/logout" class="logout">Log out</a></li>
 				</ul>
 			</div>
 		</div>

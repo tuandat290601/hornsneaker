@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import vn.edu.hcmus.hornsneaker.service.NewsServices;
 
 @Controller
-@RequestMapping("/news")
 public class NewsController {
 
 	@Autowired
