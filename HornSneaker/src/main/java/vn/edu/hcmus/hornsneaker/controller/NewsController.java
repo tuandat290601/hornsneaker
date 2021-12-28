@@ -14,7 +14,7 @@ public class NewsController {
 	@Autowired
 	private NewsServices newsServices;
 
-	@RequestMapping("")
+	@RequestMapping("/news")
 	public String viewNews(Model model) {
 		model.addAttribute("content", "news");
 		model.addAttribute("news", newsServices.findAll());
