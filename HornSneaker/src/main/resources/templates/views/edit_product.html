@@ -11,18 +11,30 @@
                         <input type="text" class="form-control" id="productname" name="product-name" autofocus value="Tên sản phẩm cũ">
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label">Giá:</label>
+                        <label for="productprice" class="form-label">Giá:</label>
                         <input type="number" class="form-control" id="productprice" name="product-price" value="1">
                     </div>
                     <div class="mb-3">
-                        <label for="description" class="form-label">Mô tả:</label>
-                        <textarea class="form-control" style="height: 300px" id="description" name="description"
+                        <label for="producttype" class="form-label">Loại giày:</label>
+                        <select class="form-control" id="type" name="product-type">
+                            <option value="Nike">Nike</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productsize" class="form-label">Size giày:</label>
+                        <select class="form-control" id="size" name="product-size">
+                            <option value="37">37</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="productdescription" class="form-label">Mô tả sản phẩm:</label>
+                        <textarea class="form-control" style="height: 300px" id="description" name="product-description"
                                   placeholder="Product Description">
                         </textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="img" class="form-label">Hình ảnh:</label>
-                        <input type="file" accept="image/*" class="file form-control" id="img" name="img"
+                        <label for="productimg" class="form-label">Hình ảnh:</label>
+                        <input type="file" accept="image/*" class="file form-control" id="img" name="product-img"
                                data-browse-on-zone-click="true" data-show-upload="false">
                     </div>
                     <a class="btn btn-outline-success back-btn" href="" role="button">

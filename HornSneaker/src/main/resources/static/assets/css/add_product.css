@@ -13,4 +13,7 @@
     align-items: center;
     justify-content: center;
 }
+.add_product-card-body input,.add_product-card-body option{
+    font-size: 12px;
+}
 

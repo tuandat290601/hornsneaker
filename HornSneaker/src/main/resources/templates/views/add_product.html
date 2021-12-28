@@ -15,6 +15,18 @@
                         <input th:field="*{price}" type="number" class="form-control" >
                     </div>
                     <div class="mb-3">
+                        <label for="type" class="form-label">Loại giày:</label>
+                        <select class="form-control">
+                            <option value="Niek">Nike</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
+                        <label for="size" class="form-label">Size giày:</label>
+                        <select class="form-control">
+                            <option value="37">37</option>
+                        </select>
+                    </div>
+                    <div class="mb-3">
                         <label for="description" class="form-label">Mô tả sản phẩm:</label>
                         <textarea th:field="*{description}" class="form-control" style="height: 300px"
                                   placeholder="Product Description">

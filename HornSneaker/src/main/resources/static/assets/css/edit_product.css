@@ -17,6 +17,9 @@
 .back-btn,.save-btn{
     height: 30px;
 }
+.edit_product-card-body input,.edit_product-card-body option{
+    font-size: 12px;
+}
 
 
 
