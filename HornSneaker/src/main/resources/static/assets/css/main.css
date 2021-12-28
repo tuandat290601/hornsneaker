@@ -196,6 +196,8 @@
 
 /* Footer */
 #footer {
+    position: absolute;
+    bottom: 0;
     width: 100%;
     margin-top: 100px;
     background-color: rgba(0, 0, 0, 0.8);
