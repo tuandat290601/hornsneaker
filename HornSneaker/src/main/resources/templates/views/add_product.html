@@ -21,10 +21,12 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="size" class="form-label">Size giày:</label>
-                        <select class="form-control">
-                            <option value="37">37</option>
-                        </select>
+                        <label for="price" class="form-label">Size giày:</label>
+                        <input th:value="${productSizes.size}" type="number" class="form-control" >
+                    </div>
+                    <div class="mb-3">
+                        <label for="price" class="form-label">Số lượng:</label>
+                        <input th:value="${productSizes.stock}" type="number" class="form-control" >
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Mô tả sản phẩm:</label>
@@ -33,9 +35,8 @@
                         </textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="img" class="form-label">Hình ảnh:</label>
-                        <input th:field="*{image}" type="file" accept="image/*" class="file form-control" 
-                               data-browse-on-zone-click="true" data-show-upload="false">
+                        <label for="price" class="form-label">Giá:</label>
+                        <input th:field="*{image}" type="text" class="form-control" >
                     </div>
                     <a class="btn btn-outline-success" href="/admin/product" role="button">
                         <i class="fa fa-backward" aria-hidden="true"></i>
@@ -48,6 +49,5 @@
         </form>
     </div>
     <link rel="stylesheet" href="/assets/css/add_product.css">
-
 </div>
 

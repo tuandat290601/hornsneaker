@@ -15,7 +15,7 @@ public class ProductSizesEntity {
 	private Long id;
 
 	@Column(nullable = false)
-	private Long productId;
+	private Long product_id;
 
     @Column
 	private int size;
@@ -51,11 +51,11 @@ public class ProductSizesEntity {
 
 
     public Long getProductId() {
-        return productId;
+        return product_id;
     }
 
     public void setProductId(Long productId) {
-        this.productId = productId;
+        this.product_id = productId;
     }
 
 	//#endregion

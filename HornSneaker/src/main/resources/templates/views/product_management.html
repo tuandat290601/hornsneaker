@@ -13,10 +13,10 @@
                 <th:block th:each="product : ${products}">
                     <li class="management-item">
                         <div class="item-info">
-                            <img th:src="${image}" alt="" class="pro-img-cart">
-                            <p class="item-name" th:text="${name}">Jordan Dior</p>
-                            <p class="item-price" th:text="${price}">1500000</p>
-                            <a href="/admin/product/edit">
+                            <img th:src="*{product.image}" alt="" class="pro-img-cart">
+                            <p class="item-name" th:text="*{product.name}"></p>
+                            <p class="item-price" th:text="*{product.price}"></p>
+                            <a th:href=@{/admin/product/edit/{productId}(productId=${product.id})}>
                                 <button type="button" class="btn btn-success edit-btn">
                                     <i class="fa fa-pencil-alt" aria-hidden="true"></i>
                                 </button>

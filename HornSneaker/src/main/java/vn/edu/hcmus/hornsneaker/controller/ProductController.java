@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
+import vn.edu.hcmus.hornsneaker.dao.domain.ProductSizesEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.ProductRepository;
 import vn.edu.hcmus.hornsneaker.service.CartServices;
 import vn.edu.hcmus.hornsneaker.service.ProductServices;
@@ -55,7 +56,6 @@ public class ProductController {
 	@RequestMapping("/admin/product")
 	public String viewProductManagement(Model model) {
 		List<ProductEntity> products = productRepo.findAll();
-
 		model.addAttribute("content", "product_management");
 		model.addAttribute("products", products);
 		return "page";
@@ -65,22 +65,39 @@ public class ProductController {
 	public String viewAddProduct(Model model) {
 		model.addAttribute("content", "add_product");
 		model.addAttribute("product", new ProductEntity());
+		model.addAttribute("productSizes", new ProductSizesEntity());
 		return "page";
 	}
 
 	@PostMapping("/admin/product/add")
-	public String addProduct(@ModelAttribute ProductEntity product, Model model) {
+	public String addProduct(@ModelAttribute ProductEntity product, @ModelAttribute ProductSizesEntity productSizes, Model model) {
 		model.addAttribute("content", "add_product");
+		productServices.addProduct(product, productSizes);
+		System.out.println(productSizes.getSize());
+		System.out.println(productSizes.getStock());
 		return "redirect:/admin/product";
 	}
 	
 	@RequestMapping("/admin/product/edit/{productId}")
 	public String viewEditProduct(@PathVariable("productId") Long productId, Model model) {
 		ProductEntity product = productRepo.getById(productId);
-
 		model.addAttribute("content", "edit_product");
 		model.addAttribute("product", product);
 		return "page";
 	}
 
+	@PostMapping("/admin/product/edit/save")
+	public String editProduct(ProductEntity product, Model model) {
+		productServices.editProduct(product.getId(), product);
+		model.addAttribute("content", "edit_product");
+		model.addAttribute("product", product);
+		return "page";
+	}
+	
+	@RequestMapping("/admin/product/delete/{productId}")
+	public String deleteProduct(@PathVariable("productId") Long id, Model model) {
+		productRepo.delete(productRepo.getById(id));
+		return "redirect:/admin/product";
+	}
+	
 }
