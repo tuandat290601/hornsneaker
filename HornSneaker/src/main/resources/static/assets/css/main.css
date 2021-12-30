@@ -157,6 +157,7 @@
 }
 
 .user-controller{
+    /* display: none; */
     position: relative;
 }
 
@@ -171,13 +172,13 @@
     color: var(--lightblue-color);
 }
 
-.user-controller .user-email:hover .user-navbar {
+.user-controller .user-email:hover + .user-navbar {
     display: block;
 }
 
 .user-navbar {
     list-style: none;
-    display: block;
+    display: none;
     position: absolute;
     right: 0;
     width: 150px;
@@ -196,7 +197,7 @@
 
 /* Footer */
 #footer {
-    clear: both;
+    /* clear: both; */
     position: relative;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
@@ -222,14 +223,17 @@
     text-decoration: none;
     color: white;
 }
+
 .welcome{
     font-size: 1.5rem;
     text-align: center;
 }
+
 #homeslider{
     padding-top: 50px;
     justify-content: center;
 }
+
 .carousel-item {
     background-position: center;
     position: center;
