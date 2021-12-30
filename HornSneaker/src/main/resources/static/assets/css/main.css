@@ -239,7 +239,7 @@
 .card-img-top{
     cursor:pointer;
 }
-.product-main{
+.news-main,.product-main{
     padding-top:50px
 }
 div a, a:hover {
