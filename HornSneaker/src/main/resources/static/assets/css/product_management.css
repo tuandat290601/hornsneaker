@@ -72,7 +72,7 @@ p {
     font-size: 14px;
 }
 
-.edit-btn,.delete-btn{
+.edit-btn,.product_delete-btn{
     font-size: 20px !important;
     padding: 0 5px !important;
     height: 40px;

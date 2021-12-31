@@ -43,13 +43,13 @@
                     <label for="price" class="form-label">Số lượng:</label> <input
                         th:field="*{stock}" type="number" class="form-control">
                 </div>
-                <input type="button" value="Thêm size" onclick="submitForms()"/>
+                <input type="button" class="btn btn-danger" value="Thêm size" onclick="submitForms()"/>
                 <div class="sizeandStock" th:each="item : ${sizeList}">
                     <p>Size: </p>
                     <p th:text="${item.size}"></p>
                     <p>Số lượng: </p>
                     <p th:text="${item.stock}"></p>
-                    <button type="button" class="btn btn-danger delete-btn">
+                    <button type="button" class="btn btn-danger add-delete-btn">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
@@ -58,19 +58,18 @@
                 <a class="btn btn-outline-success" href="/admin/product" role="button">
                     <i class="fa fa-backward" aria-hidden="true"></i>
                     Quay lại</a>
-                <input type="button" value="Thêm sản phẩm" onclick="submitForms2()">
-
+                <input type="button" class="btn btn-primary" value="Thêm sản phẩm" onclick="submitForms2()">
             </div>
         </div>
     </div>
     <script>
-	    submitForms = function(){
-	        document.getElementById("frmAddProduct").submit();
-	        document.getElementById("frmSizeandStock").submit();
-	    }
-	    submitForms2 = function(){
-	        document.getElementById("frmAddProduct").submit();
-	    }
+        submitForms = function () {
+            document.getElementById("frmAddProduct").submit();
+            document.getElementById("frmSizeandStock").submit();
+        }
+        submitForms2 = function () {
+            document.getElementById("frmAddProduct").submit();
+        }
     </script>
     <link rel="stylesheet" href="/assets/css/add_product.css">
 </div>

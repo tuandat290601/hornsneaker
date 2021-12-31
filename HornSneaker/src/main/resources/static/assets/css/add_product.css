@@ -32,7 +32,8 @@
 .group-btn{
     padding-left:50px
 }
-.delete-btn{
+.add-delete-btn{
+    padding: 0 5px !important;
     font-size: 10px !important;
     height:20px;
     width:20px;
