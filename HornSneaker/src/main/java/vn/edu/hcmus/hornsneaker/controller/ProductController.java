@@ -60,11 +60,8 @@ public class ProductController {
 
 		productServices.increaseViews(product);
 		model.addAttribute("content", "product_detail");
-		model.addAttribute("name", product.getName());
-		model.addAttribute("price", product.getPriceFormatted());
-		model.addAttribute("description", product.getDescription());
-		model.addAttribute("image", product.getImage());
-		model.addAttribute("id", product.getId());
+		model.addAttribute("product", product);
+		model.addAttribute("priceFormatted", product.getPriceFormatted());
 		model.addAttribute("sizes", sizes);
 		model.addAttribute("isAdded", isAdded);
 		return "page";
