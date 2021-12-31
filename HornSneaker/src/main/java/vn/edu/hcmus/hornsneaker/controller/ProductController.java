@@ -31,7 +31,7 @@ public class ProductController {
 	private CartServices cartServices;
 	
 	ArrayList<ProductSizesEntity> sizeList = new ArrayList<>();
-	ProductEntity local;
+	ProductEntity local = new ProductEntity();
 
 	@RequestMapping("/category")
 	public String viewProduct(@RequestParam(value = "search", defaultValue = "") String query, Model model) {
@@ -75,15 +75,17 @@ public class ProductController {
 	@RequestMapping("/admin/product/add")
 	public String viewAddProduct(Model model) {	
 		model.addAttribute("content", "add_product");
-		if (local == null) model.addAttribute("product", new ProductEntity());
-		else model.addAttribute("product", local);
+		model.addAttribute("product", local);
 		model.addAttribute("productSize", new ProductSizesEntity());
 		model.addAttribute("sizeList", sizeList);
 		return "page";
 	}
 	
 	@PostMapping("/admin/product/addSize")
-	public String addProduct(@ModelAttribute ProductSizesEntity productSize, Model model) {
+	public String addSize(@ModelAttribute ProductEntity product, @ModelAttribute ProductSizesEntity productSize, Model model) {
+		System.out.println("Add size");
+		System.out.println(product.getName());
+		System.out.println(local.getName());
 		model.addAttribute("content", "add_product");
 		sizeList.add(productSize);
 		//productServices.addProduct(product, productSizes);
@@ -91,11 +93,10 @@ public class ProductController {
 	}
 	
 
-	@PostMapping("/admin/product/addProduct")
-	public String addProduct(@ModelAttribute ProductEntity product, @ModelAttribute ProductSizesEntity productSizes, Model model) {
+	@PostMapping("/admin/product/add")
+	public String addProduct(@ModelAttribute ProductEntity product, Model model) {
 		model.addAttribute("content", "add_product");
-		
-		//productServices.addProduct(product, productSizes);
+		productServices.addProduct(product, sizeList);
 		return "redirect:/admin/product";
 	}
 	

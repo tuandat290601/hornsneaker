@@ -29,7 +29,7 @@
                         </textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="price" class="form-label">Giá:</label>
+                        <label for="price" class="form-label">Link ảnh:</label>
                         <input th:field="*{image}" type="text" class="form-control" >
                     </div>
                 </div>
@@ -43,7 +43,7 @@
                     <label for="price" class="form-label">Số lượng:</label> <input
                         th:field="*{stock}" type="number" class="form-control">
                 </div>
-                <button type="submit" class="btn btn-danger">Thêm size</button>
+                <input type="button" value="Thêm size" onclick="submitForms()"/>
                 <div class="sizeandStock" th:each="item : ${sizeList}">
                     <p>Size: </p>
                     <p th:text="${item.size}"></p>
@@ -58,12 +58,20 @@
                 <a class="btn btn-outline-success" href="/admin/product" role="button">
                     <i class="fa fa-backward" aria-hidden="true"></i>
                     Quay lại</a>
-                <button type="submit" class="btn btn-primary">Thêm sản phẩm
-                    <i class="fa fa-plus"></i>
-                </button>
+                <input type="button" value="Thêm sản phẩm" onclick="submitForms2()">
+
             </div>
         </div>
     </div>
+    <script>
+	    submitForms = function(){
+	        document.getElementById("frmAddProduct").submit();
+	        document.getElementById("frmSizeandStock").submit();
+	    }
+	    submitForms2 = function(){
+	        document.getElementById("frmAddProduct").submit();
+	    }
+    </script>
     <link rel="stylesheet" href="/assets/css/add_product.css">
 </div>
 
