@@ -1,24 +1,33 @@
 <!-- Header -->
 <header id="header">
+	<script>
+		function pressKey(ev) {
+			if (ev.keyCode == 13) {
+				const query = document.getElementById('search-input')
+				window.location = '/category?search=' + query.value
+			}
+		}
+	</script>
+
 	<ul class="header-nav-list">
 		<li><i id="res-menu-btn" class="fas fa-bars menu-btn"></i></li>
-		<li class="header-nav-link"><a href="">TRANG CHỦ</a></li>
+		<li class="header-nav-link"><a href="/">TRANG CHỦ</a></li>
 		<li class="header-nav-link"><a href="/category"> SNEAKER <i class="down-sort fas fa-angle-down"></i>
 			</a>
 			<ul class="product-subnav drop-right">
-				<li><a href="">Nike</a></li>
-				<li><a href="">Adidas</a></li>
-				<li><a href="">MLB</a></li>
+				<li><a href="/category?type=nike">Nike</a></li>
+				<li><a href="/category?type=adidas">Adidas</a></li>
+				<li><a href="/category?type=mlb">MLB</a></li>
 			</ul>
 		</li>
 		<li class="header-nav-link"><a href="/news">TIN TỨC</a></li>
 		<li class="header-nav-link"><a href="/sales">GIẢM GIÁ</a></li>
 		<li class="header-nav-link"><a href="#footer">LIÊN HỆ</a></li>
 	</ul>
-	<!-- <div class="search">
-		<input type="text" class="search-box" placeholder="Search" />
+	<div class="search">
+		<input type="text" class="search-box" id="search-input" placeholder="Search" onkeypress="pressKey(event)" />
 		<i class="fas fa-search search-btn"></i>
-	</div> -->
+	</div>
 	<div class="cotroller">
 		<div sec:authorize="isAnonymous()">
 			<div class="register">
@@ -43,6 +52,5 @@
 			</div>
 		</div>
 	</div>
-    <link rel="stylesheet" href="/assets/css/main.css">
-
+	<link rel="stylesheet" href="/assets/css/main.css">
 </header>

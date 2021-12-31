@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductSizesEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.ProductRepository;
@@ -32,9 +34,15 @@ public class ProductController {
 	ProductEntity local;
 
 	@RequestMapping("/category")
-	public String viewProduct(Model model) {
+	public String viewProduct(@RequestParam(value = "search", defaultValue = "") String query, Model model) {
+		List<ProductEntity> products;
+		if (query.equals("")) products = productRepo.findAll();
+		else {
+			products = productServices.search(query);
+			if (products.size() == 0) model.addAttribute("info", "Can't find the item you searched for");
+		}
 		model.addAttribute("content", "category");
-		model.addAttribute("products", productRepo.findAll());
+		model.addAttribute("products", products);
 		return "page";
 	}
 

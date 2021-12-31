@@ -1,74 +1,23 @@
 <div th:fragment="news">
     <div class="mycontainer">
         <div class="row">
-            <div class="col-4">
-                <div class="news">
-                    <a href="">
-                        <div class="news-thumb">
-                            <img src="https://kenh14cdn.com/zoom/280_175/203336854389633024/2021/12/28/photo1640701733811-1640701734175883390291.png" alt="">
-                        </div>
-                        <div class="news-title">
-                            <h5>BQL chung cư Saigon Pearl chính thức lên tiếng vụ bé gái 8 tuổi tử vong: "Bảo vệ không phát hiện bất thường, không nhận được phản ánh nào"</h5>
-                        </div>
-                        <div class="news-content">
-                            <p>
-                                Tối 28/12, ban quản lý chung cư Topaz, Saigon Pearl - nơi bé V.A. (8 tuổi) sống cùng "dì ghẻ" Võ Nguyễn Quỳnh Trang và bố ruột đã đưa ra một số thông báo xoay quanh vụ việc khiến dư luận dậy sóng thời gian qua.
-                            </p>
-                        </div>
-                    </a>   
+            <th:block th:each="news: ${newsList}">
+                <div class="col-4">
+                    <div class="news">
+                        <a href="">
+                            <div class="news-thumb">
+                                <img th:src="${news.image}" alt="">
+                            </div>
+                            <div class="news-title">
+                                <h5 th:text="${news.title}"></h5>
+                            </div>
+                            <div class="news-content">
+                                <p th:text="${news.content}"></p>
+                            </div>
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div class="col-4">
-                <div class="news">
-                    <a href="">
-                        <div class="news-thumb">
-                            <img src="https://kenh14cdn.com/zoom/280_175/203336854389633024/2021/12/28/photo1640701733811-1640701734175883390291.png" alt="">
-                        </div>
-                        <div class="news-title">
-                            <h5>BQL chung cư Saigon Pearl chính thức lên tiếng vụ bé gái 8 tuổi tử vong: "Bảo vệ không phát hiện bất thường, không nhận được phản ánh nào"</h5>
-                        </div>
-                        <div class="news-content">
-                            <p>
-                                Tối 28/12, ban quản lý chung cư Topaz, Saigon Pearl - nơi bé V.A. (8 tuổi) sống cùng "dì ghẻ" Võ Nguyễn Quỳnh Trang và bố ruột đã đưa ra một số thông báo xoay quanh vụ việc khiến dư luận dậy sóng thời gian qua.
-                            </p>
-                        </div>
-                    </a>   
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="news">
-                    <a href="">
-                        <div class="news-thumb">
-                            <img src="https://kenh14cdn.com/zoom/280_175/203336854389633024/2021/12/28/photo1640701733811-1640701734175883390291.png" alt="">
-                        </div>
-                        <div class="news-title">
-                            <h5>BQL chung cư Saigon Pearl chính thức lên tiếng vụ bé gái 8 tuổi tử vong: "Bảo vệ không phát hiện bất thường, không nhận được phản ánh nào"</h5>
-                        </div>
-                        <div class="news-content">
-                            <p>
-                                Tối 28/12, ban quản lý chung cư Topaz, Saigon Pearl - nơi bé V.A. (8 tuổi) sống cùng "dì ghẻ" Võ Nguyễn Quỳnh Trang và bố ruột đã đưa ra một số thông báo xoay quanh vụ việc khiến dư luận dậy sóng thời gian qua.
-                            </p>
-                        </div>
-                    </a>   
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="news">
-                    <a href="">
-                        <div class="news-thumb">
-                            <img src="https://kenh14cdn.com/zoom/280_175/203336854389633024/2021/12/28/photo1640701733811-1640701734175883390291.png" alt="">
-                        </div>
-                        <div class="news-title">
-                            <h5>BQL chung cư Saigon Pearl chính thức lên tiếng vụ bé gái 8 tuổi tử vong: "Bảo vệ không phát hiện bất thường, không nhận được phản ánh nào"</h5>
-                        </div>
-                        <div class="news-content">
-                            <p>
-                                Tối 28/12, ban quản lý chung cư Topaz, Saigon Pearl - nơi bé V.A. (8 tuổi) sống cùng "dì ghẻ" Võ Nguyễn Quỳnh Trang và bố ruột đã đưa ra một số thông báo xoay quanh vụ việc khiến dư luận dậy sóng thời gian qua.
-                            </p>
-                        </div>
-                    </a>   
-                </div>
-            </div>
+            </th:block>
         </div>
     </div>
     <link rel="stylesheet" href="/assets/css/news.css">

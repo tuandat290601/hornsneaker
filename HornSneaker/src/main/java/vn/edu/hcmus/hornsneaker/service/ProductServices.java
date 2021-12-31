@@ -5,10 +5,13 @@ import java.util.List;
 
 import javax.transaction.Transactional;
 
+import org.hibernate.transform.ResultTransformer;
+
 //import java.math.BigInteger;
 //import java.util.ArrayList;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.ExampleMatcher;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
@@ -83,5 +86,16 @@ public class ProductServices {
 		product.setPrice(obj.getPrice());
 		productRepo.save(product);
 	}
+
+    public List<ProductEntity> search(String query) {
+        List<ProductEntity> productList = productRepo.findAll(Sort.by(Direction.DESC,"views"));
+		ArrayList<ProductEntity> result = new ArrayList<>();
+		for (ProductEntity productEntity : productList) {
+			if (productEntity.getName().toLowerCase().contains(query.toLowerCase())) {
+				result.add(productEntity);
+			}
+		}
+		return result;
+    }
 
 }

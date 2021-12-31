@@ -11,8 +11,11 @@
 					<a href="" class="cate-kind-list-item">Jordan</a>
 					<a href="" class="cate-kind-list-item">Jordan</a>
 				</ul>
-			</div>
-			<ul class="category-list">
+			</div>			
+			<ul class="category-list">		
+				<div th:if="${info}">
+					<li th:text="${info}"></th:text>
+				</div>					
 				<th:block th:each="product : ${products}">
 					<li class = "col-4">
 						<div class="category-item">
