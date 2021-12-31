@@ -30,11 +30,9 @@ public class ProductServices {
 	@Autowired
 	private ProductSizesRepository sizesRepository;
 	
-	/*
-	public ArrayList<ProductEntity> listAllProducts() {
+	public List<ProductEntity> findAll() {
 		return productRepo.findAll();
 	}
-	*/
 
 	public ProductEntity find(Long id) {
 		return productRepo.getById(id);		
@@ -49,7 +47,6 @@ public class ProductServices {
 				list.add(productSizesEntity.getSize());
 			}
 		}
-
 		return list;
 	}
 
@@ -96,6 +93,10 @@ public class ProductServices {
 			}
 		}
 		return result;
+    }
+
+    public List<ProductEntity> findByType(String type) {
+		return productRepo.findByType(type);
     }
 
 }
