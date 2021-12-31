@@ -34,13 +34,19 @@ public class ProductController {
 	ProductEntity local;
 
 	@RequestMapping("/category")
-	public String viewProduct(@RequestParam(value = "search", defaultValue = "") String query, Model model) {
+	public String viewProduct(@RequestParam(value = "search", defaultValue = "") String query, 
+							@RequestParam(value = "type", defaultValue = "") String type, 
+							Model model) {
 		List<ProductEntity> products;
-		if (query.equals("")) products = productRepo.findAll();
+		if (query.equals("") && type.equals("")) products = productServices.findAll(); 
+		else if (!type.equals("")) products = productServices.findByType(type);
 		else {
 			products = productServices.search(query);
 			if (products.size() == 0) model.addAttribute("info", "Can't find the item you searched for");
+			if (type.equals("")) type = "Search Result";
 		}
+		if (type.equals("")) type = "All";
+		model.addAttribute("title", type);
 		model.addAttribute("content", "category");
 		model.addAttribute("products", products);
 		return "page";
