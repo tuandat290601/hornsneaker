@@ -16,7 +16,7 @@ public class NewsController {
 	@RequestMapping("/news")
 	public String viewNews(Model model) {
 		model.addAttribute("content", "news");
-		model.addAttribute("news", newsServices.findAll());
+		model.addAttribute("newsList", newsServices.findAll());
 		return "page";
 	}
 
