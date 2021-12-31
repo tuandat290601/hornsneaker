@@ -25,4 +25,4 @@ function validatePassword(){
 }
 
 if (password != null) password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
+if (confirm_password != null) confirm_password.onkeyup = validatePassword;
