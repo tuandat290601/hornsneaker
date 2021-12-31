@@ -8,12 +8,36 @@
 #frmAddProduct{
     width: 100%;
     padding-top: 70px;
-    padding-bottom: 20px;
     padding-left: 50px;
     align-items: center;
     justify-content: center;
 }
-.add_product-card-body input,.add_product-card-body option{
+#frmSizeandStock{
+    width: 100%;
+    padding-bottom: 10px;
+    padding-left: 50px;
+    align-items: center;
+    justify-content: center;
+}
+.add_product-card-body input,.add_product-card-body option,#frmSizeandStock input,#frmSizeandStock p{
     font-size: 12px;
 }
-
+.sizeandStock{
+    display: flex;
+    justify-content: space-between;
+}
+.container{
+    padding-bottom: 20px;
+}
+.group-btn{
+    padding-left:50px
+}
+.delete-btn{
+    font-size: 10px !important;
+    height:20px;
+    width:20px;
+    justify-content: center;
+}
+.sizeandStock{
+    padding-bottom:20px;
+}

@@ -240,8 +240,11 @@
     padding-left: 50px;
     padding-right:50px;
 }
-.card-img-top{
+.card_img{
     cursor:pointer;
+    width: 100%;
+    height:100%;
+    object-fit: contain;
 }
 .news-main,.product-main{
     padding-top:50px
@@ -264,6 +267,7 @@ div a:hover {
 .card:hover {
     box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
 }
+.product_card
 
 .product-main {
     padding: 2px 16px;
