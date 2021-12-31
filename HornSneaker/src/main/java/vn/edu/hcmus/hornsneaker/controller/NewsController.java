@@ -2,17 +2,15 @@ package vn.edu.hcmus.hornsneaker.controller;
 
 import java.util.Date;
 
-import javax.websocket.server.PathParam;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import vn.edu.hcmus.hornsneaker.dao.domain.NewsEntity;
-import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
 import vn.edu.hcmus.hornsneaker.service.NewsServices;
 
 @Controller
@@ -28,23 +26,12 @@ public class NewsController {
 		return "page";
 	}
 
-	// @RequestMapping("/news/{newsId}")
-	// public String viewDetail(@PathVariable("newsId") Long id, Model model) {
-	// 	NewsEntity news = newsServices.find(id);
-	// 	ArrayList<Integer> sizes = newsServices.findAllSizeOf(id);
-	// 	Boolean isAdded = cartServices.findByNewsId(id);
-
-	// 	newsServices.increaseViews(news);
-	// 	model.addAttribute("content", "news_detail");
-	// 	model.addAttribute("name", news.getName());
-	// 	model.addAttribute("price", news.getPriceFormatted());
-	// 	model.addAttribute("description", news.getDescription());
-	// 	model.addAttribute("image", news.getImage());
-	// 	model.addAttribute("id", news.getId());
-	// 	model.addAttribute("sizes", sizes);
-	// 	model.addAttribute("isAdded", isAdded);
-	// 	return "page";
-	// }
+	@RequestMapping("/news/{newsId}")
+	public String viewDetail(@PathVariable("newsId") Long id, Model model) {
+		model.addAttribute("content", "news_detail");
+		model.addAttribute("news", newsServices.findById(id));
+		return "page";
+	}
 
 	@RequestMapping("/admin/news")
 	public String viewNewsManagement(Model model) {
@@ -65,6 +52,19 @@ public class NewsController {
 		news.setCreated(new Date());
 		newsServices.add(news);
 		return "redirect:/admin/news/add";
+	}
+
+	@RequestMapping("/admin/news/edit/{id}")
+	public String viewEditNews(@PathVariable("id") Long id, Model model) {	
+		model.addAttribute("content", "edit_news");
+		model.addAttribute("news", newsServices.findById(id));
+		return "page";
+	}
+
+	@PostMapping("/admin/news/edit/{id}")
+	public String editNews(@PathVariable("id") Long id, @ModelAttribute NewsEntity news, Model model) {
+		newsServices.edit(id, news);
+		return "redirect:/admin/news/" + id;
 	}
 
 	@RequestMapping("/admin/news/delete/{id}")

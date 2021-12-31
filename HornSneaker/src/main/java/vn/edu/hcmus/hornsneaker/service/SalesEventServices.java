@@ -1,11 +1,13 @@
 package vn.edu.hcmus.hornsneaker.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import vn.edu.hcmus.hornsneaker.dao.domain.SalesEventEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.SalesEventRepository;
@@ -16,7 +18,7 @@ public class SalesEventServices {
 	@Autowired
 	private SalesEventRepository salesEventRepo;
 
-	public SalesEventEntity find(Long id) {
+	public SalesEventEntity findById(Long id) {
 		return salesEventRepo.getById(id);		
 	}
 
@@ -31,8 +33,22 @@ public class SalesEventServices {
 		return list.subList(0, i);
 	}
 
-	// @Transactional
-    // public void increaseViews(SalesEventEntity product) {
-	// 	product.increaseViews();
-    // }
+	public void add(SalesEventEntity salesEvent) {
+		salesEventRepo.save(salesEvent);
+    }
+
+	public void delete(Long id) {
+		salesEventRepo.deleteById(id);
+	}
+
+	@Transactional
+    public void edit(Long id, SalesEventEntity salesEvent) {
+		Optional<SalesEventEntity> target = salesEventRepo.findById(id);
+		if (target.isPresent()) {
+			SalesEventEntity entity = target.get();
+			entity.setTitle(salesEvent.getTitle());
+			entity.setStartDate(salesEvent.getStartDate());
+			entity.setEndDate(salesEvent.getEndDate());
+		}
+    }
 }

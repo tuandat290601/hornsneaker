@@ -1,11 +1,13 @@
 package vn.edu.hcmus.hornsneaker.service;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
 import org.springframework.data.domain.Sort.Direction;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import vn.edu.hcmus.hornsneaker.dao.domain.NewsEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.NewsRepository;
@@ -16,7 +18,7 @@ public class NewsServices {
 	@Autowired
 	private NewsRepository newsRepo;
 
-	public NewsEntity find(Long id) {
+	public NewsEntity findById(Long id) {
 		return newsRepo.getById(id);		
 	}
 
@@ -39,8 +41,14 @@ public class NewsServices {
 		newsRepo.deleteById(id);
 	}
 
-	// @Transactional
-    // public void increaseViews(NewsEntity product) {
-	// 	product.increaseViews();
-    // }
+	@Transactional
+    public void edit(Long id, NewsEntity news) {
+		Optional<NewsEntity> target = newsRepo.findById(id);
+		if (target.isPresent()) {
+			NewsEntity entity = target.get();
+			entity.setTitle(news.getTitle());
+			entity.setContent(news.getContent());
+			entity.setImage(news.getImage());
+		}
+    }
 }
