@@ -62,14 +62,15 @@ public class ProductServices {
 		return list.subList(0, i);
 	}
 	
-	public void addProduct(ProductEntity product, ProductSizesEntity productSizes) {
+	public void addProduct(ProductEntity product, ArrayList<ProductSizesEntity> sizeList) {
 		productRepo.save(product);
 		List<ProductEntity> productList = productRepo.findAll();
 		for (ProductEntity productEntity : productList) {
 			if (productEntity.getName().equals(product.getName())) {
-				productSizes.setProductId(productEntity.getId());
-				sizesRepository.save(productSizes);
-				break;
+				for (ProductSizesEntity size : sizeList) {
+					size.setProductId(productEntity.getId());
+					sizesRepository.save(size);
+				}
 			}
 		}
 	}

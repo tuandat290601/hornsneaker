@@ -27,6 +27,9 @@ public class ProductController {
 
 	@Autowired
 	private CartServices cartServices;
+	
+	ArrayList<ProductSizesEntity> sizeList = new ArrayList<>();
+	ProductEntity local;
 
 	@RequestMapping("/category")
 	public String viewProduct(Model model) {
@@ -62,19 +65,29 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/admin/product/add")
-	public String viewAddProduct(Model model) {
+	public String viewAddProduct(Model model) {	
 		model.addAttribute("content", "add_product");
-		model.addAttribute("product", new ProductEntity());
-		model.addAttribute("productSizes", new ProductSizesEntity());
+		if (local == null) model.addAttribute("product", new ProductEntity());
+		else model.addAttribute("product", local);
+		model.addAttribute("productSize", new ProductSizesEntity());
+		model.addAttribute("sizeList", sizeList);
 		return "page";
 	}
+	
+	@PostMapping("/admin/product/addSize")
+	public String addProduct(@ModelAttribute ProductSizesEntity productSize, Model model) {
+		model.addAttribute("content", "add_product");
+		sizeList.add(productSize);
+		//productServices.addProduct(product, productSizes);
+		return "redirect:/admin/product/add";
+	}
+	
 
-	@PostMapping("/admin/product/add")
+	@PostMapping("/admin/product/addProduct")
 	public String addProduct(@ModelAttribute ProductEntity product, @ModelAttribute ProductSizesEntity productSizes, Model model) {
 		model.addAttribute("content", "add_product");
-		productServices.addProduct(product, productSizes);
-		System.out.println(productSizes.getSize());
-		System.out.println(productSizes.getStock());
+		
+		//productServices.addProduct(product, productSizes);
 		return "redirect:/admin/product";
 	}
 	
@@ -99,5 +112,4 @@ public class ProductController {
 		productRepo.delete(productRepo.getById(id));
 		return "redirect:/admin/product";
 	}
-	
 }
