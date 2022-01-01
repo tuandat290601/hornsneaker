@@ -3,6 +3,8 @@ package vn.edu.hcmus.hornsneaker.controller;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -12,6 +14,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductSizesEntity;
@@ -85,16 +88,16 @@ public class ProductController {
 	}
 	
 	@PostMapping("/admin/product/addSize")
-	public String addSize(@ModelAttribute ProductEntity product, @ModelAttribute ProductSizesEntity productSize, Model model) {
+	@ResponseBody
+	public String addSize(@RequestBody ProductSizesEntity productSize, Model model) {
 		System.out.println("Add size");
-		System.out.println(product.getName());
-		System.out.println(local.getName());
+		// System.out.println(product.getName());
+		// System.out.println(local.getName());
 		model.addAttribute("content", "add_product");
 		sizeList.add(productSize);
 		//productServices.addProduct(product, productSizes);
 		return "redirect:/admin/product/add";
 	}
-	
 
 	@PostMapping("/admin/product/add")
 	public String addProduct(@ModelAttribute ProductEntity product, Model model) {

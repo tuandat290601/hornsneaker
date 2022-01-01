@@ -33,7 +33,7 @@ public class CartServices {
 
 	Long getLoggedUserId() {
 		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
-		if (auth != null) {
+		if (auth != null && !auth.getPrincipal().equals("anonymousUser")) {
 			User user = (User) auth.getPrincipal();
 			UserAccountEntity userAccount = userAccountServices.getUserAccountByEmail(user.getUsername());
 			return userAccount.getId();
@@ -76,7 +76,9 @@ public class CartServices {
     public Boolean findByProductId(Long id) {
 		CartEntity cartEntity = new CartEntity();
 		cartEntity.setProductId(id);
-		cartEntity.setUserId(getLoggedUserId());
+		Long userId = getLoggedUserId();
+		if (userId == -1L) return false;
+		cartEntity.setUserId(userId);
 		Long n = cartRepo.count(Example.of(cartEntity));
 		if (n == 0) return false;
         return true;
