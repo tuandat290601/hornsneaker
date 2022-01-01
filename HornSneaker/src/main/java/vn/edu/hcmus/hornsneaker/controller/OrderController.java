@@ -1,76 +1,71 @@
 package vn.edu.hcmus.hornsneaker.controller;
 
-import java.util.Date;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import vn.edu.hcmus.hornsneaker.dao.domain.NewsEntity;
-import vn.edu.hcmus.hornsneaker.service.NewsServices;
+import vn.edu.hcmus.hornsneaker.service.OrderServices;
 
 @Controller
-public class NewsController {
+public class OrderController {
 
 	@Autowired
-	private NewsServices newsServices;
+	private OrderServices orderServices;
 
-	@RequestMapping("/news")
-	public String viewNews(Model model) {
-		model.addAttribute("content", "news");
-		model.addAttribute("newsList", newsServices.findAll());
+	// @RequestMapping("/order")
+	// public String viewOrder(Model model) {
+	// 	model.addAttribute("content", "order");
+	// 	model.addAttribute("orderList", orderServices.findAll());
+	// 	return "page";
+	// }
+
+	// @RequestMapping("/order/{orderId}")
+	// public String viewDetail(@PathVariable("orderId") Long id, Model model) {
+	// 	model.addAttribute("content", "order_detail");
+	// 	model.addAttribute("order", orderServices.findById(id));
+	// 	return "page";
+	// }
+
+	@RequestMapping("/admin/order")
+	public String viewOrderManagement(Model model) {
+		model.addAttribute("content", "order_management");
+		model.addAttribute("orderList", orderServices.findAll());
 		return "page";
 	}
 
-	@RequestMapping("/news/{newsId}")
-	public String viewDetail(@PathVariable("newsId") Long id, Model model) {
-		model.addAttribute("content", "news_detail");
-		model.addAttribute("news", newsServices.findById(id));
+	// @RequestMapping("/admin/order/add")
+	// public String viewAddOrder(Model model) {	
+	// 	model.addAttribute("content", "add_order");
+	// 	model.addAttribute("order", new OrderEntity());
+	// 	return "page";
+	// }
+
+	// @PostMapping("/admin/order/add")
+	// public String addOrder(OrderEntity order, Model model) {
+	// 	order.setCreated(new Date());
+	// 	orderServices.add(order);
+	// 	return "redirect:/admin/order/add";
+	// }
+
+	@RequestMapping("/admin/order/{id}")
+	public String viewOrderDetails(@PathVariable("id") Long id, Model model) {	
+		model.addAttribute("content", "order_detail");
+		model.addAttribute("order", orderServices.findById(id));
 		return "page";
 	}
 
-	@RequestMapping("/admin/news")
-	public String viewNewsManagement(Model model) {
-		model.addAttribute("content", "news_management");
-		model.addAttribute("newsList", newsServices.findAll());
-		return "page";
-	}
+	// @PostMapping("/admin/order/edit/{id}")
+	// public String editOrder(@PathVariable("id") Long id, @ModelAttribute OrderEntity order, Model model) {
+	// 	orderServices.edit(id, order);
+	// 	return "redirect:/admin/order/" + id;
+	// }
 
-	@RequestMapping("/admin/news/add")
-	public String viewAddNews(Model model) {	
-		model.addAttribute("content", "add_news");
-		model.addAttribute("news", new NewsEntity());
-		return "page";
-	}
-
-	@PostMapping("/admin/news/add")
-	public String addNews(NewsEntity news, Model model) {
-		news.setCreated(new Date());
-		newsServices.add(news);
-		return "redirect:/admin/news/add";
-	}
-
-	@RequestMapping("/admin/news/edit/{id}")
-	public String viewEditNews(@PathVariable("id") Long id, Model model) {	
-		model.addAttribute("content", "edit_news");
-		model.addAttribute("news", newsServices.findById(id));
-		return "page";
-	}
-
-	@PostMapping("/admin/news/edit/{id}")
-	public String editNews(@PathVariable("id") Long id, @ModelAttribute NewsEntity news, Model model) {
-		newsServices.edit(id, news);
-		return "redirect:/admin/news/" + id;
-	}
-
-	@RequestMapping("/admin/news/delete/{id}")
-	public String deleteNews(@PathVariable("id") Long id, Model model) {	
-		newsServices.delete(id);
-		return "redirect:/";
-	}
+	// @RequestMapping("/admin/order/delete/{id}")
+	// public String deleteOrder(@PathVariable("id") Long id, Model model) {	
+	// 	orderServices.delete(id);
+	// 	return "redirect:/";
+	// }
 
 }

@@ -23,7 +23,7 @@ public class OrderServices {
 	}
 
 	public List<OrderEntity> findAll() {
-		return newsRepo.findAll(Sort.by(Direction.ASC,"created"));
+		return newsRepo.findAll();
 	}
 
 	public List<OrderEntity> findAll(int i) {
