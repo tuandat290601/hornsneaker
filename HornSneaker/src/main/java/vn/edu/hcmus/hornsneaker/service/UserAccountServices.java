@@ -4,6 +4,8 @@ package vn.edu.hcmus.hornsneaker.service;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -36,5 +38,15 @@ public class UserAccountServices implements UserDetailsService {
 			throw new UsernameNotFoundException("not found!");
 		}
 		return userAccount.get();
+	}
+
+	public UserAccountEntity getCurrentUser() {
+		Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+		if (auth != null) {
+			User user = (User) auth.getPrincipal();
+			UserAccountEntity userAccount = getUserAccountByEmail(user.getUsername());
+			return userAccount;
+		}
+		return null;
 	}
 }

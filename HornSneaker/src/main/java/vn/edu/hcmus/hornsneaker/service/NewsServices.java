@@ -23,11 +23,11 @@ public class NewsServices {
 	}
 
 	public List<NewsEntity> findAll() {
-		return newsRepo.findAll(Sort.by(Direction.DESC,"created"));
+		return newsRepo.findAll(Sort.by(Direction.ASC,"created"));
 	}
 
 	public List<NewsEntity> findAll(int i) {
-		List<NewsEntity> list = newsRepo.findAll(Sort.by(Direction.DESC,"created"));
+		List<NewsEntity> list = newsRepo.findAll(Sort.by(Direction.ASC,"created"));
 		if (i >= list.size()) i = list.size();
 		if (i < 0) return null;
 		return list.subList(0, i);
