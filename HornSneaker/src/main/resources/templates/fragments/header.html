@@ -5,40 +5,6 @@
 			<div class="col-3">
 				<div class="header-nav-brand">
 					HORNSNEAKER
-
-	<ul class="header-nav-list">
-		<li><i id="res-menu-btn" class="fas fa-bars menu-btn"></i></li>
-		<li class="header-nav-link"><a href="/">TRANG CHỦ</a></li>
-		<li class="header-nav-link"><a href="/category"> SNEAKER <i class="down-sort fas fa-angle-down"></i>
-			</a>
-			<ul class="product-subnav drop-right">
-				<li><a href="/category?type=Nike">Nike</a></li>
-				<li><a href="/category?type=adidas">Adidas</a></li>
-				<li><a href="/category?type=Vans">Vans</a></li>
-			</ul>
-		</li>
-		<li class="header-nav-link"><a href="/news">TIN TỨC</a></li>
-		<li class="header-nav-link"><a href="/sales">GIẢM GIÁ</a></li>
-		<li class="header-nav-link"><a href="#footer">LIÊN HỆ</a></li>
-	</ul>
-	<div class="search">
-		<input type="text" class="search-box" id="search-input" placeholder="Search" onkeypress="pressKey(event)" />
-		<i class="fas fa-search search-btn"></i>
-	</div>
-	<div class="cotroller">
-		<div sec:authorize="isAnonymous()">
-			<div class="register">
-				<a href="/login" class="linktoregister">
-					Đăng nhập
-				</a>
-			</div>
-		</div>
-		<div sec:authorize="isAuthenticated()">
-			<div class="user-controller">
-				<div class="user-email" th:text="${#authentication.name}">
-					tuandat290601@gmail.com
-					<i class="fa fa-caret-down" aria-hidden="true"></i>
-
 				</div>
 			</div>
 			<div class="col-5">
@@ -105,5 +71,4 @@
 
 	
     <link rel="stylesheet" href="/assets/css/header.css">
-
 </header>
