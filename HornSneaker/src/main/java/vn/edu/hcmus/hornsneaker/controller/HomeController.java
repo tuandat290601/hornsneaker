@@ -28,13 +28,13 @@ public class HomeController {
 
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
-		List<ProductEntity> products = productServices.getHighlightedProducts(3);
-		List<NewsEntity> news = newsServices.findAll(5);
-		List<SalesEventEntity> events = saleEventServices.findAll(4);
+		List<ProductEntity> products = productServices.getHighlightedProducts(6);
+		List<NewsEntity> news = newsServices.findAll(6);
+		List<SalesEventEntity> events = saleEventServices.findAll(3);
 
 		model.addAttribute("content", "index");
 		model.addAttribute("products", products);
-		model.addAttribute("news", news);
+		model.addAttribute("newsList", news);
 		model.addAttribute("events", events);
 		return "page";
 	}

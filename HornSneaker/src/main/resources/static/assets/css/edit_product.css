@@ -3,7 +3,7 @@
     margin: 0 !important;
 }
 
-.edit_product-card-body label{
+.edit_product-card-body label,#frmSizeandStock label{
     font-size: 15px;
 }
 #frmEditProduct{
@@ -19,6 +19,13 @@
 }
 .edit_product-card-body input,.edit_product-card-body option{
     font-size: 12px;
+}
+.edit-delete-btn{
+    font-size: 10px !important;
+    padding: 0 5px !important;
+    height:20px;
+    width:20px;
+    justify-content: center;
 }
 
 

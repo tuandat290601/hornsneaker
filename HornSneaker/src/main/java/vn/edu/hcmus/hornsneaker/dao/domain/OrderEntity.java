@@ -23,7 +23,7 @@ public class OrderEntity {
 	private Date date;
 
 	@Column
-	private Long status;
+	private String status;
 
 	//#region getter and setter
 	
@@ -31,11 +31,11 @@ public class OrderEntity {
 		return id;
 	}
 
-	public Long getStatus() {
+	public String getStatus() {
 		return status;
 	}
 
-	public void setStatus(Long status) {
+	public void setStatus(String status) {
 		this.status = status;
 	}
 

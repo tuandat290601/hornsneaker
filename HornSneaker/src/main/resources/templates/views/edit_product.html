@@ -1,7 +1,7 @@
 <div th:fragment="edit_product">
     <div class="container">
-        <form method="post" id="frmEditProduct" enctype="multipart/form-data">
-            <div class="edit_product-card">
+        <div class="edit_product-card">
+            <form method="post" id="frmEditProduct" enctype="multipart/form-data">
                 <h4 class="edit_product-card-header">
                     Chỉnh sửa sản phẩm
                 </h4>
@@ -21,12 +21,6 @@
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="productsize" class="form-label">Size giày:</label>
-                        <select class="form-control" id="size" name="product-size">
-                            <option value="37">37</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
                         <label for="productdescription" class="form-label">Mô tả sản phẩm:</label>
                         <textarea class="form-control" style="height: 300px" id="description" name="product-description"
                                   placeholder="Product Description">
@@ -37,15 +31,37 @@
                         <input type="file" accept="image/*" class="file form-control" id="img" name="product-img"
                                data-browse-on-zone-click="true" data-show-upload="false">
                     </div>
-                    <a class="btn btn-outline-success back-btn" href="" role="button">
-                        <i class="fa fa-backward" aria-hidden="true"></i>
-                        Quay lại</a>
-                    <button type="submit" class="btn btn-primary save-btn">Lưu chỉnh sửa
-                        <i class="fa fa-check"></i>
+                </div>
+            </form>
+            <form method="post" id="frmSizeandStock" action="">
+                <div class="mb-3">
+                    <label for="price" class="form-label">Size giày:</label> <input
+                        field="" type="number" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Số lượng:</label> <input
+                        field="" type="number" class="form-control">
+                </div>
+                <input type="button" class="btn btn-danger" value="Thêm size" onclick="submitForms()"/>
+                <div class="sizeandStock" each="">
+                    <p>Size: </p>
+                    <p text=""></p>
+                    <p>Số lượng: </p>
+                    <p text=""></p>
+                    <button type="button" class="btn btn-danger edit-delete-btn">
+                        <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
+            </form>
+            <div class="group-btn">
+                <a class="btn btn-outline-success back-btn" href="" role="button">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Quay lại</a>
+                <button type="submit" class="btn btn-primary save-btn">Lưu chỉnh sửa
+                    <i class="fa fa-check"></i>
+                </button>
             </div>
-        </form>
+        </div>
     </div>
     <link rel="stylesheet" href="/assets/css/edit_product.css">
 </div>

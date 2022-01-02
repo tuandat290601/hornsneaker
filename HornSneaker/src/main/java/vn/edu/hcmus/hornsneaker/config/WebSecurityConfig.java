@@ -14,7 +14,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .authorizeRequests()
-                    .antMatchers("/product/**","/assets/**", "/", "/home", "/register", "/register_success", "/login_success", "/category").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
+                    .antMatchers("/news/**","/product/**","/assets/**", "/", "/home", "/register", "/register_success", "/login_success", "/category").permitAll() // Cho phép tất cả mọi người truy cập vào 2 địa chỉ này
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
                     .antMatchers(HttpMethod.POST, "/admin/**").hasAuthority("ADMIN")
                     .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
@@ -28,6 +28,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 	.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 	.logoutSuccessUrl("/")// Cho phép logout
                     .permitAll();
-        
+        http.csrf().disable();
     }
 }

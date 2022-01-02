@@ -8,11 +8,15 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import vn.edu.hcmus.hornsneaker.dao.domain.UserAccountEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.UserAccountRepository;
+import vn.edu.hcmus.hornsneaker.service.UserAccountServices;
 
 @Controller
 public class UserAccountController {
 	@Autowired
 	private UserAccountRepository UserRepo;
+
+	@Autowired
+	private UserAccountServices userServices;
 	
 	
 	@RequestMapping("/login")
@@ -44,5 +48,12 @@ public class UserAccountController {
 		User.setRole("USER");
 		UserRepo.save(User);
 		return "register_success";
+	}
+
+	@RequestMapping("/profile")
+	public String viewProfile(Model model) {
+		model.addAttribute("content", "profile");
+		model.addAttribute("profile", userServices.getCurrentUser());
+		return "page";
 	}
 }

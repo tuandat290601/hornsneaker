@@ -1,0 +1,33 @@
+<div th:fragment="add_news">
+    <div class="container">
+        <div class="add_product-card">
+            <form method="post" id="frmAddProduct" enctype="multipart/form-data" th:action="@{/admin/news/add}"
+                th:object="${news}">
+                <h4 class="add_product-card-header">
+                    Thêm sản phẩm
+                </h4>
+                <div class="add_product-card-body">
+                    <div class="mb-3">
+                        <label for="productname" class="form-label">Tên sản phẩm:</label>
+                        <input th:field="*{title}" type="text" class="form-control" autofocus th:value="*{title}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productname" class="form-label">Tên sản phẩm:</label>
+                        <input th:field="*{image}" type="text" class="form-control" autofocus th:value="*{image}">
+                    </div>
+                    <div class="mb-3">
+                        <label for="productname" class="form-label">Tên sản phẩm:</label>
+                        <input th:field="*{content}" type="text" class="form-control" autofocus th:value="*{content}">
+                    </div>
+                </div>
+                <div class="group-btn">
+                    <a class="btn btn-outline-success" href="/admin/news" role="button">
+                        <i class="fa fa-backward" aria-hidden="true"></i>
+                        Quay lại</a>
+                    <input type="submit" class="btn btn-primary" value="Thêm sản phẩm">
+                </div>
+            </form>
+        </div>
+    </div>
+    <link rel="stylesheet" href="/assets/css/add_product.css">
+</div>

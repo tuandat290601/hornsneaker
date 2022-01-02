@@ -1,0 +1,30 @@
+<div th:fragment="payment">
+	<th:block th:each="product : ${cart}">
+		<li class="cart-item">
+			<div class="item-info">
+				<img th:src="${product.image}" alt="" class="pro-img-cart">
+				<p class="item-name" th:text="${product.name}"></p>
+				<p class="item-name" th:text="${product.size}"></p>
+				<div class="quantity buttons_added">
+					<a th:href="@{/cart/{id}(id=${product.cartEntryId},adjustment=-1)}">
+						<input type="button" value="-" class="minus">
+					</a> <input type="number" step="1" min="1" max="" name="quantity"
+						th:value="${product.amount}" title="Qty" class="input-text qty text"
+						size="4" pattern="" inputmode=""> <a
+						th:href="@{/cart/{id}(id=${product.cartEntryId},adjustment=1)}">
+						<input type="button" value="+" class="plus">
+					</a>
+				</div>
+				<p class="item-price" th:text="${product.priceFormatted}"></p>
+				<a th:href="@{/cart/remove/{id}(id=${product.cartEntryId})}">
+					<button type="button" class="btn btn-danger cart-btn">
+						<i class="fa fa-times" aria-hidden="true"></i>
+					</button>
+				</a>
+			</div>
+		</li>
+	</th:block>
+	<a href="confirm">Thanh toán</a>
+	<link rel="stylesheet" href="/assets/css/cart.css">
+	<script src="/cart.js"></script>
+</div>

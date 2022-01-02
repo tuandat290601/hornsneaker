@@ -24,5 +24,5 @@ function validatePassword(){
   }
 }
 
-password.onchange = validatePassword;
-confirm_password.onkeyup = validatePassword;
+if (password != null) password.onchange = validatePassword;
+if (confirm_password != null) confirm_password.onkeyup = validatePassword;

@@ -1,14 +1,14 @@
 <div th:fragment="add_product">
-    <div class="container">         
-        <form method="post" id="frmAddProduct" enctype="multipart/form-data" th:action="@{/admin/product/add}" th:object="${product}">
-            <div class="add_product-card">
+    <div class="container">
+        <div class="add_product-card">
+            <form method="post" id="frmAddProduct" enctype="multipart/form-data" th:action="@{/admin/product/add}" th:object="${product}">
                 <h4 class="add_product-card-header">
                     Thêm sản phẩm
                 </h4>
                 <div class="add_product-card-body">
                     <div class="mb-3">
                         <label for="productname" class="form-label">Tên sản phẩm:</label>
-                        <input th:field="*{name}" type="text" class="form-control" autofocus>
+                        <input th:field="*{name}" type="text" class="form-control" autofocus th:value="*{name}">
                     </div>
                     <div class="mb-3">
                         <label for="price" class="form-label">Giá:</label>
@@ -16,14 +16,10 @@
                     </div>
                     <div class="mb-3">
                         <label for="type" class="form-label">Loại giày:</label>
-                        <select class="form-control">
-                            <option value="Niek">Nike</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="size" class="form-label">Size giày:</label>
-                        <select class="form-control">
-                            <option value="37">37</option>
+                        <select th:field="*{type}" class="form-control">
+                            <option value="Nike">Nike</option>
+                            <option value="adidas">adidas</option>
+                            <option value="Vans">Vans</option>                      
                         </select>
                     </div>
                     <div class="mb-3">
@@ -33,21 +29,40 @@
                         </textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="img" class="form-label">Hình ảnh:</label>
-                        <input th:field="*{image}" type="file" accept="image/*" class="file form-control" 
-                               data-browse-on-zone-click="true" data-show-upload="false">
+                        <label for="price" class="form-label">Link ảnh:</label>
+                        <input th:field="*{image}" type="text" class="form-control" >
                     </div>
-                    <a class="btn btn-outline-success" href="/admin/product" role="button">
-                        <i class="fa fa-backward" aria-hidden="true"></i>
-                        Quay lại</a>
-                    <button type="submit" class="btn btn-primary">Thêm sản phẩm
-                        <i class="fa fa-plus"></i>
-                    </button>
                 </div>
+            </form>
+            <form method="post"id="frmSizeandStock" th:action="@{/admin/product/addSize}" th:object= "${productSize}">
+                <div class="mb-3">
+                    <label for="price" class="form-label">Size giày:</label> <input
+                        th:field="*{size}" type="number" class="form-control">
+                </div>
+                <div class="mb-3">
+                    <label for="price" class="form-label">Số lượng:</label> <input
+                        th:field="*{stock}" type="number" class="form-control">
+                </div>
+                <input type="button" class="btn btn-danger" value="Thêm size" onclick="submitForms()"/>
+                <div th:each="item : ${sizeList}" class="sizeandStock">
+                    <p>Size: </p>
+                    <p th:text="${item.size}" id="form-size"></p>
+                    <p>Số lượng: </p>
+                    <p th:text="${item.stock}" id="form-stock"></p>
+                    <button type="button" class="btn btn-danger add-delete-btn">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
+                </div> 
+            </form>
+            <div class="group-btn">
+                <a class="btn btn-outline-success" href="/admin/product" role="button">
+                    <i class="fa fa-backward" aria-hidden="true"></i>
+                    Quay lại</a>
+                <input type="button" class="btn btn-primary" value="Thêm sản phẩm" onclick="submitForms2()">
             </div>
-        </form>
+        </div>
     </div>
+    <script src="/assets/js/add_product.js"></script>
     <link rel="stylesheet" href="/assets/css/add_product.css">
-
 </div>
 

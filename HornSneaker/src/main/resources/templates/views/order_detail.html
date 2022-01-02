@@ -1,0 +1,55 @@
+<div th:fragment="order_detail">
+    <div class="order_detail-container">
+        <div class="order_card" style="background-color: unset;">
+            <div class="card-body">
+                <input type="number" class="order-id hide">
+                <p class="name"><b>Tên khách hàng: </b><span class="name-data">Nguyễn Quốc Thông</span></p>
+                <p class="address"><b>Địa chỉ: </b><span class="address-data">Trường đại học Khoa học tự nhiên</span></p>
+                <p class="phonenumber"><b>Số điện thoại: </b><span class="phonenumber-data">123456789</span></p>
+                <p class="orderdate"><b>Ngày tạo đơn: </b><span class="orderdate-data">1/1/2022</span></p>
+                <p class="list-title"><b>Sản phẩm: </b></p>
+                <p class="paymenttype"><b>Phương thức thanh toán: </b><span class="paymenttype-data">COD</span></p>
+                <div class="product-title">
+                    <span class="product-id">ID sản phẩm</span>
+                    <span class="product-name">Tên sản phẩm</span>
+                    <span class="product-stock">Số lượng</span>
+                </div>
+                <ul class="product-list">
+                    <li class="list-item">
+                        <div class="item-info">
+                            <p class="item-id">1</p>
+                            <p class="item-name">Jordan 1 ngu</p>
+                            <p class="item-stock">10</p>
+                        </div>
+                    </li>
+                    <li class="list-item">
+                        <div class="item-info">
+                            <p class="item-id">1</p>
+                            <p class="item-name">Jordan 1 ngu</p>
+                            <p class="item-stock">10</p>
+                        </div>
+                    </li>
+                    <li class="list-item">
+                        <div class="item-info">
+                            <p class="item-id">1</p>
+                            <p class="item-name">Jordan 1 ngu</p>
+                            <p class="item-stock">10</p>
+                        </div>
+                    </li>
+                    <li class="list-item">
+                        <div class="item-info">
+                            <p class="item-id">1</p>
+                            <p class="item-name">Jordan 1 ngu</p>
+                            <p class="item-stock">10</p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+            <form class="form">
+                <button class="btn btn-success accept-btn" type="submit" value="accept">Xác nhận</button>
+                <button class="btn btn-danger cancel-btn ml-4" type="submit" value="cancel">Hủy bỏ</button>
+            </form>
+        </div>
+    </div>
+    <link rel="stylesheet" href="/assets/css/order_detail.css">
+</div>

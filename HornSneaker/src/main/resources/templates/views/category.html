@@ -1,18 +1,21 @@
 <div th:fragment="category">
 	<div class="category">
 		<div class="category-field">
-			<div class="category-name">Jordan (15)</div>
+			<div class="category-name" th:text="${title}"></div>
 		</div>
 		<div class="category-content">
 			<div class="category-kind">
 				<ul class="cate-kind-list">
-					<a href="" class="cate-kind-list-item">Jordan</a>
-					<a href="" class="cate-kind-list-item">Jordan</a>
-					<a href="" class="cate-kind-list-item">Jordan</a>
-					<a href="" class="cate-kind-list-item">Jordan</a>
+					<a href="?" class="cate-kind-list-item">All</a>
+					<a href="?type=Nike" class="cate-kind-list-item">Nike</a>
+					<a href="?type=adidas" class="cate-kind-list-item">adidas</a>
+					<a href="?type=Vans" class="cate-kind-list-item">Vans</a>
 				</ul>
-			</div>
-			<ul class="category-list">
+			</div>			
+			<ul class="category-list">		
+				<div th:if="${info}">
+					<li th:text="${info}"></th:text>
+				</div>					
 				<th:block th:each="product : ${products}">
 					<li class = "col-4">
 						<div class="category-item">

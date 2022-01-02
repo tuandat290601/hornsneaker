@@ -1,12 +1,13 @@
 package vn.edu.hcmus.hornsneaker.dao.domain;
 
-import java.sql.Date;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Lob;
 import javax.persistence.Table;
 
 @Entity
@@ -19,11 +20,14 @@ public class NewsEntity {
 	@Column
 	private String title;
 	
-	@Column
+	@Column(columnDefinition="TEXT")
 	private String content;
 
 	@Column
 	private Date created;
+
+	@Column
+	private String image;
 
 	public Long getId() {
 		return id;
@@ -35,6 +39,14 @@ public class NewsEntity {
 
 	public String getTitle() {
 		return title;
+	}
+
+	public String getImage() {
+		return image;
+	}
+
+	public void setImage(String image) {
+		this.image = image;
 	}
 
 	public void setTitle(String title) {
