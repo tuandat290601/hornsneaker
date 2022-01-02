@@ -44,16 +44,14 @@
                         th:field="*{stock}" type="number" class="form-control">
                 </div>
                 <input type="button" class="btn btn-danger" value="Thêm size" onclick="submitForms()"/>
-                <div class="sizeandStock">
-                    <div th:each="item : ${sizeList}">
-                        <p>Size: </p>
-                        <p th:text="${item.size}" id="form-size"></p>
-                        <p>Số lượng: </p>
-                        <p th:text="${item.stock}" id="form-stock"></p>
-                        <button type="button" class="btn btn-danger add-delete-btn">
-                            <i class="fa fa-times" aria-hidden="true"></i>
-                        </button>
-                    </div>
+                <div th:each="item : ${sizeList}" class="sizeandStock">
+                    <p>Size: </p>
+                    <p th:text="${item.size}" id="form-size"></p>
+                    <p>Số lượng: </p>
+                    <p th:text="${item.stock}" id="form-stock"></p>
+                    <button type="button" class="btn btn-danger add-delete-btn">
+                        <i class="fa fa-times" aria-hidden="true"></i>
+                    </button>
                 </div> 
             </form>
             <div class="group-btn">

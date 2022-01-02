@@ -1,3 +1,28 @@
 <div th:fragment="order_management">
-    
+    <div class="order_management-container">
+        <div class="management-cart">
+            <h2>Quản lý đơn hàng</h2>
+            <div class="title">
+                <p class="title-name">Tên khách hàng</p>
+                <p class="title-date">Ngày tạo đơn</p>
+                <p class="title-status">Trạng thái</p>
+                <p class="title-view">Xem chi tiết</p>
+            </div>
+            <ul class="management-list">
+                <li class="management-item">
+                    <div class="item-info">
+                        <p class="item-name">Nguyễn Quốc Thông</p>
+                        <p class="item-date">1/1/2022</p>
+                        <p class="item-status">Chưa giao</p>
+                        <a href="/admin/order/1">
+                            <button type="button" class="btn btn-outline-dark edit_view-btn">
+                                <i class="fa fa-eye" aria-hidden="true"></i>
+                            </button>
+                        </a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <link rel="stylesheet" href="/assets/css/order_management.css">
 </div>
