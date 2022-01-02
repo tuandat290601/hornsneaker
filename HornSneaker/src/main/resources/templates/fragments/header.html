@@ -1,48 +1,73 @@
 <!-- Header -->
 <header id="header">
-	<ul class="header-nav-list">
-		<li><i id="res-menu-btn" class="fas fa-bars menu-btn"></i></li>
-		<li class="header-nav-link"><a href="">TRANG CHỦ</a></li>
-		<li class="header-nav-link"><a href="/category"> SNEAKER <i class="down-sort fas fa-angle-down"></i>
-			</a>
-			<ul class="product-subnav drop-right">
-				<li><a href="">Nike</a></li>
-				<li><a href="">Adidas</a></li>
-				<li><a href="">MLB</a></li>
-			</ul>
-		</li>
-		<li class="header-nav-link"><a href="/news">TIN TỨC</a></li>
-		<li class="header-nav-link"><a href="/sales">GIẢM GIÁ</a></li>
-		<li class="header-nav-link"><a href="#footer">LIÊN HỆ</a></li>
-	</ul>
-	<!-- <div class="search">
-		<input type="text" class="search-box" placeholder="Search" />
-		<i class="fas fa-search search-btn"></i>
-	</div> -->
-	<div class="cotroller">
-		<div sec:authorize="isAnonymous()">
-			<div class="register">
-				<a href="/login" class="linktoregister">
-					Đăng nhập
-				</a>
-			</div>
-		</div>
-		<div sec:authorize="isAuthenticated()">
-			<div class="user-controller">
-				<div class="user-email" th:text="${#authentication.name}">
-					tuandat290601@gmail.com
-					<i class="fa fa-caret-down" aria-hidden="true"></i>
+	<div class="header-navbar">
+		<div class="row">
+			<div class="col-3">
+				<div class="header-nav-brand">
+					HORNSNEAKER
 				</div>
-				<ul class="user-navbar">
-					<div sec:authorize="hasAuthority('ADMIN')">
-						<li><a href="/admin/product" class="linktocart">Products</a></li>
-					</div>
-					<li><a href="/cart" class="linktocart">My Cart</a></li>
-					<li><a href="/logout" class="logout">Log out</a></li>
+			</div>
+			<div class="col-5">
+				<ul class="header-nav-list">
+					<li  class="header-nav-item">
+						<a href="" class = "">Home</a>
+					</li>
+					<li class="header-nav-item">
+						<a href="" class = "" >
+								Product
+								<i class="fas fa-chevron-down dropdown-btn"></i>
+							<ul class="header-nav-item-submenu">
+								<li>
+									<a href="" class="submenu-item">Nike</a>
+								</li>
+								<li>
+									<a href="" class="submenu-item">Adidas</a>
+							
+								</li>
+								<li>
+									<a href="" class="submenu-item">Puma</a>
+								</li>
+							</ul>
+						</a>
+					</li>
+					<li class="header-nav-item">
+						<a href="" class = "">News</a>
+					</li>
+					<li class="header-nav-item">
+						<a href="" class = "">Sale</a>
+					</li>
 				</ul>
+			</div>
+			<div class="col-2">
+				<div class="header-nav-search d-flex">
+					<input type="text" class = "search-box" placeholder="Tìm kiếm ...">
+					<a href="" class="search-btn">
+						<i class="fas fa-search"></i>
+					</a>
+				</div>
+			</div>
+			<div class="col-2">
+				<div class="header-nav-user d-none">
+					<a href="" class="login">Đăng nhập</a>
+				</div>
+				<div class="header-nav-user user-controller">
+					<i class="fas fa-chevron-down dropdown-btn"></i>
+					<i class="fas fa-user"></i>
+					<ul class="user-menu">
+						<li class="user-menu-item">
+							<a href="" class="user-menu-item-link">Profile</a>
+						</li>
+						<li class="user-menu-item">
+							<a href="" class="user-menu-item-link">Giỏ hàng</a>
+						</li>
+						<li class="user-menu-item">
+							<a href="" class="user-menu-item-link">Đăng xuất</a>
+						</li>
+					</ul>
+				</div>
 			</div>
 		</div>
 	</div>
-    <link rel="stylesheet" href="/assets/css/main.css">
-
+	
+    <link rel="stylesheet" href="/assets/css/header.css">
 </header>

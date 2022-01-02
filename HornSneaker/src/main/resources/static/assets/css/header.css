@@ -1,0 +1,169 @@
+/* Header */
+#header {
+    position: fixed;
+    width: 100%;
+    background-color: black;
+    height: 60px;
+    z-index: 2;
+}
+
+.header-nav-brand {
+    font-size: 36px;
+    color: white;
+    line-height: 60px;
+}
+
+.header-nav-list {
+    display: flex;
+    list-style: none;
+    margin-left: 50px;
+}
+
+.header-nav-item {
+    position: relative;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    line-height: 60px;
+    margin: 0 15px;
+}
+
+.header-nav-item a {
+    color: white;
+}
+
+.header-nav-item:hover{
+    color: white;
+}
+
+
+
+.dropdown-btn {
+    font-size: 16px;
+    margin-left: 10px;
+}
+
+.header-nav-item-menu {
+    position: relative;
+}
+
+.header-nav-item-submenu {
+    display: none;
+    flex-direction: column;
+    list-style: none;
+    position: absolute;
+    background-color: black;
+    width: 130px;
+    left: -20px;
+    top: 60px;
+}
+
+.header-nav-item:hover .header-nav-item-submenu {
+    display: flex;
+}
+
+.header-nav-item a:hover{
+    color: var(--lightblue-color);
+}
+
+
+.submenu-item {
+    color: white;
+    font-size: 18px;
+    width: 130px;
+}
+
+.submenu-item:hover{
+    color: white;
+}
+
+.header-nav-search {
+    margin-top: 15px;
+}
+
+.search-box {
+    width: 100%;
+    position: relative;
+    height: 30px;
+    padding: 10px 15px;
+    font-size: 14px;
+    border-radius: 20px;
+}
+
+.search-btn {
+    position: absolute;
+    color: black;
+    font-size: 14px;
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    top: 17px;
+    right: 8px;
+    padding-top: 3px;
+    background-color: white;
+    border: none;
+}
+
+.header-nav-user {
+    display: flex;
+    flex-direction: row-reverse;
+    position: relative;
+    line-height: 60px;
+    margin-right: 60px;
+    font-size: 20px;
+    color: white;
+}
+
+.login {
+    color: white;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+.login:hover{
+    color: var(--lightblue-color);
+    text-decoration: underline;
+}
+
+.user-menu {
+    display: none;
+    position: absolute;
+    background-color: black;
+    list-style: none;
+    top: 40px;
+    width: 150px;
+    right: 0;
+}
+
+.user-controller {
+    margin-top: 20px;
+    position: relative;
+}
+
+.user-controller::after {
+    content: '';
+    width: 150px;
+    height: 30px;
+    position: absolute;
+    bottom: -20px;
+}
+
+.user-controller:hover {
+    color: var(--lightblue-color);
+    cursor: pointer;
+}
+
+.user-controller:hover .user-menu {
+    display: block;
+}
+
+.user-menu-item-link{
+    color: white;
+}
+
+.user-menu-item-link:hover{
+    color: var(--lightblue-color);
+}
+
+
+
