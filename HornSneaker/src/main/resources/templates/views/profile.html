@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="user-profile" class="widget">
+                <div class="widget-title">
+                    <h1>User's Profile</h1>
+                </div>
+                <div class="widget-content">
+                    <div class="widget-thumb">
+                        <img src="http://pixner.net/sbidu/main/assets/images/dashboard/user.png" alt="">
+                    </div>
+                    <div class="user-email">
+                        <h5>user@gmail.com</h5>
+                    </div>
+                    <div class="user-container">
+
+
+                        <div class="user-manage">
+                            <div class="user-info">
+                                <div class="name">
+                                    Họ
+                                </div>
+                                <div class="value">
+                                    Nguyen Van
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="user-manage">
+                            <div class="user-info">
+                                <div class="name">
+                                    Tên
+                                </div>
+                                <div class="value">
+                                    Abcdef
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-manage">
+                            <div class="user-info">
+                                <div class="name">
+                                    Số điện thoại
+                                </div>
+                                <div class="value">
+                                    0705507777
+                                </div>
+                            </div>
+                        </div>
+                        <div class="user-manage">
+                            <div class="user-info">
+                                <div class="name">
+                                    Địa chỉ
+                                </div>
+                                <div class="value">
+                                    1 Nguyễn Văn Cừ, quận 5, Tp.HCM
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <button class="btn btn-primary edit-btn">
+                            <i class="far fa-edit"></i>
+                            Chỉnh sửa
+                        </button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="profile-modal">
+        <div class="edit-modal">
+            <div class="widget-modal">
+                <div class="widget-title">
+                    <h1>Chỉnh sửa thông tin cá nhân</h1>
+                </div>
+                <div class="widget-content">
+                    <div class="form-group">
+                        <label for="first-name">Họ</label>
+                        <input type="text" class="form-control" id="first-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="last-name">Tên</label>
+                        <input type="text" class="form-control" id="last-name">
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Số điện thoại</label>
+                        <input type="text" class="form-control" id="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="address">Địa chỉ</label>
+                        <input type="text" class="form-control" id="address">
+                    </div>
+                    <div class="row confirm">
+                        <button type="submit" id = "yes" class="btn btn-success mr-2">
+                            Cập nhật
+                        </button>
+                        <button id = "no" class="btn btn-danger">
+                            Hủy
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <link rel="stylesheet" href="./profile.css">
+    <script src="./profile.js"></script>
+</body>
+
+</html>
