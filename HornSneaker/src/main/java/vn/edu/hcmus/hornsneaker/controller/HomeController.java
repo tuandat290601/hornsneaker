@@ -39,4 +39,10 @@ public class HomeController {
 		return "page";
 	}
 
+	@RequestMapping("/admin")
+	public String viewAdminPage(Model model) {
+		model.addAttribute("content", "admin");
+		return "page";
+	}
+
 }
