@@ -64,6 +64,12 @@ public class OrderController {
 		return "page";
 	}
 
+	@RequestMapping("/order/confirm")
+	public String viewConfirmOrder(Model model) {	
+		model.addAttribute("content", "confirm");
+		return "page";
+	}
+
 	// @PostMapping("/admin/order/edit/{id}")
 	// public String editOrder(@PathVariable("id") Long id, @ModelAttribute OrderEntity order, Model model) {
 	// 	orderServices.edit(id, order);

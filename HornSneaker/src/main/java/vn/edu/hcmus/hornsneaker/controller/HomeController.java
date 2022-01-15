@@ -45,4 +45,10 @@ public class HomeController {
 		return "page";
 	}
 
+	@RequestMapping("/thankyou")
+	public String viewThankYouPage(Model model) {
+		model.addAttribute("content", "thankyou");
+		return "page";
+	}
+
 }
