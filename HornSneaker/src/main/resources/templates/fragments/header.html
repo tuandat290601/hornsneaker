@@ -1,5 +1,13 @@
 <!-- Header -->
 <header id="header">
+	<script>
+		function pressKey(ev) {
+			if (ev.keyCode == 13) {
+				const query = document.getElementById('search-input')
+				window.location = '/category?search=' + query.value
+			}
+		}
+	</script>
 	<div class="header-navbar">
 		<div class="row">
 			<div class="col-3">
@@ -9,66 +17,76 @@
 			</div>
 			<div class="col-5">
 				<ul class="header-nav-list">
-					<li  class="header-nav-item">
-						<a href="" class = "">Home</a>
+					<li class="header-nav-item">
+						<a href="/" class="">Home</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="" class = "" >
-								Product
-								<i class="fas fa-chevron-down dropdown-btn"></i>
+						<a href="/category" class="">
+							Product
+							<i class="fas fa-chevron-down dropdown-btn"></i>
 							<ul class="header-nav-item-submenu">
 								<li>
-									<a href="" class="submenu-item">Nike</a>
+									<a href="/category?type=Nike" class="submenu-item">Nike</a>
 								</li>
 								<li>
-									<a href="" class="submenu-item">Adidas</a>
-							
+									<a href="/category?type=adidas" class="submenu-item">Adidas</a>
+
 								</li>
 								<li>
-									<a href="" class="submenu-item">Puma</a>
+									<a href="/category?type=Vans" class="submenu-item">Vans</a>
 								</li>
 							</ul>
 						</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="" class = "">News</a>
+						<a href="/news" class="">News</a>
 					</li>
 					<li class="header-nav-item">
-						<a href="" class = "">Sale</a>
+						<a href="/sales" class="">Sale</a>
 					</li>
 				</ul>
 			</div>
 			<div class="col-2">
 				<div class="header-nav-search d-flex">
-					<input type="text" class = "search-box" placeholder="Tìm kiếm ...">
+					<input type="text" id="search-input" class="search-box" placeholder="Tìm kiếm ..." onkeypress="pressKey(event)">
 					<a href="" class="search-btn">
 						<i class="fas fa-search"></i>
 					</a>
 				</div>
 			</div>
 			<div class="col-2">
-				<div class="header-nav-user d-none">
-					<a href="" class="login">Đăng nhập</a>
+
+				<!-- If not logged in yet -->
+				<div sec:authorize="isAnonymous()">
+					<div class="header-nav-user">
+						<a href="/login" class="login">Đăng nhập</a>
+					</div>
 				</div>
-				<div class="header-nav-user user-controller">
-					<i class="fas fa-chevron-down dropdown-btn"></i>
-					<i class="fas fa-user"></i>
-					<ul class="user-menu">
-						<li class="user-menu-item">
-							<a href="" class="user-menu-item-link">Profile</a>
-						</li>
-						<li class="user-menu-item">
-							<a href="" class="user-menu-item-link">Giỏ hàng</a>
-						</li>
-						<li class="user-menu-item">
-							<a href="" class="user-menu-item-link">Đăng xuất</a>
-						</li>
-					</ul>
+
+				<!-- If logged in -->
+				<div sec:authorize="isAuthenticated()">
+					<div class="header-nav-user user-controller">
+						<i class="fas fa-chevron-down dropdown-btn"></i>
+						<i class="fas fa-user" th:text="${#authentication.name}"></i>
+						<ul class="user-menu">
+							<div sec:authorize="hasAuthority('ADMIN')">
+								<li class="user-menu-item">
+									<a href="/admin" class="user-menu-item-link">Quản lí</a>
+								</li>
+							</div>
+							<li class="user-menu-item">
+								<a href="/profile" class="user-menu-item-link">Profile</a>
+							</li>
+							<li class="user-menu-item">
+								<a href="/cart" class="user-menu-item-link">Giỏ hàng</a>
+							</li>
+							<li class="user-menu-item">
+								<a href="/logout" class="user-menu-item-link">Đăng xuất</a>
+							</li>
+						</ul>
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
 
-	
-    <link rel="stylesheet" href="/assets/css/header.css">
+			<link rel="stylesheet" href="/assets/css/header.css">
 </header>
