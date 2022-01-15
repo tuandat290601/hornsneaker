@@ -1,22 +1,26 @@
 <div th:fragment="admin">
     <div class="admin-container">
         <div class="admin-cardBox">
-            <div class="admin-card">
-                <div class="product-manager-card">
-                    <div class="title">Quản lý sản phẩm</div>
+            <a href="/admin/product">
+                <div class="admin-card">
+                    <div class="product-manager-card">
+                        <div class="title">Quản lý sản phẩm</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="storefront-outline"></ion-icon>
+                    </div>
                 </div>
-                <div class="iconBx">
-                    <ion-icon name="storefront-outline"></ion-icon>
+            </a>
+            <a href="/admin/order">
+                <div class="admin-card">
+                    <div class="order-manager-card">
+                        <div class="title">Quản lý đơn hàng</div>
+                    </div>
+                    <div class="iconBx">
+                        <ion-icon name="cart-outline"></ion-icon>
+                    </div>
                 </div>
-            </div>
-            <div class="admin-card">
-                <div class="order-manager-card">
-                    <div class="title">Quản lý đơn hàng</div>
-                </div>
-                <div class="iconBx">
-                    <ion-icon name="cart-outline"></ion-icon>
-                </div>
-            </div>
+            </a>
             <div class="admin-card">
                 <div class="news-manager-card">
                     <div class="title">Quản lý tin tức</div>
