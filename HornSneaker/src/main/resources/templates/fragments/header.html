@@ -64,6 +64,8 @@
 				</div>
 
 				<!-- If logged in -->
+
+					<!-- Admin -->
 				<div sec:authorize="isAuthenticated()">
 					<div class="header-nav-user user-controller">
 						<i class="fas fa-chevron-down dropdown-btn"></i>
@@ -75,6 +77,19 @@
 								</li>
 							</div>
 							<li class="user-menu-item">
+								<a href="/logout" class="user-menu-item-link">Đăng xuất</a>
+							</li>
+						</ul>
+					</div>
+				</div>
+
+					<!-- User -->
+				<div sec:authorize="isAuthenticated()">
+					<div class="header-nav-user user-controller">
+						<i class="fas fa-chevron-down dropdown-btn"></i>
+						<i class="fas fa-user" th:text="${#authentication.name}"></i>
+						<ul class="user-menu">
+							<li class="user-menu-item">
 								<a href="/profile" class="user-menu-item-link">Profile</a>
 							</li>
 							<li class="user-menu-item">
@@ -85,7 +100,7 @@
 							</li>
 						</ul>
 					</div>
-				</div>
+				</div>					
 			</div>
 
 			<link rel="stylesheet" href="/assets/css/header.css">

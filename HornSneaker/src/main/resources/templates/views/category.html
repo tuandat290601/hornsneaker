@@ -17,7 +17,7 @@
 					<li th:text="${info}"></th:text>
 				</div>					
 				<th:block th:each="product : ${products}">
-					<li class = "col-4">
+					<li class = "col-xl-4 col-lg-6">
 						<div class="category-item">
 							<a th:href="@{~/product/{id}(id=${product.id})}" class="category-item-link">
 								<img th:src="${product.image}" alt="" class="pro-img">
