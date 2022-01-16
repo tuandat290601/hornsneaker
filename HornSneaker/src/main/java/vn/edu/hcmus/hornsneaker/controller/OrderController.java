@@ -61,6 +61,8 @@ public class OrderController {
 	public String viewOrderDetails(@PathVariable("id") Long id, Model model) {	
 		model.addAttribute("content", "order_detail");
 		model.addAttribute("order", orderServices.findById(id));
+		model.addAttribute("customer", orderServices.getUserInfo(orderServices.findById(id).getCustomer()));
+		model.addAttribute("order_detail", orderServices.findByOrderId(id));
 		return "page";
 	}
 
@@ -95,6 +97,7 @@ public class OrderController {
 		model.addAttribute("cart", productList);
 		return "page";			
 	}
+	
 	@RequestMapping("/confirm")
 	public String viewOrderSuccess(Model model) {	
 		orderServices.createOrder();

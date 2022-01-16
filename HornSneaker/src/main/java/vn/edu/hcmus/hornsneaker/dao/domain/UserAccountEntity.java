@@ -165,4 +165,8 @@ public class UserAccountEntity {
 		this.address = address;
 	}
 
+	
+	public String getFullname() {
+		return this.firstname + " " + this.lastname;	
+	}
 }

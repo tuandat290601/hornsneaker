@@ -39,6 +39,14 @@ public class OrderServices {
 	public OrderEntity findById(Long id) {
 		return orderRepo.getById(id);		
 	}
+	
+	public UserAccountEntity getUserInfo(String email) {
+		return userAccountServices.getUserAccountByEmail(email);
+	}
+	
+	public List<OrderDetailsEntity> findByOrderId(Long id){
+		return orderDetailsRepo.findByOrderId(id);
+	}
 
 	public List<OrderEntity> findAll() {
 		return orderRepo.findAll();

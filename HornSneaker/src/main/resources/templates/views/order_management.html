@@ -10,16 +10,18 @@
             </div>
             <ul class="management-list">
                 <li class="management-item">
-                    <div class="item-info">
-                        <p class="item-name">Nguyễn Quốc Thông</p>
-                        <p class="item-date">1/1/2022</p>
-                        <p class="item-status">Chưa giao</p>
-                        <a href="/admin/order/1">
-                            <button type="button" class="btn btn-outline-dark edit_view-btn">
-                                <i class="fa fa-eye" aria-hidden="true"></i>
-                            </button>
-                        </a>
-                    </div>
+                	<th:block th:each="order : ${orderList}">
+	                    <div class="item-info">
+	                        <p class="item-name" th:text="*{order.customer}"></p>
+	                        <p class="item-date" th:text="*{order.date}"></p>
+	                        <p class="item-status" th:text="*{order.status}"></p>
+	                        <a th:href=@{/admin/order/{orderId}(orderId=${order.id})}>
+	                            <button type="button" class="btn btn-outline-dark edit_view-btn">
+	                                <i class="fa fa-eye" aria-hidden="true"></i>
+	                            </button>
+	                        </a>
+	                    </div>
+                    </th:block>
                 </li>
             </ul>
         </div>
