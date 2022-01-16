@@ -4,7 +4,7 @@ package vn.edu.hcmus.hornsneaker.service;
 import java.sql.Date;
 import java.util.ArrayList;
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Sort;
@@ -126,5 +126,17 @@ public class OrderServices {
 				orderDetailsRepo.save(orderDetail);
 			}
 		}
+	}
+	
+	public void acceptOrder(Long id) {
+		OrderEntity order = findById(id);
+		order.setStatus("Đã xác nhận");
+		orderRepo.save(order);
+	}
+	
+	public void cancelOrder(Long id) {
+		OrderEntity order = findById(id);
+		order.setStatus("Đã hủy");
+		orderRepo.save(order);
 	}
 }

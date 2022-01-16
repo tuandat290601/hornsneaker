@@ -25,8 +25,12 @@
                 </ul>
             </div>
             <form class="form">
-                <button class="btn btn-success accept-btn" type="submit" value="accept">Xác nhận</button>
-                <button class="btn btn-danger cancel-btn ml-4" type="submit" value="cancel">Hủy bỏ</button>
+            	<a th:href=@{/admin/order/{orderId}/accept(orderId=${order.id})}>
+                	<button class="btn btn-success accept-btn" type="button" value="accept">Xác nhận</button>
+                </a>
+                <a th:href=@{/admin/order/{orderId}/cancel(orderId=${order.id})}>
+                	<button class="btn btn-danger cancel-btn ml-4" type="button" value="cancel">Hủy bỏ</button>
+                </a>
             </form>
         </div>
     </div>

@@ -68,6 +68,22 @@ public class OrderController {
 		model.addAttribute("product_list", orderServices.findProductInCart(id));
 		return "page";
 	}
+	
+	@RequestMapping("/admin/order/{id}/accept")
+	public String acceptOrder(@PathVariable("id") Long id, Model model) {
+		orderServices.acceptOrder(id);
+		model.addAttribute("content", "order_management");
+		model.addAttribute("orderList", orderServices.findAll());
+		return "page";
+	}
+	
+	@RequestMapping("/admin/order/{id}/cancel")
+	public String cancelOrder(@PathVariable("id") Long id, Model model) {
+		orderServices.cancelOrder(id);
+		model.addAttribute("content", "order_management");
+		model.addAttribute("orderList", orderServices.findAll());
+		return "page";
+	}
 
 	@RequestMapping("/order/confirm")
 	public String viewConfirmOrder(Model model) {	
