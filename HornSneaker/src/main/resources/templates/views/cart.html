@@ -1,74 +1,70 @@
 <div th:fragment="cart">
-    <div class="cart-container">
-        <div class="cart">
-            <div class="shopping-cart">
-                <h2>Giỏ hàng</h2>
-                <ul class="cart-list">
-
-                    <th:block th:each="entry : ${entries}">
-                        <li class="cart-item">
-                            <div class="item-info">
-                                <img th:src="${entry.image}" alt="" class="pro-img-cart">
-                                <p class="item-name" th:text="${entry.name}"></p>
-                                <p class="item-name" th:text="${entry.size}"></p>
-                                <div class="quantity buttons_added">
-                                    <a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=-1)}">
-                                        <input type="button" value="-" class="minus">
-                                    </a>
-                                    <input type="number" step="1" min="1" max="" name="quantity"
-                                        th:value="${entry.amount}" title="Qty" class="input-text qty text" size="4"
-                                        pattern="" inputmode="">
-                                    <a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=1)}">
-                                        <input type="button" value="+" class="plus">
-                                    </a>
-                                </div>
-                                <p class="item-price" th:text="${entry.priceFormatted}"></p>
-                                <a th:href="@{/cart/remove/{id}(id=${entry.cartEntryId})}">
-                                    <button type="button" class="btn btn-danger cart-btn">
-                                        <i class="fa fa-times" aria-hidden="true"></i>
-                                    </button>
-                                </a>
-                            </div>
-                        </li>
-                    </th:block>
-
-                </ul>
-            </div>
-            <div class="summary">
-                <h2>Thanh toán</h2>
-                <ul class="summary-field">
-                    <li class="summary-info">
-                        <p>Số lượng sản phẩm:</p>
-                        <p th:text="${totalNumber}"></p>
-                    </li>
-                    <li class="summary-info">
-                        <p>Tổng giá tiền sản phẩm:</p>
-                        <p th:text="${totalCost}"></p>
-                    </li>
-                    <li class="summary-info">
-                        <p>Phí vận chuyển:</p>
-                        <p th:text="${shipCost}"></p>
-                    </li>
-                </ul>
-                <div class="summary-total">
-                    <p>Thành tiền:</p>
-                    <p th:text="${totalSum}"></p>
-                </div>
-                <div class="pay">
-                    <div id="pay-cash">
-                        <a href="/payment" type="button" class="purchase-btn">Thanh toán khi nhận hàng
-                    </div>
-                    <div id="pay-credit">
-                        <button type="button" class="purchase-btn">
-                            Paypal
-                        </button>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </div>
-    <link rel="stylesheet" href="/assets/css/cart.css">
-    <script src="/assets/js/cart.js"></script>
+	<div class="cart-container">
+		<div class="cart">
+			<div class="shopping-cart">
+				<h2>Giỏ hàng</h2>
+				<ul class="cart-list">
+					<th:block th:each="entry : ${entries}">
+						<li class="cart-item">
+							<div class="item-info">
+								<img th:src="${entry.image}" alt="" class="pro-img-cart">
+								<p class="item-name" th:text="${entry.name}"></p>
+								<p class="item-name" th:text="${entry.size}"></p>
+								<div class="quantity buttons_added">
+									<a
+										th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=-1)}">
+										<input type="button" value="-" class="minus">
+									</a> <input type="number" step="1" min="1" max="" name="quantity"
+										th:value="${entry.amount}" title="Qty"
+										class="input-text qty text" size="4" pattern="" inputmode="">
+									<a
+										th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=1)}">
+										<input type="button" value="+" class="plus">
+									</a>
+								</div>
+								<p class="item-price" th:text="${entry.priceFormatted}"></p>
+								<a th:href="@{/cart/remove/{id}(id=${entry.cartEntryId})}">
+									<button type="button" class="btn btn-danger cart-btn">
+										<i class="fa fa-times" aria-hidden="true"></i>
+									</button>
+								</a>
+							</div>
+						</li>
+					</th:block>
+				</ul>
+			</div>
+			<div class="summary">
+				<h2>Thanh toán</h2>
+				<ul class="summary-field">
+					<li class="summary-info">
+						<p>Số lượng sản phẩm:</p>
+						<p th:text="${totalNumber}"></p>
+					</li>
+					<li class="summary-info">
+						<p>Tổng giá tiền sản phẩm:</p>
+						<p th:text="${totalCost}"></p>
+					</li>
+					<li class="summary-info">
+						<p>Phí vận chuyển:</p>
+						<p th:text="${shipCost}"></p>
+					</li>
+				</ul>
+				<div class="summary-total">
+					<p>Thành tiền:</p>
+					<p th:text="${totalSum}"></p>
+				</div>
+				<div class="pay">
+					<div id="pay-cash">
+						<a href="/payment" type="button" class="purchase-btn">Thanh
+							toán khi nhận hàng </a>
+					</div>
+					<div id="pay-credit">
+						<button type="button" class="purchase-btn">Paypal</button>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<link rel="stylesheet" href="/assets/css/cart.css">
+	<script src="/assets/js/cart.js"></script>
 </div>

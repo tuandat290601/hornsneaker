@@ -14,11 +14,11 @@
                     <span class="product-name">Tên sản phẩm</span>
                     <span class="product-stock">Số lượng</span>
                 </div>
-                <ul class="product-list" th:each="item : ${order_detail}">
+                <ul class="product-list" th:each="product : ${product_list}">
                     <li class="list-item">
                         <div class="item-info">
-                            <p class="item-id" th:text="${item.productId}"></p>
-                            <p class="item-name" >Jordan 1 ngu</p>
+                            <p class="item-id" th:text="${product.id}"></p>
+                            <p class="item-name" th:text="${product.name}">Jordan 1 ngu</p>
                             <p class="item-stock">10</p>
                         </div>
                     </li>

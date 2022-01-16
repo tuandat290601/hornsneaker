@@ -48,6 +48,10 @@ public class OrderServices {
 		return orderDetailsRepo.findByOrderId(id);
 	}
 
+	public List<ProductEntity> findProductInCart(Long id){
+		return orderDetailsRepo.findProductInCart(id);
+	}
+	
 	public List<OrderEntity> findAll() {
 		return orderRepo.findAll();
 	}

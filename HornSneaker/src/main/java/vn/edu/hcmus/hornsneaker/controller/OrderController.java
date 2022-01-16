@@ -1,6 +1,7 @@
 package vn.edu.hcmus.hornsneaker.controller;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import vn.edu.hcmus.hornsneaker.dao.domain.CartEntry;
+import vn.edu.hcmus.hornsneaker.dao.domain.OrderDetailsEntity;
 import vn.edu.hcmus.hornsneaker.dao.domain.OrderEntity;
 import vn.edu.hcmus.hornsneaker.service.CartServices;
 import vn.edu.hcmus.hornsneaker.service.OrderServices;
@@ -63,6 +65,7 @@ public class OrderController {
 		model.addAttribute("order", orderServices.findById(id));
 		model.addAttribute("customer", orderServices.getUserInfo(orderServices.findById(id).getCustomer()));
 		model.addAttribute("order_detail", orderServices.findByOrderId(id));
+		model.addAttribute("product_list", orderServices.findProductInCart(id));
 		return "page";
 	}
 
