@@ -1,17 +1,18 @@
 /* Hornsneaker */
-.hornsneaker {
+/* .hornsneaker {
     height: 100vh;
-}
+} */
 
 
 /* Footer */
 #footer {
-    /* clear: both; */
+    clear: both;
     position: relative;
     width: 100%;
     background-color: rgba(0, 0, 0, 0.8);
     color: var(--white-color);
     padding-bottom: 50px;
+    margin-top: 50px;
 }
 
 .contact {

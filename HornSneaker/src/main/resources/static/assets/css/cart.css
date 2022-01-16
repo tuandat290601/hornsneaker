@@ -1,6 +1,6 @@
-*{
+*, ::after, ::before{
     padding: 0;
-    margin: 0 !important;
+    margin: 0;
 }
 
 p {
@@ -191,6 +191,10 @@ p {
     justify-content: center;
 }
 
+#pay-cash {
+    margin-bottom: 10px;
+}
+
 .purchase-btn {
     width: 200px;
     height: 50px;
@@ -200,15 +204,13 @@ p {
     padding-right: auto;
     font-size: 14px;
     border-radius: 20px;
+    line-height: 50px;
 }
 
 .purchase-btn:hover{
     cursor: pointer;
 }
 
-#pay-cash {
-    padding-bottom: 15px;
-}
 
 
    
