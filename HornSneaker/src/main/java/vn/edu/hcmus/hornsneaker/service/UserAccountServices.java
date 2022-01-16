@@ -27,7 +27,7 @@ public class UserAccountServices implements UserDetailsService {
 	@Override
 	public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
 		UserAccountEntity userAccount = getUserAccountByEmail(email);
-		UserDetails user = User.withUsername(userAccount.getEmail()).password(userAccount.getPassword())
+		UserDetails user = User.withUsername(userAccount.getFirstname()).password(userAccount.getPassword())
 				.authorities(userAccount.getRole()).build();
 		return user;
 	}

@@ -3,7 +3,7 @@ var header = document.getElementById('header')
 var resMenu = document.getElementById('res-menu-btn')
 var headerHeight = header.clientHeight
 
-resMenu.onclick = function(){
+if (resMenu != null) resMenu.onclick = function(){
     var isClose = header.clientHeight === headerHeight;
     if (isClose){
         header.style.height = 'auto';
