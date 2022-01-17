@@ -4,6 +4,8 @@ package vn.edu.hcmus.hornsneaker.service;
 import java.util.Collection;
 import java.util.Optional;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
@@ -50,5 +52,13 @@ public class UserAccountServices implements UserDetailsService {
 			return userAccount;
 		}
 		return null;
+	}
+
+	@Transactional
+	public void editProfile(UserAccountEntity current, UserAccountEntity profile) {
+		current.setAddress(profile.getAddress());
+		current.setPhone(profile.getPhone());
+		current.setFirstname(profile.getFirstname());
+		current.setLastname(profile.getLastname());
 	}
 }

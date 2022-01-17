@@ -4,8 +4,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+
 import vn.edu.hcmus.hornsneaker.dao.domain.UserAccountEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.UserAccountRepository;
 import vn.edu.hcmus.hornsneaker.service.UserAccountServices;
@@ -16,22 +19,13 @@ public class UserAccountController {
 	private UserAccountRepository UserRepo;
 
 	@Autowired
-	private UserAccountServices userServices;
-	
+	private UserAccountServices userServices;	
 	
 	@RequestMapping("/login")
 	public String viewLogin(Model model) {
 		model.addAttribute("content", "loginform");
 		return "page";
 	}
-	
-
-	// @RequestMapping("/logout")
-	// public String logout(Model model) {
-
-	// 	model.addAttribute("content", "h");
-	// 	return "page";
-	// }
 	
 	@RequestMapping("/register")
 	public String viewRegister(Model model) {
@@ -50,10 +44,17 @@ public class UserAccountController {
 		return "register_success";
 	}
 
-	@RequestMapping("/profile")
+	@GetMapping("/profile")
 	public String viewProfile(Model model) {
 		model.addAttribute("content", "profile");
 		model.addAttribute("profile", userServices.getCurrentUser());
 		return "page";
+	}
+
+	@PostMapping("/profile/edit")
+	public String editProfile(@ModelAttribute UserAccountEntity profile, Model model) {
+		UserAccountEntity current = userServices.getCurrentUser();
+		userServices.editProfile(current, profile);
+		return "redirect:/profile";
 	}
 }

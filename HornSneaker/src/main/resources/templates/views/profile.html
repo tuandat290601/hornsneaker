@@ -10,7 +10,7 @@
                         <img src="http://pixner.net/sbidu/main/assets/images/dashboard/user.png" alt="">
                     </div>
                     <div class="user-email">
-                        <h5>user@gmail.com</h5>
+                        <h5 th:text="${profile.email}">user@gmail.com</h5>
                     </div>
                     <div class="user-container">
 
@@ -20,7 +20,7 @@
                                 <div class="name">
                                     Họ
                                 </div>
-                                <div class="value">
+                                <div class="value" th:text="${profile.lastname}">
                                     Nguyen Van
                                 </div>
                             </div>
@@ -31,7 +31,7 @@
                                 <div class="name">
                                     Tên
                                 </div>
-                                <div class="value">
+                                <div class="value" th:text="${profile.firstname}">
                                     Abcdef
                                 </div>
                             </div>
@@ -41,7 +41,7 @@
                                 <div class="name">
                                     Số điện thoại
                                 </div>
-                                <div class="value">
+                                <div class="value" th:text="${profile.phone}">
                                     0705507777
                                 </div>
                             </div>
@@ -51,7 +51,7 @@
                                 <div class="name">
                                     Địa chỉ
                                 </div>
-                                <div class="value">
+                                <div class="value" th:text="${profile.address}">
                                     1 Nguyễn Văn Cừ, quận 5, Tp.HCM
                                 </div>
                             </div>
@@ -74,22 +74,23 @@
                 <div class="widget-title">
                     <h1>Chỉnh sửa thông tin cá nhân</h1>
                 </div>
+                <form method="post" th:action="@{/profile/edit}" th:object="${profile}">
                 <div class="widget-content">
                     <div class="form-group">
                         <label for="first-name">Họ</label>
-                        <input type="text" class="form-control" id="first-name">
+                        <input type="text" class="form-control" name="firstname" id="first-name" th:value="*{firstname}">
                     </div>
                     <div class="form-group">
                         <label for="last-name">Tên</label>
-                        <input type="text" class="form-control" id="last-name">
+                        <input type="text" class="form-control" name="lastname" id="last-name" th:value="*{lastname}">
                     </div>
                     <div class="form-group">
                         <label for="phone">Số điện thoại</label>
-                        <input type="text" class="form-control" id="phone">
+                        <input type="text" class="form-control" name="phone" id="phone" th:value="*{phone}">
                     </div>
                     <div class="form-group">
                         <label for="address">Địa chỉ</label>
-                        <input type="text" class="form-control" id="address">
+                        <input type="text" class="form-control" name="address" id="address" th:value="*{address}">
                     </div>
                     <div class="row confirm">
                         <button type="submit" id="yes" class="btn btn-success mr-2">
@@ -100,6 +101,7 @@
                         </button>
                     </div>
                 </div>
+                </form>
             </div>
         </div>
     </div>

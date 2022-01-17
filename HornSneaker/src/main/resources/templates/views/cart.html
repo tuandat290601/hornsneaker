@@ -13,7 +13,7 @@
 								<div class="quantity buttons_added">
 									<a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=-1)}">
 										<input type="button" value="-" class="minus">
-									</a> <input type="number" step="1" min="1" max="" name="quantity"
+									</a> <input type="text" disabled step="1" min="1" max="" name="quantity"
 										th:value="${entry.amount}" title="Qty" class="input-text qty text" size="4"
 										pattern="" inputmode="">
 									<a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=1)}">
