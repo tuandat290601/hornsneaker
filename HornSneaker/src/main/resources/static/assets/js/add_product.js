@@ -12,6 +12,7 @@ submitForms = function () {
         if (res.status == 200) {            
             console.log('up sizes: ok');
             const entry = document.createElement('div');
+            entry.className = 'sizeandStock'
             entry.innerHTML = 
                 `<p>Size: </p>
                 <p id="form-size">${size}</p>
@@ -20,7 +21,7 @@ submitForms = function () {
                 <button type="button" class="btn btn-danger add-delete-btn">
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </button>`
-            document.querySelector('.sizeandStock').append(entry);
+            document.querySelector('#frmSizeandStock').append(entry);
         }
     })
     // document.getElementById("frmAddProduct").submit();
