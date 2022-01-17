@@ -2,6 +2,7 @@
 	<div class="cart-container">
 		<div class="cart">
 			<div class="shopping-cart">
+				<h2>Danh sách sản phẩm</h2>
 				<ul class="cart-list">
 					<th:block th:each="product : ${cart}">
 						<li class="cart-item">
@@ -9,28 +10,20 @@
 								<img th:src="${product.image}" alt="" class="pro-img-cart">
 								<p class="item-name" th:text="${product.name}"></p>
 								<p class="item-name" th:text="${product.size}"></p>
-								<div class="quantity buttons_added">
-									<a th:href="@{/cart/{id}(id=${product.cartEntryId},adjustment=-1)}">
-										<input type="button" value="-" class="minus">
-									</a> <input type="number" step="1" min="1" max="" name="quantity"
-										th:value="${product.amount}" title="Qty" class="input-text qty text" size="4"
-										pattern="" inputmode=""> <a
-										th:href="@{/cart/{id}(id=${product.cartEntryId},adjustment=1)}">
-										<input type="button" value="+" class="plus">
-									</a>
-								</div>
-								<p class="item-price" th:text="${product.priceFormatted}"></p>
-								<a th:href="@{/cart/remove/{id}(id=${product.cartEntryId})}">
-									<button type="button" class="btn btn-danger cart-btn">
-										<i class="fa fa-times" aria-hidden="true"></i>
-									</button>
-								</a>
+								<p class="item-quantity">3</p>
+								<p class="item-price" th:text="${product.priceFormatted}"></p>	
 							</div>
 						</li>
 					</th:block>
 				</ul>
 			</div>
 			<div class="summary">
+				<h2>Xác nhận thông tin</h2>
+				<input type="text" id = "address" class="" required placeholder="Địa chỉ giao hàng">
+				<input type="text" id = "phone" class="" required placeholder="Số điện thoại">
+				<h4 class = "mt-5 ml-3">Tổng giá tiền: </h4>
+				<h4 class = "ml-3">Phí vận chuyển: </h4>
+				<h3 class = "ml-3">Thành tiền: </h3>
 				<div class="pay" style="margin-left: 110px;">
 					<a href="confirm">Thanh toán</a>
 				</div>
