@@ -13,12 +13,13 @@ submitForms = function () {
             console.log('up sizes: ok');
             const entry = document.createElement('div');
             entry.className = 'sizeandStock'
+            entry.id = 'entry-' + size
             entry.innerHTML = 
                 `<p>Size: </p>
                 <p id="form-size">${size}</p>
                 <p>Số lượng: </p>
                 <p id="form-stock">${stock}</p>
-                <button type="button" class="btn btn-danger add-delete-btn">
+                <button type="button" value="${size}" onclick="deleteSize(this)" class="btn btn-danger add-delete-btn">
                     <i class="fa fa-times" aria-hidden="true"></i>
                 </button>`
             document.querySelector('#frmSizeandStock').append(entry);
@@ -29,4 +30,21 @@ submitForms = function () {
 }
 submitForms2 = function () {
     document.getElementById("frmAddProduct").submit();
+}
+
+function deleteSize(e) {
+    const size = e.value
+    fetch('/admin/product/deleteSize', {
+        method: 'DELETE',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({size})
+    })
+    .then(res => {
+        if (res.status == 200) {         
+            const target = document.getElementById('entry-' + size)
+            target.remove()
+        }
+    })
 }

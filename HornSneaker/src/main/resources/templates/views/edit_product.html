@@ -39,11 +39,11 @@
             </form>
             <form method="post" id="frmSizeandStock" action="">
                 <div class="mb-3">
-                    <label for="price" class="form-label">Size giày:</label> <input
+                    <label for="price" id="size" class="form-label">Size giày:</label> <input
                         field="" type="number" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="price" class="form-label">Số lượng:</label> <input
+                    <label for="price" id="stock" class="form-label">Số lượng:</label> <input
                         field="" type="number" class="form-control">
                 </div>
                 <input type="button" class="btn btn-danger" value="Thêm size" onclick="submitForms()"/>
@@ -52,7 +52,7 @@
                     <p th:text="${item.size}" id="form-size"></p>
                     <p>Số lượng: </p>
                     <p th:text="${item.stock}" id="form-stock"></p>
-                    <button type="button" class="btn btn-danger add-delete-btn">
+                    <button type="button" th:value="${item.size}" class="btn btn-danger add-delete-btn" onclick="deleteSize(this)">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
