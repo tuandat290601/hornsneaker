@@ -66,6 +66,5 @@ public class OrderDetailsEntity {
     public void setSize(int size) {
         this.size = size;
     }		
-	//#endregion
-		
+	//#endregion		
 }

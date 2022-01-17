@@ -49,6 +49,18 @@ public class ProductServices {
 		}
 		return list;
 	}
+	
+	public List<ProductSizesEntity> findSize(Long productId) {
+		List<ProductSizesEntity> list = new ArrayList<>();
+
+		List<ProductSizesEntity> all = sizesRepository.findAll();
+		for (ProductSizesEntity productSizesEntity : all) {
+			if (productSizesEntity.getProductId().equals(productId)) {
+				list.add(productSizesEntity);
+			}
+		}
+		return list;
+	}
 
 	@Transactional
     public void increaseViews(ProductEntity product) {

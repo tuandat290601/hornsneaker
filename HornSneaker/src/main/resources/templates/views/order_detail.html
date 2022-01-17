@@ -14,8 +14,8 @@
                     <span class="product-id">Size</span>
                     <span class="product-stock">Số lượng</span>
                 </div>
-                <ul class="product-list" th:each="item : ${order_detail}">
-                    <li class="list-item"th:each="product : ${product_list}">
+                <ul class="product-list">
+                    <li class="list-item" th:each="item : ${order_detail}">
                         <div class="item-info">
                             <p class="item-name" th:text="${product.name}"></p>
                             <p class="item-size" th:text="${item.size}"></p>

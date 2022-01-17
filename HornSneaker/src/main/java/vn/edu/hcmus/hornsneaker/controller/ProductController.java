@@ -79,7 +79,8 @@ public class ProductController {
 	}
 	
 	@RequestMapping("/admin/product/add")
-	public String viewAddProduct(Model model) {	
+	public String viewAddProduct(Model model) {
+		sizeList.removeAll(sizeList);
 		model.addAttribute("content", "add_product");
 		model.addAttribute("product", local);
 		model.addAttribute("productSize", new ProductSizesEntity());
@@ -90,7 +91,6 @@ public class ProductController {
 	@PostMapping("/admin/product/addSize")
 	@ResponseBody
 	public String addSize(@RequestBody ProductSizesEntity productSize, Model model) {
-		System.out.println("Add size");
 		// System.out.println(product.getName());
 		// System.out.println(local.getName());
 		model.addAttribute("content", "add_product");
@@ -111,6 +111,7 @@ public class ProductController {
 		ProductEntity product = productRepo.getById(productId);
 		model.addAttribute("content", "edit_product");
 		model.addAttribute("product", product);
+		model.addAttribute("sizeList", productServices.findSize(productId));
 		return "page";
 	}
 

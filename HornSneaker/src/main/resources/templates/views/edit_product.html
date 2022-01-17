@@ -1,35 +1,36 @@
 <div th:fragment="edit_product">
     <div class="container">
         <div class="edit_product-card">
-            <form method="post" id="frmEditProduct" enctype="multipart/form-data">
+            <form method="post" id="frmEditProduct" enctype="multipart/form-data" th:action="@{/admin/product/add}" th:object="${product}">>
                 <h4 class="edit_product-card-header">
                     Chỉnh sửa sản phẩm
                 </h4>
                 <div class="edit_product-card-body">
                     <div class="mb-3">
                         <label for="productname" class="form-label">Tên sản phẩm:</label>
-                        <input type="text" class="form-control" id="productname" name="product-name" autofocus value="Tên sản phẩm cũ">
+                        <input th:field="*{name}" type="text" class="form-control" autofocus th:value="*{name}">
                     </div>
                     <div class="mb-3">
-                        <label for="productprice" class="form-label">Giá:</label>
-                        <input type="number" class="form-control" id="productprice" name="product-price" value="1">
+                        <label for="price" class="form-label">Giá:</label>
+                        <input th:field="*{price}" type="number" class="form-control" >
                     </div>
                     <div class="mb-3">
-                        <label for="producttype" class="form-label">Loại giày:</label>
-                        <select class="form-control" id="type" name="product-type">
+                        <label for="type" class="form-label">Loại giày:</label>
+                        <select th:field="*{type}" class="form-control">
                             <option value="Nike">Nike</option>
+                            <option value="adidas">adidas</option>
+                            <option value="Vans">Vans</option>                      
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="productdescription" class="form-label">Mô tả sản phẩm:</label>
-                        <textarea class="form-control" style="height: 300px" id="description" name="product-description"
+                        <label for="description" class="form-label">Mô tả sản phẩm:</label>
+                        <textarea th:field="*{description}" class="form-control" style="height: 300px"
                                   placeholder="Product Description">
                         </textarea>
                     </div>
                     <div class="mb-3">
-                        <label for="productimg" class="form-label">Hình ảnh:</label>
-                        <input type="file" accept="image/*" class="file form-control" id="img" name="product-img"
-                               data-browse-on-zone-click="true" data-show-upload="false">
+                        <label for="price" class="form-label">Link ảnh:</label>
+                        <input th:field="*{image}" type="text" class="form-control" >
                     </div>
                 </div>
             </form>
@@ -43,12 +44,12 @@
                         field="" type="number" class="form-control">
                 </div>
                 <input type="button" class="btn btn-danger" value="Thêm size" onclick="submitForms()"/>
-                <div class="sizeandStock" each="">
+                <div th:each="item : ${sizeList}" class="sizeandStock">
                     <p>Size: </p>
-                    <p text=""></p>
+                    <p th:text="${item.size}" id="form-size"></p>
                     <p>Số lượng: </p>
-                    <p text=""></p>
-                    <button type="button" class="btn btn-danger edit-delete-btn">
+                    <p th:text="${item.stock}" id="form-stock"></p>
+                    <button type="button" class="btn btn-danger add-delete-btn">
                         <i class="fa fa-times" aria-hidden="true"></i>
                     </button>
                 </div>
