@@ -42,11 +42,14 @@
 .product-title span{
     font-weight:bold;
 }
-.item-id{
+.item-name{
     padding-right: 40px;
 }
-.item-name{
-    padding-left: 20px;
+.item-size{
+    margin-right: 70px;
+}
+.item-stock{
+    margin-right:10px;
 }
 .product-stock{
     padding-right: 20px;
