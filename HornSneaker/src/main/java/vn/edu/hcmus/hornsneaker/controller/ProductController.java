@@ -104,6 +104,7 @@ public class ProductController {
 	@ResponseBody
 	public String deleteSize(@RequestBody ProductSizesEntity productSize, Model model) {
 		// use productSize.size to get the size
+		int size = productSize.getSize();
 		return "okay";
 	}
 
@@ -128,7 +129,7 @@ public class ProductController {
 		productServices.editProduct(product.getId(), product);
 		model.addAttribute("content", "edit_product");
 		model.addAttribute("product", product);
-		return "page";
+		return "redirect:/admin/product";
 	}
 	
 	@RequestMapping("/admin/product/delete/{productId}")

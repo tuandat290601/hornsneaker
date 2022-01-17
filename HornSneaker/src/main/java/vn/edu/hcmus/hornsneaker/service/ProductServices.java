@@ -90,6 +90,7 @@ public class ProductServices {
 	public void editProduct(Long id, ProductEntity obj) {
 		ProductEntity product = productRepo.getById(id);
 		product.setName(obj.getName());
+		product.setType(obj.getType());
 		product.setDescription(obj.getDescription());
 		product.setImage(obj.getImage());
 		product.setPrice(obj.getPrice());
