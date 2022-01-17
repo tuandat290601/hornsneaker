@@ -10,7 +10,7 @@
 								<img th:src="${product.image}" alt="" class="pro-img-cart">
 								<p class="item-name" th:text="${product.name}"></p>
 								<p class="item-name" th:text="${product.size}"></p>
-								<p class="item-quantity">3</p>
+								<p class="item-quantity" th:text="${product.amount}"></p>
 								<p class="item-price" th:text="${product.priceFormatted}"></p>	
 							</div>
 						</li>
@@ -19,21 +19,21 @@
 			</div>
 			<div class="summary">
 				<h2>Xác nhận thông tin</h2>
-				<input type="text" id = "address" class="" required placeholder="Địa chỉ giao hàng">
-				<input type="text" id = "phone" class="" required placeholder="Số điện thoại">
+				
 				<h4 class = "mt-5 ml-3">Tổng giá tiền: </h4>
+				<p th:text="${totalNumber}"></p>
 				<h4 class = "ml-3">Phí vận chuyển: </h4>
+				<p th:text="${shipCost}"></p>
 				<h3 class = "ml-3">Thành tiền: </h3>
-				<div class="pay" style="margin-left: 110px;">
-					<a href="confirm">Thanh toán</a>
-				</div>
+				<p th:text="${totalSum}"></p>
+				<form th:action="@{/confirm}" method="post" th:object="${order}">
+					<input type="text" th:field="*{address}">
+					<input type="text" th:field="*{phone}">
+					<button class="pay" type="submit">Đặt hàng</button>
+				</form>
 			</div>
-		</div>
-
-
-		
+		</div>		
 	</div>
-
 	<link rel="stylesheet" href="/assets/css/cart.css">
 	<script src="/cart.js"></script>
 </div>

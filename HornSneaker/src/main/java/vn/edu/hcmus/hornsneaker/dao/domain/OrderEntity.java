@@ -18,6 +18,12 @@ public class OrderEntity {
 
 	@Column(nullable = false)
 	private String customer;
+	
+	@Column
+	private String address;
+	
+	@Column
+	private String phone;
 
 	@Column
 	private Date date;
@@ -58,8 +64,22 @@ public class OrderEntity {
 	public void setDate(Date date) {
 		this.date = date;
 	}
-
 	
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	public String getPhone() {
+		return phone;
+	}
+
+	public void setPhone(String phone) {
+		this.phone = phone;
+	}
 	//#endregion
 		
 }

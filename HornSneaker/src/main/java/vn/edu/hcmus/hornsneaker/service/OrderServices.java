@@ -17,12 +17,14 @@ import org.springframework.stereotype.Service;
 import vn.edu.hcmus.hornsneaker.dao.domain.CartEntity;
 import vn.edu.hcmus.hornsneaker.dao.domain.CartEntry;
 import vn.edu.hcmus.hornsneaker.dao.domain.OrderDetailsEntity;
+import vn.edu.hcmus.hornsneaker.dao.domain.OrderDetailsEntry;
 import vn.edu.hcmus.hornsneaker.dao.domain.OrderEntity;
 import vn.edu.hcmus.hornsneaker.dao.domain.ProductEntity;
 import vn.edu.hcmus.hornsneaker.dao.domain.UserAccountEntity;
 import vn.edu.hcmus.hornsneaker.dao.repository.CartRepository;
 import vn.edu.hcmus.hornsneaker.dao.repository.OrderDetailsRepository;
 import vn.edu.hcmus.hornsneaker.dao.repository.OrderRepository;
+import vn.edu.hcmus.hornsneaker.dao.repository.ProductRepository;
 
 
 @Service
@@ -31,10 +33,16 @@ public class OrderServices {
 	private OrderRepository orderRepo;
 	
 	@Autowired
+	private ProductRepository productRepo;
+	
+	@Autowired
 	private OrderDetailsRepository orderDetailsRepo;
 	
 	@Autowired
 	private CartRepository cartRepo;
+	
+	@Autowired
+	private CartServices cartServices;
 	
 	@Autowired
 	private UserAccountServices userAccountServices;
@@ -110,9 +118,11 @@ public class OrderServices {
 		return 1L;
 	}
 	
-	public void createOrder() {
+	public void createOrder(String phone, String address) {
 		OrderEntity order = new OrderEntity();
-		order.setCustomer(OrderServices.getUserName());		
+		order.setCustomer(OrderServices.getUserName());
+		order.setPhone(phone);
+		order.setAddress(address);
 		order.setDate(OrderServices.getDate());
 		order.setStatus("Chờ xác nhận");
 		orderRepo.save(order);	
@@ -128,10 +138,23 @@ public class OrderServices {
 				orderDetail.setAmount(cartEntity.getAmount());
 				orderDetail.setSize(cartEntity.getSize());
 				orderDetailsRepo.save(orderDetail);
+				cartRepo.delete(cartEntity);
 			}
 		}
 	}
 	
+	public List<OrderDetailsEntry> getOrderDetail(Long id) {
+		List<OrderDetailsEntry> list = new ArrayList<>();
+		List<OrderDetailsEntity> productList = findByOrderId(id);
+		for (OrderDetailsEntity product : productList) {
+			OrderDetailsEntry newEntry = new OrderDetailsEntry();
+			newEntry.setProductName(productRepo.findById(product.getProductId()).get().getName());
+			newEntry.setSize(product.getSize());
+			newEntry.setAmount(product.getAmount());
+			list.add(newEntry);
+		}
+		return list;
+	}
 	public void acceptOrder(Long id) {
 		OrderEntity order = findById(id);
 		order.setStatus("Đã xác nhận");

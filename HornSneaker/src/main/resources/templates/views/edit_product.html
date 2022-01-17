@@ -1,11 +1,14 @@
 <div th:fragment="edit_product">
     <div class="container">
         <div class="edit_product-card">
-            <form method="post" id="frmEditProduct" enctype="multipart/form-data" th:action="@{/admin/product/add}" th:object="${product}">>
+            <form method="post" id="frmAddProduct" enctype="multipart/form-data" th:action="@{/admin/product/edit/save}" th:object="${product}">>
                 <h4 class="edit_product-card-header">
                     Chỉnh sửa sản phẩm
                 </h4>
                 <div class="edit_product-card-body">
+                	<div class="mb-3">
+                        <input th:field="*{id}" type="hidden" class="form-control" autofocus th:value="*{id}">
+                    </div>
                     <div class="mb-3">
                         <label for="productname" class="form-label">Tên sản phẩm:</label>
                         <input th:field="*{name}" type="text" class="form-control" autofocus th:value="*{name}">
@@ -62,6 +65,7 @@
             </div>
         </div>
     </div>
+    <script src="/assets/js/add_product.js"></script>
     <link rel="stylesheet" href="/assets/css/product_management.css">
     <link rel="stylesheet" href="/assets/css/add_product.css">
     <link rel="stylesheet" href="/assets/css/edit_product.css">

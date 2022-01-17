@@ -4,8 +4,8 @@
             <div class="card-body">
                 <input type="number" class="order-id hide">
                 <p class="name"><b>Tên khách hàng: </b><span class="name-data" th:text="${customer.getFullname}"></span></p>
-                <p class="address"><b>Địa chỉ: </b><span class="address-data" th:text="${customer.address}"></span></p>
-                <p class="phonenumber"><b>Số điện thoại: </b><span class="phonenumber-data" th:text="${customer.phone}"></span></p>
+                <p class="address"><b>Địa chỉ: </b><span class="address-data" th:text="${order.address}"></span></p>
+                <p class="phonenumber"><b>Số điện thoại: </b><span class="phonenumber-data" th:text="${order.phone}"></span></p>
                 <p class="orderdate"><b>Ngày tạo đơn: </b><span class="orderdate-data" th:text="${order.date}"></span></p>         
                 <p class="paymenttype"><b>Phương thức thanh toán: </b><span class="paymenttype-data">COD</span></p>
                 <p class="list-title"><b>Danh sách sản phẩm: </b></p>
@@ -17,7 +17,7 @@
                 <ul class="product-list">
                     <li class="list-item" th:each="item : ${order_detail}">
                         <div class="item-info">
-                            <p class="item-name" th:text="${product.name}"></p>
+                            <p class="item-name" th:text="${item.productName}"></p>
                             <p class="item-size" th:text="${item.size}"></p>
                             <p class="item-stock" th:text="${item.amount}"></p>
                         </div>

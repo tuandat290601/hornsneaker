@@ -128,4 +128,6 @@ public class ProductController {
 		productRepo.delete(productRepo.getById(id));
 		return "redirect:/admin/product";
 	}
+	
+	
 }

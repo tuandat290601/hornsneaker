@@ -7,7 +7,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import vn.edu.hcmus.hornsneaker.dao.domain.CartEntry;
 import vn.edu.hcmus.hornsneaker.dao.domain.OrderDetailsEntity;
@@ -64,8 +67,7 @@ public class OrderController {
 		model.addAttribute("content", "order_detail");
 		model.addAttribute("order", orderServices.findById(id));
 		model.addAttribute("customer", orderServices.getUserInfo(orderServices.findById(id).getCustomer()));
-		model.addAttribute("order_detail", orderServices.findByOrderId(id));
-		model.addAttribute("product_list", orderServices.findProductInCart(id));
+		model.addAttribute("order_detail", orderServices.getOrderDetail(id));
 		return "page";
 	}
 	
@@ -103,25 +105,37 @@ public class OrderController {
 	// 	return "redirect:/";
 	// }
 	
+	public String toPriceFormatted(int price) {
+		StringBuffer formatted = new StringBuffer(String.valueOf(price));
+		for (int i = formatted.length() - 3; i > 0; i -= 3) {
+			formatted.insert(i, ",");
+		}
+		formatted.append(" VND");
+		return formatted.toString();
+	}
+	
 	@RequestMapping("/payment")
 	public String viewCustomerOrder(Model model) {
 		ArrayList<CartEntry> productList = cartServices.findAllOfUser();
-		int totalNumber = 0, totalCost = 0, shipCost = 10000;
-		for (CartEntry product : productList) {
-			int n = product.getAmount();
-			totalNumber += n;
-			totalCost += product.getPrice() * n;
+		int totalCost = 0, shipCost = 10000;
+		for (CartEntry cartEntry : productList) {
+			int n = cartEntry.getAmount();
+			totalCost += cartEntry.getPrice() * n;
 		}
+		int totalSum = totalCost + shipCost;
 		model.addAttribute("content", "payment");
 		model.addAttribute("cart", productList);
+		model.addAttribute("order", new OrderEntity());
+		model.addAttribute("totalCost", toPriceFormatted(totalCost));
+		model.addAttribute("shipCost", toPriceFormatted(shipCost));
+		model.addAttribute("totalSum", toPriceFormatted(totalSum));
 		return "page";			
 	}
 	
-	@RequestMapping("/confirm")
-	public String viewOrderSuccess(Model model) {	
-		orderServices.createOrder();
+	@PostMapping("/confirm" )
+	public String viewOrderSuccess(OrderEntity orderEntity, Model model) {	
+		orderServices.createOrder(orderEntity.getPhone(), orderEntity.getAddress());
 		model.addAttribute("content", "thankyou");
 		return "page";			
 	}
-
 }
