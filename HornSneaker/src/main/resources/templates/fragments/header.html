@@ -64,44 +64,36 @@
 				</div>
 
 				<!-- If logged in -->
-
-					<!-- Admin -->
 				<div sec:authorize="isAuthenticated()">
 					<div class="header-nav-user user-controller">
 						<i class="fas fa-chevron-down dropdown-btn"></i>
-						<i class="fas fa-user" th:text="${#authentication.name}"></i>
+						<i class="fas fa-user"></i>
+						<span class="fas mr-4">Hi 
+							<span class="fas" th:text="${#authentication.name}"></span>,
+						</span>						
 						<ul class="user-menu">
+							<!-- ADMIN -->
 							<div sec:authorize="hasAuthority('ADMIN')">
 								<li class="user-menu-item">
 									<a href="/admin" class="user-menu-item-link">Quản lí</a>
 								</li>
 							</div>
+							<!-- USER -->
+							<div sec:authorize="hasAuthority('USER')">								
+								<li class="user-menu-item">
+									<a href="/cart" class="user-menu-item-link">Giỏ hàng</a>
+								</li>
+							</div>
+							<!-- SHARED -->
+							<li class="user-menu-item">
+								<a href="/profile" class="user-menu-item-link">Profile</a>
+							</li>
 							<li class="user-menu-item">
 								<a href="/logout" class="user-menu-item-link">Đăng xuất</a>
 							</li>
 						</ul>
 					</div>
 				</div>
-
-					<!-- User -->
-				<div sec:authorize="isAuthenticated()">
-					<div class="header-nav-user user-controller">
-						<i class="fas fa-chevron-down dropdown-btn"></i>
-						<i class="fas fa-user" th:text="${#authentication.name}"></i>
-						<ul class="user-menu">
-							<li class="user-menu-item">
-								<a href="/profile" class="user-menu-item-link">Profile</a>
-							</li>
-							<li class="user-menu-item">
-								<a href="/cart" class="user-menu-item-link">Giỏ hàng</a>
-							</li>
-							<li class="user-menu-item">
-								<a href="/logout" class="user-menu-item-link">Đăng xuất</a>
-							</li>
-						</ul>
-					</div>
-				</div>					
-			</div>
 
 			<link rel="stylesheet" href="/assets/css/header.css">
 </header>

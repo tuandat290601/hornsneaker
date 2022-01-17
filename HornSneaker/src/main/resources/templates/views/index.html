@@ -39,7 +39,7 @@
                             <a style="text-decoration: none" th:href="@{~/product/{id}(id=${product.id})}">
                                 <h4 class="card-text" style="color:black;" th:text="${product.name}"></h4>
                             </a>
-                            <h4 class="card-text text-danger" th:text="${product.price}"></h4>
+                            <h4 class="card-text text-danger" th:text="${product.priceFormatted}"></h4>
                         </div>
                     </div>
                 </div>
