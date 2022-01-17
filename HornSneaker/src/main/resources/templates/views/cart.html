@@ -11,14 +11,12 @@
 								<p class="item-name" th:text="${entry.name}"></p>
 								<p class="item-name" th:text="${entry.size}"></p>
 								<div class="quantity buttons_added">
-									<a
-										th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=-1)}">
+									<a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=-1)}">
 										<input type="button" value="-" class="minus">
 									</a> <input type="number" step="1" min="1" max="" name="quantity"
-										th:value="${entry.amount}" title="Qty"
-										class="input-text qty text" size="4" pattern="" inputmode="">
-									<a
-										th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=1)}">
+										th:value="${entry.amount}" title="Qty" class="input-text qty text" size="4"
+										pattern="" inputmode="">
+									<a th:href="@{/cart/{id}(id=${entry.cartEntryId},adjustment=1)}">
 										<input type="button" value="+" class="plus">
 									</a>
 								</div>
@@ -54,13 +52,8 @@
 					<p th:text="${totalSum}"></p>
 				</div>
 				<div class="pay">
-					<div id="pay-cash">
-						<a href="/payment" type="button" class="purchase-btn">Thanh
-							toán khi nhận hàng </a>
-					</div>
-					<div id="pay-credit">
-						<button type="button" class="purchase-btn">Paypal</button>
-					</div>
+					<a href="/payment" type="button" class="purchase-btn">Thanh
+						toán khi nhận hàng </a>
 				</div>
 			</div>
 		</div>
