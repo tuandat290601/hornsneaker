@@ -67,10 +67,7 @@
 				<div sec:authorize="isAuthenticated()">
 					<div class="header-nav-user user-controller">
 						<i class="fas fa-chevron-down dropdown-btn"></i>
-						<i class="fas fa-user"></i>
-						<span class="fas mr-4">Hi 
-							<span class="fas" th:text="${#authentication.name}"></span>,
-						</span>						
+						<i class="fas fa-user"></i>					
 						<ul class="user-menu">
 							<!-- ADMIN -->
 							<div sec:authorize="hasAuthority('ADMIN')">

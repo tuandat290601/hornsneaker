@@ -11,18 +11,15 @@ p {
 .cart-container {
     width: 100%;
     height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding-top: 100px;
 }
 
 .cart{
     width: 80%;
     height: 500px;
     display: flex;
-    /* background-color: ; */
-    margin-top: auto !important;
-    margin-bottom: auto !important;
+    margin-left: auto;
+    margin-right: auto;
     border-radius: 20px;
     border: 1px solid #ccc;
     box-shadow: 0 6px 20px 0 rgba(0, 0, 0, 0.19);
@@ -184,31 +181,27 @@ p {
 }
 
 .pay {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    height: 210px;
-    justify-content: center;
+    width: 100%;
+    margin-top: 60px;
+    margin-left: 47px;
+    display: block;
 }
 
-.purchase-btn {
-    width: 200px;
-    height: 50px;
-    color: white;
+.pay a {
     background-color: black;
-    padding-left: auto;
-    padding-right: auto;
-    font-size: 14px;
+    color: white;
+    padding: 10px 20px;
     border-radius: 20px;
+    font-size: 16px;
 }
 
-.purchase-btn:hover{
-    cursor: pointer;
+.pay a:hover {
+    color: #ccc;
 }
 
-#pay-cash {
-    padding-bottom: 15px;
-}
+
+
+
 
 
    

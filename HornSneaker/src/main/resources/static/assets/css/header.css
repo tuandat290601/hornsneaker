@@ -170,7 +170,7 @@
     color: var(--lightblue-color);
 }
 
-.fas {
+.user-controller span {
     display: -webkit-box;
     max-width: 70px;
     -webkit-line-clamp: 1;
