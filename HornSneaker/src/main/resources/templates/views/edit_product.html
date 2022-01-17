@@ -39,12 +39,12 @@
             </form>
             <form method="post" id="frmSizeandStock" action="">
                 <div class="mb-3">
-                    <label for="price" id="size" class="form-label">Size giày:</label> <input
-                        field="" type="number" class="form-control">
+                    <label for="price" class="form-label">Size giày:</label> <input
+                        field="" type="number" id="size" class="form-control">
                 </div>
                 <div class="mb-3">
-                    <label for="price" id="stock" class="form-label">Số lượng:</label> <input
-                        field="" type="number" class="form-control">
+                    <label for="price" class="form-label">Số lượng:</label> <input
+                        field="" type="number" id="stock"  class="form-control">
                 </div>
                 <input type="button" class="btn btn-danger" value="Thêm size" onclick="submitForms()"/>
                 <div th:each="item : ${sizeList}" class="sizeandStock">

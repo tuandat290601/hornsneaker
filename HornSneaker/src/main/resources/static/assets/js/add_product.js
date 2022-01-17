@@ -34,12 +34,13 @@ submitForms2 = function () {
 
 function deleteSize(e) {
     const size = e.value
+    const product_id = null
     fetch('/admin/product/deleteSize', {
         method: 'DELETE',
         headers: {
             'Content-Type': 'application/json'
         },
-        body: JSON.stringify({size})
+        body: JSON.stringify({product_id, size})
     })
     .then(res => {
         if (res.status == 200) {         

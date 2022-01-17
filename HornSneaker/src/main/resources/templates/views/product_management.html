@@ -15,7 +15,7 @@
                         <div class="item-info">
                             <img th:src="*{product.image}" alt="" class="pro-img-cart">
                             <p class="item-name" th:text="*{product.name}"></p>
-                            <p class="item-price" th:text="*{product.price}"></p>
+                            <p class="item-price" th:text="*{product.priceFormatted}"></p>
                             <a th:href=@{/admin/product/edit/{productId}(productId=${product.id})}>
                                 <button type="button" class="btn btn-success edit-btn">
                                     <i class="fas fa-pencil-alt" aria-hidden="true"></i>
@@ -57,5 +57,5 @@
         </div>
     </div>
     <link rel="stylesheet" href="/assets/css/product_management.css">
-    <script src="/assets/js/delete_product.js"></script>
+    <script defer src="/assets/js/delete_product.js"></script>
 </div>

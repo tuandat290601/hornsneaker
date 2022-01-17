@@ -1,16 +1,17 @@
-var btnOpen = document.querySelectorAll('.product_delete-btn');
+var btnOpen = Array.from(document.getElementsByClassName('product_delete-btn'))
 var modal = document.querySelector('.modal-delete');
 var iconClose = document.querySelector('.modal-delete-header i');
 var btnClose = document.querySelector('.cancel-btn');
 var btnAcp = document.querySelector('.accept-btn');
 
-function toggleModal(e, target) {
+function toggleModal(e) {
     console.log(e.target.value);
     modal.classList.toggle('hide');
-    modal.dataset.target = target
 }
 btnOpen.forEach(btn => {
+    const v = btn.value
     btn.addEventListener('click', e => {
+        modal.dataset.target = v//e.target.value
         toggleModal(e, e.target.value);
     });
 })
