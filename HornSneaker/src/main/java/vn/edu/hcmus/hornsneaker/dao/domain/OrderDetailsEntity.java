@@ -19,8 +19,11 @@ public class OrderDetailsEntity {
 
 	@Column(nullable = false)
 	private Long productId;
+	
+	@Column(nullable = false)
+	private int size;
 
-	@Column
+	@Column(nullable = false)
 	private int amount;
 
 	//#region getter and setter
@@ -54,6 +57,14 @@ public class OrderDetailsEntity {
 
     public void setAmount(int amount) {
         this.amount = amount;
+    }	
+    
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }		
 	//#endregion
 		

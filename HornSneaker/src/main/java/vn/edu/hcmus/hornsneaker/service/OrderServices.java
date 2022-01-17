@@ -109,7 +109,6 @@ public class OrderServices {
 	
 	public void createOrder() {
 		OrderEntity order = new OrderEntity();
-		System.out.println("order id" + order.getId());
 		order.setCustomer(OrderServices.getUserName());
 		order.setDate(OrderServices.getDate());
 		order.setStatus("Chờ xác nhận");
@@ -123,6 +122,8 @@ public class OrderServices {
 				OrderDetailsEntity orderDetail = new OrderDetailsEntity();
 				orderDetail.setProductId(cartEntity.getProductId());
 				orderDetail.setOrderId(order.getId());
+				orderDetail.setAmount(cartEntity.getAmount());
+				orderDetail.setSize(cartEntity.getSize());
 				orderDetailsRepo.save(orderDetail);
 			}
 		}
