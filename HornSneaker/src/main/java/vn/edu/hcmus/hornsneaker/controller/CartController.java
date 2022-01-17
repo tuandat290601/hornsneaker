@@ -53,7 +53,7 @@ public class CartController {
 	@RequestMapping("/add/{productId}")
 	public String addToCart(@PathVariable("productId") Long id, @RequestParam("size") int size, Model model) {
 		cartServices.add(id, size);
-		return "redirect:/product/" + id;
+		return "redirect:/cart";///" + id;
 	}
 
 	@RequestMapping("/remove/{cartEntryId}")
