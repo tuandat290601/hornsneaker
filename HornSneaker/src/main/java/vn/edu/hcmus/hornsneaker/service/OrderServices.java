@@ -29,10 +29,13 @@ import vn.edu.hcmus.hornsneaker.dao.repository.OrderRepository;
 public class OrderServices {
 	@Autowired
 	private OrderRepository orderRepo;
+	
 	@Autowired
 	private OrderDetailsRepository orderDetailsRepo;
+	
 	@Autowired
 	private CartRepository cartRepo;
+	
 	@Autowired
 	private UserAccountServices userAccountServices;
 
@@ -109,7 +112,7 @@ public class OrderServices {
 	
 	public void createOrder() {
 		OrderEntity order = new OrderEntity();
-		order.setCustomer(OrderServices.getUserName());
+		order.setCustomer(OrderServices.getUserName());		
 		order.setDate(OrderServices.getDate());
 		order.setStatus("Chờ xác nhận");
 		orderRepo.save(order);	

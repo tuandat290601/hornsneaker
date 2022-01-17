@@ -18,12 +18,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .antMatchers("/admin/**").hasAuthority("ADMIN")
                     .antMatchers(HttpMethod.POST, "/admin/**").hasAuthority("ADMIN")
                     .anyRequest().authenticated() // Tất cả các request khác đều cần phải xác thực mới được truy cập
-                    .and()
+                    .and()                  
                 .formLogin() // Cho phép người dùng xác thực bằng form login
                 	.loginPage("/login")
                 	.usernameParameter("email")
                 	.permitAll()
-                	.and()
+                	.and()               	
                 .logout()
                 	.logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 	.logoutSuccessUrl("/")// Cho phép logout

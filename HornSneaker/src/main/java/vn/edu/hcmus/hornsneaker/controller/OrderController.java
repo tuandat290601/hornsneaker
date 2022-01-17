@@ -120,7 +120,7 @@ public class OrderController {
 	@RequestMapping("/confirm")
 	public String viewOrderSuccess(Model model) {	
 		orderServices.createOrder();
-		model.addAttribute("content", "order_success");
+		model.addAttribute("content", "thankyou");
 		return "page";			
 	}
 

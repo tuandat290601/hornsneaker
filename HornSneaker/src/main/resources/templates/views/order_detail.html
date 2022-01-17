@@ -9,18 +9,20 @@
                 <p class="orderdate"><b>Ngày tạo đơn: </b><span class="orderdate-data" th:text="${order.date}"></span></p>         
                 <p class="paymenttype"><b>Phương thức thanh toán: </b><span class="paymenttype-data">COD</span></p>
                 <p class="list-title"><b>Danh sách sản phẩm: </b></p>
-                <div class="product-title">
-                    <span class="product-id">ID sản phẩm</span>
+                <div class="product-title">               
                     <span class="product-name">Tên sản phẩm</span>
+                    <span class="product-id">Size</span>
                     <span class="product-stock">Số lượng</span>
                 </div>
-                <ul class="product-list" th:each="product : ${product_list}">
+                <ul class="product-list" th:each="item : ${order_detail}">
                     <li class="list-item">
-                        <div class="item-info">
-                            <p class="item-id" th:text="${product.id}"></p>
-                            <p class="item-name" th:text="${product.name}">Jordan 1 ngu</p>
-                            <p class="item-stock">10</p>
-                        </div>
+                    	<ul class="product-list" th:each="product : ${product_list}">
+	                        <div class="item-info">
+	                            <p class="item-name" th:text="${product.name}"></p>
+	                            <p class="item-stock" th:text="${item.size}"></p>
+	                            <p class="item-stock" th:text="${item.amount}"></p>
+	                        </div>
+                        </ul>
                     </li>
                 </ul>
             </div>
