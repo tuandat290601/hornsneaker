@@ -170,5 +170,13 @@
     color: var(--lightblue-color);
 }
 
+.fas {
+    display: -webkit-box;
+    max-width: 70px;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
 
 

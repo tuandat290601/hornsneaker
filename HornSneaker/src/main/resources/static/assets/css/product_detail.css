@@ -1,10 +1,13 @@
 .product-content {
-    height: 100vh;
     padding: 200px 0px 0px 0px;
 }
 
 .carousel-indicators {
     color: black;
+}
+
+.carousel-item img {
+    width: 100%;
 }
 
 .card-title {
