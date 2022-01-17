@@ -15,23 +15,21 @@
                     <span class="product-stock">Số lượng</span>
                 </div>
                 <ul class="product-list" th:each="item : ${order_detail}">
-                    <li class="list-item">
-                    	<ul class="product-list" th:each="product : ${product_list}">
-	                        <div class="item-info">
-	                            <p class="item-name" th:text="${product.name}"></p>
-	                            <p class="item-stock" th:text="${item.size}"></p>
-	                            <p class="item-stock" th:text="${item.amount}"></p>
-	                        </div>
-                        </ul>
+                    <li class="list-item"th:each="product : ${product_list}">
+                        <div class="item-info">
+                            <p class="item-name" th:text="${product.name}"></p>
+                            <p class="item-size" th:text="${item.size}"></p>
+                            <p class="item-stock" th:text="${item.amount}"></p>
+                        </div>
                     </li>
                 </ul>
             </div>
             <form class="form">
-            	<a th:href=@{/admin/order/{orderId}/accept(orderId=${order.id})}>
-                	<button class="btn btn-success accept-btn" type="button" value="accept">Xác nhận</button>
+                <a th:href=@{/admin/order/{orderId}/accept(orderId=${order.id})}>
+                    <button class="btn btn-success accept-btn" type="button" value="accept">Xác nhận</button>
                 </a>
                 <a th:href=@{/admin/order/{orderId}/cancel(orderId=${order.id})}>
-                	<button class="btn btn-danger cancel-btn ml-4" type="button" value="cancel">Hủy bỏ</button>
+                    <button class="btn btn-danger cancel-btn ml-4" type="button" value="cancel">Hủy bỏ</button>
                 </a>
             </form>
         </div>

@@ -18,7 +18,7 @@
                             <p class="item-price" th:text="*{product.price}"></p>
                             <a th:href=@{/admin/product/edit/{productId}(productId=${product.id})}>
                                 <button type="button" class="btn btn-success edit-btn">
-                                    <i class="fa fa-pencil-alt" aria-hidden="true"></i>
+                                    <i class="fas fa-pencil-alt" aria-hidden="true"></i>
                                 </button>
                             </a>
                             <button type="button" th:value="*{product.id}" class="btn btn-danger product_delete-btn">
