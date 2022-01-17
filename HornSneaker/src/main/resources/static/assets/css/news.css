@@ -10,7 +10,7 @@ img {
 
 .mycontainer {
     width: 85% !important;
-    margin-top: 100px !important;
+    /* margin-top: 100px !important; */
     margin-right: auto;
     margin-left: auto;
 }

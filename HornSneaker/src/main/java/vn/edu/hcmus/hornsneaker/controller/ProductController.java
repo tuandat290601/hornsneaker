@@ -103,9 +103,8 @@ public class ProductController {
 	@DeleteMapping("/admin/product/deleteSize")
 	@ResponseBody
 	public String deleteSize(@RequestBody ProductSizesEntity productSize, Model model) {
-		// model.addAttribute("content", "add_product");
-		// sizeList.add(productSize);
-		return "something";
+		// use productSize.size to get the size
+		return "okay";
 	}
 
 	@PostMapping("/admin/product/add")
