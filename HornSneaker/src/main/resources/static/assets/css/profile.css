@@ -5,7 +5,8 @@
 }
 
 .container {
-    margin-top: 120px;
+    padding-top: 100px;
+    height: 100vh;
 }
 
 .widget {
