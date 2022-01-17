@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -97,6 +98,14 @@ public class ProductController {
 		sizeList.add(productSize);
 		//productServices.addProduct(product, productSizes);
 		return "redirect:/admin/product/add";
+	}
+
+	@DeleteMapping("/admin/product/deleteSize")
+	@ResponseBody
+	public String deleteSize(@RequestBody ProductSizesEntity productSize, Model model) {
+		// model.addAttribute("content", "add_product");
+		// sizeList.add(productSize);
+		return "something";
 	}
 
 	@PostMapping("/admin/product/add")
