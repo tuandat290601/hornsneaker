@@ -19,17 +19,24 @@
 			</div>
 			<div class="summary">
 				<h2>Xác nhận thông tin</h2>
-				
-				<h4 class = "mt-5 ml-3">Tổng giá tiền: </h4>
-				<p th:text="${totalNumber}"></p>
-				<h4 class = "ml-3">Phí vận chuyển: </h4>
-				<p th:text="${shipCost}"></p>
-				<h3 class = "ml-3">Thành tiền: </h3>
-				<p th:text="${totalSum}"></p>
-				<form th:action="@{/confirm}" method="post" th:object="${order}">
-					<input type="text" th:field="*{address}">
-					<input type="text" th:field="*{phone}">
-					<button class="pay" type="submit">Đặt hàng</button>
+				<div class = "mt-5 ml-3 mr-3 d-flex justify-content-between"> 
+					<h4>Tổng giá tiền:</h4>
+					<h4 th:text="${totalCost}"></h4>
+				</div>
+				<div class = "ml-3 mr-3 d-flex justify-content-between">
+					<h4>Phí vận chuyển: </h4>
+					<h4 th:text="${shipCost}"></h4>
+				</div>
+				<div class = "ml-3 mr-3 d-flex justify-content-between">
+					<h4>Thành tiền: </h4>
+					<h4 th:text="${totalSum}"></h4>
+				</div>
+				<form th:action="@{/confirm}" class = "delivery-info ml-3 mr-3" method="post" th:object="${order}">
+					<label for="address">Địa chỉ</label>
+					<input id = "address" type="text" th:field="*{address}">
+					<label for="phone-number">Số điện thoại</label>
+					<input id = "phone-number"type="text" th:field="*{phone}">
+					<button class="pay-btn mt-5" type="submit">Đặt hàng</button>
 				</form>
 			</div>
 		</div>		
